@@ -1,0 +1,15 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	line-height: inherit;
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: transparent;
+}
+
+$bgBlack: #131517;
+$framePadding: 80px;
