@@ -71,7 +71,6 @@ export default class extends Component {
 		let koef = viewLimit && topScroll - (MaskHeight - padding - logoSize*2);
 
 		let whiteMask = (topScroll > stopper2) ? svgH : -koef || 0;
-		let initBlack = 0;
 		
 		
 		const svgSource = `
@@ -100,6 +99,7 @@ export default class extends Component {
 		
 		return (
 			<div className={"headerLogo"}>
+				<h1>Hello Georgy!</h1>
 				<div style={{position:'fixed', top: 100, left: 700 }}>
 					<ul>
 						<li>stopper1 {stopper1}</li>
