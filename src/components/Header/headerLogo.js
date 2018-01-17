@@ -97,7 +97,7 @@ export default class extends Component {
 
         <g id="black" clip-path="url(#logo-black)">
             <path id="path01" d="M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4
-	C48.5,33.7,45.1,28.6,40,26.4z" stroke="none" fill="#000000" ></path>
+	C48.5,33.7,45.1,28.6,40,26.4z" stroke="none" fill="#131517" ></path>
         </g>
         <g id="white" clip-path="url(#logo-white)">
             <path id="path02" d="M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4
