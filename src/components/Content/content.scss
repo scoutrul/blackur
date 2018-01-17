@@ -7,5 +7,13 @@
 	overflow: hidden;
 	transform: translate3d(0, 0, 0);
 	font-size: 300%;
-	color: #FFF
+	color: #FFF;
+	.mainFrame {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		overflow-y: scroll;
+	}
 }
