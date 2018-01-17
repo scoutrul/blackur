@@ -14,7 +14,7 @@ class App extends Component {
 
 					<Header/>
 					<Content/>
-					{/*<Footer/>*/}
+					<Footer/>
 
 			</Fragment>
 		);

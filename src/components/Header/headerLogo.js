@@ -99,24 +99,6 @@ export default class extends Component {
 		
 		return (
 			<div className={"headerLogo"}>
-				<h1>Hello Georgy!</h1>
-				<div style={{position:'fixed', top: 100, left: 700 }}>
-					<ul>
-						<li>stopper1 {stopper1}</li>
-						<li>stopper2 {stopper2}</li>
-						<li>koef {koef}</li>
-						<li>topScroll {topScroll}</li>
-						<li>whiteMask {whiteMask}</li>
-					</ul>
-				</div>
-				
-				<div className={'line'} style={{ top: stopper1 }}>stopper1 {stopper1} ___________</div>
-				<div className={'line'} style={{ top: stopper2 }}>stopper2 {stopper2} ___________</div>
-				
-				<div className={'line'} style={{ top: koef }}>____________________koef{koef}</div>
-				<div className={'line'}
-					 style={{ top: topScroll }}>_____________________________ {viewLimit ? 'true' : 'false'}_______TopScroll {topScroll},</div>
-				
 				<InlineSVG src={svgSource} id={'svgLogo'}/>
 			</div>
 		);
