@@ -1,5 +1,17 @@
-.headerLogo{
+.headerLogo {
 	position: fixed;
 	left: $framePadding;
 	top: $framePadding;
+	height: 100%;
+	max-height: 54px;
+	width: 48.5px;
+
+	.line {
+		position: fixed;
+		border: 1px solid #ffff00;
+	}
+
+	#svgLogo {
+		position: absolute;
+	}
 }
