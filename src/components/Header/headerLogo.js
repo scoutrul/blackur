@@ -66,7 +66,7 @@ export default class extends Component {
 		// пока не настанет положение скролла > размер блока + размер логотипа
 		
 		const logoSize = 54;
-		const padding = 87;
+		const padding = 109;
 		const topScroll = this.state.topScroll;
 		const MaskHeight = this.state.screenHeight;
 		
