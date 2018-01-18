@@ -1,28 +1,13 @@
 .project {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	font-size: 500%;
-	color: #fff;
-
-	.one,
-	.two,
-	.three{
+	.firstScreen {
 		height: 100%;
-
+		color: #FFF;
+		display: flex;
 	}
-
-	.one {
-		background-color: #131517;
-		color: black;
-	}
-
-	.two {
-		background-color: #ffffff;
-	}
-	.three {
-		background-color: antiquewhite;
+	.otherScreen {
+		background-color: #FFFFFF;
+		min-height: 100vh;
+		color: $specialBlack;
+		height: 100%;
 	}
 }

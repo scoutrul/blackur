@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import "./project.scss";
 
+import { ProjectContent } from './index'
+
 export default class extends Component {
-	state ={
+	state = {
 		screenHeight: null
 	};
 	
-	_bindResize = element => {
+	
+	_bindResize = () => {
 		this.setState({
 			screenHeight: window.innerHeight
 		});
@@ -15,7 +18,6 @@ export default class extends Component {
 			() => {
 				let resizeTimeout;
 				if (!resizeTimeout) {
-					console.log('resizing')
 					resizeTimeout = setTimeout(() => {
 						resizeTimeout = null;
 						this.setState({
@@ -35,11 +37,7 @@ export default class extends Component {
 	render() {
 		return (
 			<div className={"project"}>
-				<div className={"one"} id={"one"} style={{height: this.state.screenHeight - 100}}>
-					{}
-				</div>
-				<div className={"two"}>{}</div>
-				<div className={"three"}>{}</div>
+				<ProjectContent screenHeight={this.state.screenHeight - 100}/>
 			</div>
 		);
 	}

@@ -1,17 +1,80 @@
-
-
 body, html {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
 	line-height: inherit;
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: antialiased;
 	-webkit-tap-highlight-color: transparent;
+	font-family: sans-serif;
 }
 
-$bgBlack: #131517;
+
+
+
+$specialBlack: #131517;
 $framePadding: 80px;
+$framePaddingX05: 40px;
+$framePaddingX025: 20px;
+
+$x025: 960px;
+$x05: 1280px;
+$x1: 2560px;
+
+@mixin adaptive($media) {
+	@if $media == x025 {
+		@media only screen and (max-width: $x025) {
+			@content;
+		}
+	} @else if $media == x05 {
+		@media only screen and (max-width: $x05) {
+			@content;
+		}
+	} @else if $media == x1 {
+		@media only screen and (max-width: $x1) {
+			@content;
+		}
+	} @else if $media == x2 {
+		@media only screen and (min-width: $x1) {
+			@content;
+		}
+	}
+}
+
+
+h1 {
+	font-weight: 700;
+	font-size: 84px;
+	line-height: 80px;
+}
+
+h2 {
+	font-weight: 500;
+	font-size: 77px;
+	line-height: 80px;
+}
+
+h3 {
+	font-weight: 500;
+	font-size: 51px;
+	line-height: 60px;
+}
+h4 {
+	font-weight: 500;
+	font-size: 35px;
+	line-height: 60px;
+}
+h5 {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 26px;
+}
+h6 {
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 30px;
+}
+
+

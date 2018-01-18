@@ -34,7 +34,6 @@ export default class extends Component {
 			() => {
 				let resizeTimeout;
 				if (!resizeTimeout) {
-					console.log('resizing')
 					resizeTimeout = setTimeout(() => {
 						resizeTimeout = null;
 						this.setState({
@@ -48,30 +47,29 @@ export default class extends Component {
 	};
 	
 	componentDidMount() {
-		this._bindScroll(document.getElementsByClassName("mainFrame")[0]);
-		this._bindResize(document.getElementsByTagName('body')[0]);
+		let body = document.getElementsByTagName('body')[0];
+		this._bindScroll(document.getElementsByClassName("mainFrame")[0] || body);
+		this._bindResize(body);
 	}
 	
 	componentDidUpdate() {
-		console.log(this.state);
+
 	}
 	
 	render() {
-		
 		let [svgW, svgH] = [48.5, 54];
 		const logoSize = svgH;
-		const padding = 80 + 46;
+		const padding = 47 ;
 		const topScroll = this.state.topScroll;
 		const MaskHeight = this.state.screenHeight;
 		
 		let stopper1 = MaskHeight - (logoSize * 2) - padding;
-		let stopper2 = stopper1 + logoSize*2
+		let stopper2 = stopper1 + logoSize * 2
 		let viewLimit = topScroll >= stopper1 && topScroll <= stopper2;
 		
-		let koef = viewLimit && topScroll - (MaskHeight - padding - logoSize*2);
-
-		let whiteMask = (topScroll > stopper2) ? svgH : -koef || 0;
+		let koef = viewLimit && topScroll - (MaskHeight - padding - logoSize * 2);
 		
+		let whiteMask = (topScroll > stopper2) ? svgH : -koef || 0;
 		
 		const svgSource = `
 			<svg

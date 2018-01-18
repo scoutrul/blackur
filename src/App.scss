@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700');
+
 #app {
 	position: absolute;
 	left: 0;
@@ -5,6 +7,7 @@
 	overflow: hidden;
 	top: 0;
 	bottom: 0;
-	background-color: $bgBlack;
+	background-color: $specialBlack;
+	font-family: 'Montserrat', sans-serif;
 }
 

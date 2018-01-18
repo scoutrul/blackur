@@ -1,20 +1,44 @@
-.content {
+
+
+.mainFrame {
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	overflow: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 	transform: translate3d(0, 0, 0);
-	font-size: 300%;
-	color: #FFF;
-	.mainFrame {
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		overflow: hidden;
-		overflow-y: scroll;
+	outline: 1px solid #ffff00;
+	outline-offset: -$framePadding;
+	padding-top: $framePadding;
+	@include adaptive(x05) {
+		padding-top: $framePaddingX05;
+		outline-offset: -$framePaddingX05;
+	}
+	@include adaptive(x025) {
+		padding-top: $framePaddingX025;
+		outline-offset: -$framePaddingX025;
+	}
+	&::-webkit-scrollbar {
+		//width: 30px;
+	}
+
+	.contentContainer {
+		outline: 1px solid #ff00ff;
+		display: flex;
+		flex-flow: column;
+		max-width: 1280px;
+		margin: auto;
+		padding: $framePadding;
+		@include adaptive(x05) {
+			padding: $framePaddingX05;
+		}
+		@include adaptive(x025) {
+			padding: $framePaddingX025;
+		}
+
 	}
 }
+

@@ -1,7 +1,14 @@
 .footer {
 	position: fixed;
 	bottom: $framePadding;
-	left: $framePadding;
-	font-size: 300%;
-	color: blue;
+	right: $framePadding;
+
+	@include adaptive(x05) {
+		bottom: $framePaddingX05;
+		right: $framePaddingX05;
+	}
+	@include adaptive(x025) {
+		bottom: $framePaddingX025;
+		right: $framePaddingX025;
+	}
 }
