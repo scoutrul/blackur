@@ -31,13 +31,13 @@ export default class extends Component {
 	};
 	
 	componentDidMount() {
-		this._bindResize(document.getElementsByTagName('body')[0]);
+		this._bindResize();
 	}
 	
 	render() {
 		return (
 			<div className={"project"}>
-				<ProjectContent screenHeight={this.state.screenHeight - 100}/>
+				<ProjectContent screenHeight={this.state.screenHeight}/>
 			</div>
 		);
 	}

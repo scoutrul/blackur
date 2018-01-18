@@ -9,5 +9,36 @@
 	bottom: 0;
 	background-color: $specialBlack;
 	font-family: 'Montserrat', sans-serif;
-}
+	font-weight: 500;
+	line-height: 40px;
+	font-size: 20px;
 
+	h1 {
+		font-weight: 700;
+		font-size: 84px;
+		line-height: 80px;
+	}
+
+	h2 {
+		font-size: 77px;
+		line-height: 80px;
+	}
+
+	h3 {
+		font-size: 51px;
+		line-height: 60px;
+	}
+	h4 {
+		font-size: 35px;
+		line-height: 60px;
+	}
+	h5 {
+		font-size: 20px;
+		line-height: 26px;
+	}
+	h6 {
+		font-size: 15px;
+		line-height: 30px;
+	}
+
+}

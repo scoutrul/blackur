@@ -47,9 +47,9 @@ export default class extends Component {
 	};
 	
 	componentDidMount() {
-		let body = document.getElementsByTagName('body')[0];
-		this._bindScroll(document.getElementsByClassName("mainFrame")[0] || body);
+		let body = document.body;
 		this._bindResize(body);
+		this._bindScroll(document.getElementsByClassName("mainFrame")[0] || body);
 	}
 	
 	componentDidUpdate() {
@@ -59,7 +59,7 @@ export default class extends Component {
 	render() {
 		let [svgW, svgH] = [48.5, 54];
 		const logoSize = svgH;
-		const padding = 47 ;
+		const padding = 47 ; // + firstScreen addition height
 		const topScroll = this.state.topScroll;
 		const MaskHeight = this.state.screenHeight;
 		
