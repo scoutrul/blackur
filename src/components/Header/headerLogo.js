@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./headerLogo.scss";
 import InlineSVG from "svg-inline-react";
+import Changer from '../HOC/Changer'
 
-export default class extends Component {
+
+export default @Changer
+class Logo extends Component {
 	state = {
 		topScroll: 0,
 		screenHeight: null
@@ -102,3 +105,4 @@ export default class extends Component {
 		);
 	}
 }
+

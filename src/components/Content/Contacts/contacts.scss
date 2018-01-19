@@ -1,3 +1,11 @@
- .contacts {
+ .page-contacts {
 	 color: darkgoldenrod;
+
+	 .Changer_before{
+		 opacity: 0;
+		 transition: .3s;
+	 }
+	 .Changer_after{
+		 opacity: 1;
+	 }
  }
