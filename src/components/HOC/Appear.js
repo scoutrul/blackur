@@ -27,6 +27,7 @@ export default (MountedComponent) => {
 	return class extends Component {
 		
 		componentDidMount() {
+			this.props.appearBefore_action()
 			let promise = new Promise(resolve => {
 				setTimeout(() => resolve(), this.props.timeToWait)
 			});
