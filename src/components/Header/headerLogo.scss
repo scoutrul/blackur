@@ -23,22 +23,11 @@
 		margin-left: -50px;
 		opacity: 0;
 
-		svg {
-			#white path {
-				transition: .3s;
-				fill: #CCD;
-			}
-		}
 	}
 	&.appear_after {
 		margin-left: 0;
 		opacity: 1;
 
-		svg {
-			#white path {
-				fill: #67d939;
-			}
-		}
 	}
 	&.leave_animation {
 		margin-left: -50px !important;

@@ -1,15 +1,12 @@
 
+.scroll {
+	overflow-y: scroll;
+	height: 100%;
+	-webkit-overflow-scrolling: touch;
+}
 
 .mainFrame {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
 	overflow: hidden;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-	transform: translate3d(0, 0, 0);
 	outline: 1px solid #ffff00;
 	outline-offset: -$framePadding;
 	padding-top: $framePadding;
@@ -32,6 +29,7 @@
 		max-width: 1280px;
 		margin: auto;
 		padding: $framePadding;
+		width: 100%;
 		@include adaptive(x05) {
 			padding: $framePaddingX05;
 		}

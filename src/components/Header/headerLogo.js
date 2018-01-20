@@ -60,7 +60,7 @@ export default class Logo extends Component {
 	componentDidMount() {
 		let body = document.body;
 		this._bindResize(body);
-		this._bindScroll(document.getElementsByClassName("mainFrame")[0] || body);
+		this._bindScroll(document.getElementsByClassName("scroll")[0] || body);
 	}
 	
 	render() {
