@@ -10,7 +10,7 @@ const initialState = {
 	timeToWait: 1000
 };
 
-export default function Animations(state = initialState, action) {
+export default(state = initialState, action) => {
 	switch (action.type) {
 		case APPEAR_BEFORE:
 			return { ...state, ...action.payload };
@@ -18,7 +18,6 @@ export default function Animations(state = initialState, action) {
 			return { ...state, ...action.payload };
 		case LEAVE_ANIMATION:
 			return { ...state, ...action.payload };
-		
 		default:
 			return state
 	}
