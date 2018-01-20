@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import * as Promise from "promise";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
-export default (MountedComponent, timeToWait) => {
+export default (MountedComponent) => {
 	return class extends Component {
 		
 		state = {
-			timeToWait: timeToWait || 1000,
+			timeToWait: 1000,
 			needMount: false
 		};
 		
@@ -17,18 +18,34 @@ export default (MountedComponent, timeToWait) => {
 				}, this.state.timeToWait);
 				
 			}).then(() => {
-						this.setState({needMount: true})
-					}
-				);
+					this.setState({ needMount: true })
+				}
+			);
+		}
+		
+		componentDidAppear() {
+			console.log('componentDidAppear()')
+		}
+		
+		componentWillLeave() {
+			console.log('componentWillLeave()')
+			
 		}
 		
 		render() {
 			const beforeCss = 'Changer_before';
 			const afterCss = this.state.needMount ? 'Changer_after' : '';
 			const allCss = `${beforeCss} ${afterCss}`;
-			return (
+			return <ReactCSSTransitionGroup
+				transitionName={'contact'}
+				transitionEnter={true}
+				transitionLeave={true}
+				transitionEnterTimeout={1300}
+				transitionLeaveTimeout={1300}>
 				<MountedComponent allCss={allCss || ''}/>
-			)
+			</ReactCSSTransitionGroup>
+		
+			
 		}
 	}
 };

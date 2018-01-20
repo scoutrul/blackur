@@ -11,12 +11,14 @@ import './content.scss'
 export default class extends Component {
 	render() {
 		return (
+			
 			<div className="mainFrame">
 				<Switch>
-					<Route exact path='/' component={Project}/>
+					<Route exact path='/' component={Changer(Project)}/>
 					<Route path='/contacts' component={Changer(Contacts)}/>
 				</Switch>
 			</div>
+		
 		);
 	}
 }

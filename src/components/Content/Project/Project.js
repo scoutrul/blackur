@@ -8,7 +8,7 @@ export default class extends Component {
 		screenHeight: null
 	};
 	
-	
+
 	_bindResize = () => {
 		this.setState({
 			screenHeight: window.innerHeight
