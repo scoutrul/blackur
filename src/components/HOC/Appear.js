@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {appearBefore_action, appearAfter_action} from '../../store/reducers/Animations'
+import { appearBefore_action, appearAfter_action } from '../../store/reducers/Animations'
 import { withRouter } from "react-router-dom";
 
 const connectProps = (state) => {
@@ -22,16 +22,17 @@ const connectDispatch = dispatch => {
 	}
 };
 
-@withRouter@connect(connectProps, connectDispatch)
+@withRouter @connect(connectProps, connectDispatch)
 export default (MountedComponent) => {
 	return class extends Component {
 		
 		componentDidMount() {
-			new Promise(resolve => {
-				this.props.appearBefore_action();
-				setTimeout(() => resolve(), this.props.timeToWait);
-			}).then(() => {
-				this.props.appearAfter_action()
+			let promise = new Promise(resolve => {
+				setTimeout(() => resolve(), this.props.timeToWait)
+			});
+			
+			promise.then(() => {
+					this.props.appearAfter_action()
 				}
 			);
 		}

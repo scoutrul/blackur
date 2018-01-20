@@ -28,14 +28,12 @@ export default class extends Component {
 		event.preventDefault();
 		this.props.leaveAnimation_action();
 		
-		(this.props.history.location.pathname !== href) &&
-		new Promise(resolve => {
-			
-			setTimeout(() => {
-				resolve();
-			}, this.props.timeToWait);
-			
-		}).then(() => {
+		let promise = new Promise(resolve => {
+			setTimeout(() => resolve(), this.props.timeToWait)
+		})
+		
+		this.props.history.location.pathname !== href &&
+		promise.then(() => {
 				this.props.history.push(href);
 			}
 		)
