@@ -30,7 +30,7 @@ export default class extends Component {
 		
 		let promise = new Promise(resolve => {
 			setTimeout(() => resolve(), this.props.timeToWait)
-		})
+		});
 		
 		this.props.history.location.pathname !== href &&
 		promise.then(() => {
