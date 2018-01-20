@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as Promise from "promise";
 import { connect } from 'react-redux'
 import {appearBefore_action, appearAfter_action} from '../../store/reducers/Animations'
 import { withRouter } from "react-router-dom";

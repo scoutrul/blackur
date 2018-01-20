@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import * as Promise from "promise";
 
 import { connect } from 'react-redux'
 import { leaveAnimation_action } from '../../store/reducers/Animations'
