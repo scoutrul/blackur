@@ -5,10 +5,10 @@ import './contacts.scss'
 export default class extends Component {
 
 	render() {
-		const {allCss} = this.props;
+		const {AnimationCss} = this.props;
 		return (
-			<div className="contentContainer page-contacts">
-				<h1 className={allCss}>Epson Readyink</h1>
+			<div className={`contentContainer page-contacts ${AnimationCss}`}>
+				<h1>Epson Readyink</h1>
 				<h2>Epson Readyink</h2>
 				<h3>Epson Readyink</h3>
 				<h4>Epson Readyink</h4>

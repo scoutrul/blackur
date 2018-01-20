@@ -1,11 +1,34 @@
- .page-contacts {
-	 color: darkgoldenrod;
+.page-contacts {
+	color: darkgoldenrod;
 
-	 .Changer_before{
-		 opacity: 0;
-		 transition: .3s;
-	 }
-	 .Changer_after{
-		 opacity: 1;
-	 }
- }
+	&.appear_before {
+		opacity: 0;
+		transition: .3s;
+
+		h1 {
+			transform: translate(50px, 0);
+			transition: .3s;
+		}
+		h2 {
+			transform: translate(0, 50px);
+			transition: .3s;
+		}
+		h3 {
+			transform: translate(50px 50px);
+			transition: .3s;
+		}
+	}
+	&.appear_after {
+		opacity: 1;
+
+		h1 {
+			transform: translate(0);
+		}
+		h2 {
+			transform: translate(0);
+		}
+		h3 {
+			transform: translate(0);
+		}
+	}
+}

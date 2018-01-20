@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 
-import Changer from '../HOC/Changer'
+import Appear from '../HOC/Appear'
 import { Project } from './Project'
 import { Contacts } from './Contacts'
 
@@ -14,8 +14,8 @@ export default class extends Component {
 			
 			<div className="mainFrame">
 				<Switch>
-					<Route exact path='/' component={Changer(Project)}/>
-					<Route path='/contacts' component={Changer(Contacts)}/>
+					<Route exact path='/' component={Appear(Project)}/>
+					<Route path='/contacts' component={Appear(Contacts)}/>
 					<Route render={() => <h1>Page not found</h1>}/>
 				</Switch>
 			</div>

@@ -35,8 +35,9 @@ export default class extends Component {
 	}
 	
 	render() {
+		const {AnimationCss} = this.props;
 		return (
-			<div className={"project"}>
+			<div className={`project ${AnimationCss}`}>
 				<ProjectContent screenHeight={this.state.screenHeight}/>
 			</div>
 		);

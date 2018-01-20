@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import "./headerLogo.scss";
 import InlineSVG from "svg-inline-react";
-import Changer from '../HOC/Changer'
+import Changer from '../HOC/Appear'
+import { connect } from 'react-redux'
 
+const connectProps = (state) => {
+	return {
+		appearBefore: state.Animations.appearBefore,
+		appearAfter: state.Animations.appearAfter,
+		leaveAnimation: state.Animations.leaveAnimation,
+	}
+};
 
-export default @Changer
-class Logo extends Component {
+@Changer@connect(connectProps)
+export default class Logo extends Component {
 	state = {
 		topScroll: 0,
 		screenHeight: null
@@ -55,10 +63,6 @@ class Logo extends Component {
 		this._bindScroll(document.getElementsByClassName("mainFrame")[0] || body);
 	}
 	
-	componentDidUpdate() {
-
-	}
-	
 	render() {
 		let [svgW, svgH] = [48.5, 54];
 		const logoSize = svgH;
@@ -98,8 +102,14 @@ class Logo extends Component {
 				</g>
 			</svg>`;
 		
+		
+		const beforeCss = 'appear_before';
+		const afterCss = this.props.appearAfter ? 'appear_after' : '';
+		const leaveCss = this.props.leaveAnimation ? 'leave_animation' : '';
+		const AnimationCss = `${beforeCss} ${afterCss} ${leaveCss}`;
+
 		return (
-			<div className={"headerLogo"}>
+			<div className={`headerLogo ${AnimationCss}`}>
 				<InlineSVG src={svgSource} id={'svgLogo'}/>
 			</div>
 		);
