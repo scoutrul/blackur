@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { appearBefore_action, appearAfter_action } from '../../store/reducers/Animations'
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
 const connectProps = (state) => {
 	return {

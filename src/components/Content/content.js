@@ -7,11 +7,9 @@ import { Contacts } from './Contacts'
 
 import './content.scss'
 
-
 export default class extends Component {
 	render() {
 		return (
-			
 			<div className="mainFrame">
 				<Switch>
 					<Route exact path='/' component={Appear(Project)}/>
@@ -19,7 +17,6 @@ export default class extends Component {
 					<Route render={() => <h1>Page not found</h1>}/>
 				</Switch>
 			</div>
-		
 		);
 	}
 }

@@ -29,7 +29,7 @@ export default class extends Component {
 		this.props.leaveAnimation_action();
 		
 		let promise = new Promise(resolve => {
-			setTimeout(() => resolve(), this.props.timeToWait)
+			setTimeout(() => resolve(), 2000)
 		});
 		
 		this.props.history.location.pathname !== href &&

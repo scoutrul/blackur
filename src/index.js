@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store';
 import createBrowserHistory from 'history/createBrowserHistory'
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import 'normalize.css';
@@ -25,7 +25,3 @@ ReactDOM.render(
 	, document.getElementById('app'));
 registerServiceWorker();
 
-console.log(store.getState())
-store.subscribe(() =>
-	console.log(store.getState())
-)
