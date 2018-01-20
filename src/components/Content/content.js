@@ -16,6 +16,7 @@ export default class extends Component {
 				<Switch>
 					<Route exact path='/' component={Changer(Project)}/>
 					<Route path='/contacts' component={Changer(Contacts)}/>
+					<Route render={() => <h1>Page not found</h1>}/>
 				</Switch>
 			</div>
 		

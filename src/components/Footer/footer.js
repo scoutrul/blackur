@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import AnimatedLink from '../HOC/AnimatedLink'
 
 import './footer.scss'
 
 export default class extends Component {
+	
+	
 	render() {
 		return (
 			<div className={'footer'}>
-				<div><Link to={'/'}>home </Link></div>
-				<div><Link to={'/contacts'}>contacts</Link></div>
+				<div><AnimatedLink to={'/'}>home </AnimatedLink></div>
+				<div><AnimatedLink to={'/contacts'}>contacts</AnimatedLink></div>
 			</div>
 		);
 	}

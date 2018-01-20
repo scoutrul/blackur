@@ -11,7 +11,7 @@ export default (MountedComponent) => {
 			needMount: false
 		};
 		
-		componentWillMount() {
+		componentDidMount() {
 			new Promise(resolve => {
 				setTimeout(() => {
 					resolve()
@@ -21,15 +21,6 @@ export default (MountedComponent) => {
 					this.setState({ needMount: true })
 				}
 			);
-		}
-		
-		componentDidAppear() {
-			console.log('componentDidAppear()')
-		}
-		
-		componentWillLeave() {
-			console.log('componentWillLeave()')
-			
 		}
 		
 		render() {
