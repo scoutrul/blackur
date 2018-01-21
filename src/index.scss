@@ -15,13 +15,19 @@ body, html {
 
 
 $specialBlack: #131517;
+
 $framePadding: 80px;
+$framePaddingX2: 160px;
+$framePaddingX1: 120px;
 $framePaddingX05: 40px;
 $framePaddingX025: 20px;
 
-$x025: 960px;
-$x05: 1280px;
+$x025: 640px;
+$x05: 960px;
 $x1: 2560px;
+
+
+
 
 @mixin adaptive($media) {
 	@if $media == x025 {

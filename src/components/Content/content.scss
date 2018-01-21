@@ -3,12 +3,7 @@
 	overflow-y: scroll;
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
-	@include adaptive(x05) {
-		padding: 0 $framePaddingX05;
-	}
-	@include adaptive(x025) {
-		padding: 0 $framePaddingX025;
-	}
+
 }
 
 .main {
@@ -19,7 +14,18 @@
 		flex-flow: column;
 		max-width: 1280px;
 		margin: auto;
-		width: 100%;
+		@include adaptive(x1) {
+			padding: 0 $framePaddingX1;
+		}
+		@include adaptive(x2) {
+			padding: 0 $framePaddingX2;
+		}
+		@include adaptive(x05) {
+			padding: 0 $framePaddingX05;
+		}
+		@include adaptive(x025) {
+			padding: 0 $framePaddingX025;
+		}
 	}
 }
 

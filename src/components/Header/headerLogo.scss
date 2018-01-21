@@ -1,17 +1,38 @@
+$logoW: 54;
+$logoH: 48.5;
+
 .logo {
 	position: fixed;
 	left: $framePadding;
 	top: $framePadding;
-	height: 100%;
-	max-height: 54px;
-	width: 48.5px;
+
+	min-height: $logoW+px;
+	min-width: $logoH+px;
+	transform-origin: left;
+	@include adaptive(x1) {
+		left: $framePaddingX1;
+		top: $framePaddingX1;
+	}
+	@include adaptive(x2) {
+		left: $framePaddingX2;
+		top: $framePaddingX2;
+		//transform: scale(1.4);
+		min-height: $logoW * 1.4+px;
+		min-width: $logoH * 1.4+px;
+	}
 	@include adaptive(x05) {
 		left: $framePaddingX05;
 		top: $framePaddingX05;
+		//transform: scale(.8);
+		min-height: $logoW * .8+px;
+		min-width: $logoH * .8+px;
 	}
 	@include adaptive(x025) {
 		left: $framePaddingX025;
 		top: $framePaddingX025;
+		//transform: scale(.6);
+		min-height: $logoW * .6+px;
+		min-width: $logoH * .6+px;
 	}
 
 	#svgLogo {

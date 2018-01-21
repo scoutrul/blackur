@@ -22,7 +22,7 @@ export default class extends Component {
 		
 		const {AnimationCss} = this.props;
 		return (
-			<div className={`contentContainer page-main ${AnimationCss}`}>
+			<div className={`page-main contentContainer ${AnimationCss}`}>
 				<Project/>
 			</div>
 		

@@ -31,8 +31,12 @@ export default class Logo extends Component {
 				window.requestAnimationFrame(() => {
 					ticking = false;
 					this.setState({
-						scrollTop: scrollTop
+						scrollTop: scrollTop,
+						logoHeight: this.logo.getBoundingClientRect().height,
+						logoWidth: this.logo.getBoundingClientRect().width
 					});
+					console.log(this.logo.getBoundingClientRect().height,
+						this.logo.getBoundingClientRect().width)
 				});
 				ticking = true;
 			}
@@ -40,12 +44,14 @@ export default class Logo extends Component {
 	};
 	
 	_bindResize = element => {
+
 		this.setState({
-			layerHeight: element.getBoundingClientRect().height
+			layerHeight: element.getBoundingClientRect().height,
 		});
 		window.addEventListener(
 			'resize',
 			() => {
+				console.log(this.logo.clientHeight)
 				let resizeTimeout;
 				if (!resizeTimeout) {
 					resizeTimeout = setTimeout(() => {
