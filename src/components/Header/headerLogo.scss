@@ -1,4 +1,4 @@
-.headerLogo {
+.logo {
 	position: fixed;
 	left: $framePadding;
 	top: $framePadding;
@@ -19,7 +19,7 @@
 	}
 
 	&.appear_before {
-		transition: .3s;
+
 		margin-left: -50px;
 		opacity: 0;
 

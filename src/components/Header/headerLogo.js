@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "./headerLogo.scss";
-import InlineSVG from "svg-inline-react";
+import React, { Component } from 'react';
+import './headerLogo.scss';
+import InlineSVG from 'svg-inline-react';
 import Changer from '../HOC/Appear'
 import { connect } from 'react-redux'
 
@@ -12,23 +12,26 @@ const connectProps = (state) => {
 	}
 };
 
-@Changer@connect(connectProps)
+@Changer @connect(connectProps)
 export default class Logo extends Component {
 	state = {
-		topScroll: 0,
-		screenHeight: null
+		scrollTop: 0,
+		layerHeight: null,
+		offsetLogo: 0,
+		logoHeight:0,
+		logoWidth: 0
 	};
 	
 	_bindScroll = element => {
-		element.addEventListener("scroll", e => {
+		element.addEventListener('scroll', e => {
 			let ticking = false;
-			let topScroll = e.target.scrollTop || 0;
+			let scrollTop = e.target.scrollTop || 0;
 			
 			if (!ticking) {
 				window.requestAnimationFrame(() => {
 					ticking = false;
 					this.setState({
-						topScroll: topScroll
+						scrollTop: scrollTop
 					});
 				});
 				ticking = true;
@@ -38,17 +41,18 @@ export default class Logo extends Component {
 	
 	_bindResize = element => {
 		this.setState({
-			screenHeight: element.getBoundingClientRect().height
+			layerHeight: element.getBoundingClientRect().height
 		});
 		window.addEventListener(
-			"resize",
+			'resize',
 			() => {
 				let resizeTimeout;
 				if (!resizeTimeout) {
 					resizeTimeout = setTimeout(() => {
 						resizeTimeout = null;
 						this.setState({
-							screenHeight: element.getBoundingClientRect().height
+							layerHeight: element.getBoundingClientRect().height,
+							offsetLogo: this.logo.offsetTop
 						});
 					}, 66);
 				}
@@ -58,47 +62,51 @@ export default class Logo extends Component {
 	};
 	
 	componentDidMount() {
-		let body = document.body;
-		this._bindResize(body);
-		this._bindScroll(document.getElementsByClassName("scroll")[0] || body);
+		this._bindResize(document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0]);
+		this._bindScroll(document.getElementsByClassName('scroll')[0]);
+		
+		this.setState({
+			offsetLogo: this.logo.offsetTop,
+			logoHeight: this.logo.getBoundingClientRect().height,
+			logoWidth: this.logo.getBoundingClientRect().width
+		})
 	}
 	
 	render() {
-		let [svgW, svgH] = [48.5, 54];
-		const logoSize = svgH;
-		const padding = 47 ; // + firstScreen addition height
-		const topScroll = this.state.topScroll;
-		const MaskHeight = this.state.screenHeight;
+		const offsetLogo = this.state.offsetLogo;
+		let [svgW, svgH] = [this.state.logoWidth, this.state.logoHeight];
+		const scrollTop = this.state.scrollTop;
+		const LayerHeight = this.state.layerHeight;
 		
-		let stopper1 = MaskHeight - (logoSize * 2) - padding;
-		let stopper2 = stopper1 + logoSize * 2
-		let viewLimit = topScroll >= stopper1 && topScroll <= stopper2;
+		let stopper1 = LayerHeight - (svgH + offsetLogo);
+		let stopper2 = stopper1 + svgH
+		let viewLimit = scrollTop >= stopper1 && scrollTop <= stopper2;
 		
-		let koef = viewLimit && topScroll - (MaskHeight - padding - logoSize * 2);
+		let koef = viewLimit && scrollTop - (LayerHeight - offsetLogo - svgH);
 		
-		let whiteMask = (topScroll > stopper2) ? svgH : -koef || 0;
+		let whiteMask = (scrollTop > stopper2) ? svgH : -koef || 0;
 		
 		const svgSource = `
 			<svg
-				viewBox="0 0 ${svgW} ${svgH}"
-				version="1.1"
+				viewBox='0 0 ${svgW} ${svgH}'
+				version='1.1'
 				width=${svgW} height=${svgH}
-				xmlns="http://www.w3.org/2000/svg">
+				xmlns='http://www.w3.org/2000/svg'>
 					<defs>
-						<clipPath id="logo-white">
-							<rect x="0" y=${whiteMask} width=${svgW} height=${svgH} ></rect>
+						<clipPath id='logo-white'>
+							<rect x='0' y=${whiteMask} width=${svgW} height=${svgH} ></rect>
 						</clipPath>
-						<clipPath id="logo-black">
-							<rect x="0" y=${0} width=${svgW} height=${svgH}></rect>
+						<clipPath id='logo-black'>
+							<rect x='0' y=${0} width=${svgW} height=${svgH}></rect>
 						</clipPath>
 					</defs>
-				<g id="black" clip-path="url(#logo-black)">
-					<path id="path01" d="M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4
-			C48.5,33.7,45.1,28.6,40,26.4z" stroke="none" fill="#131517" ></path>
+				<g id='black' clip-path='url(#logo-black)'>
+					<path id='path01' d='M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4
+			C48.5,33.7,45.1,28.6,40,26.4z' stroke='none' fill='#131517' ></path>
 				</g>
-				<g id="white" clip-path="url(#logo-white)">
-					<path id="path02" d="M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4
-			C48.5,33.7,45.1,28.6,40,26.4z" stroke="none" fill="#FFFFFF" ></path>
+				<g id='white' clip-path='url(#logo-white)'>
+					<path id='path02' d='M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4
+			C48.5,33.7,45.1,28.6,40,26.4z' stroke='none' fill='#FFFFFF' ></path>
 				</g>
 			</svg>`;
 		
@@ -107,9 +115,9 @@ export default class Logo extends Component {
 		const afterCss = this.props.appearAfter ? 'appear_after' : '';
 		const leaveCss = this.props.leaveAnimation ? 'leave_animation' : '';
 		const AnimationCss = `${beforeCss} ${afterCss} ${leaveCss}`;
-
+		
 		return (
-			<div className={`headerLogo ${AnimationCss}`}>
+			<div className={`logo ${AnimationCss}`} ref={(logo) => this.logo = logo}>
 				<InlineSVG src={svgSource} id={'svgLogo'}/>
 			</div>
 		);

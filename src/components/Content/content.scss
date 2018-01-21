@@ -3,40 +3,23 @@
 	overflow-y: scroll;
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
-}
-
-.mainFrame {
-	overflow: hidden;
-	outline: 1px solid #ffff00;
-	outline-offset: -$framePadding;
-	padding-top: $framePadding;
 	@include adaptive(x05) {
-		padding-top: $framePaddingX05;
-		outline-offset: -$framePaddingX05;
+		padding: 0 $framePaddingX05;
 	}
 	@include adaptive(x025) {
-		padding-top: $framePaddingX025;
-		outline-offset: -$framePaddingX025;
+		padding: 0 $framePaddingX025;
 	}
-	&::-webkit-scrollbar {
-		//width: 30px;
-	}
+}
 
+.main {
+	height: 100%;
 	.contentContainer {
-		outline: 1px solid #ff00ff;
+		height: 100%;
 		display: flex;
 		flex-flow: column;
 		max-width: 1280px;
 		margin: auto;
-		padding: $framePadding;
 		width: 100%;
-		@include adaptive(x05) {
-			padding: $framePaddingX05;
-		}
-		@include adaptive(x025) {
-			padding: $framePaddingX025;
-		}
-
 	}
 }
 

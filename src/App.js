@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import { Header } from './components/Header'
-import { Content } from './components/Content'
+import Content from './components/Content/Content'
 import { Footer } from './components/Footer'
 
 

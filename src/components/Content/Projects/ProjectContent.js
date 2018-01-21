@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 
-export default (props) => {
-	const additionHeight = 100;
+export default () => {
+
 	return (
 		<Fragment>
-			<div className={"firstScreen"} style={{ height: props.screenHeight - additionHeight }}>
+			<div className="firstScreen">
 				<div className="contentContainer">
 					<h1>Epson Readyink</h1>
 					<h2>Epson Readyink</h2>
