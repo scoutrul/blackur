@@ -1,15 +1,37 @@
 .page-main {
+	height: 100%;
+	max-height: 100vh;
+	width: 100%;
 	.project {
-		background-size: 100%;
+		padding: 80px;
+		height: 100%;
 		background: no-repeat 50%;
+		background-size: contain;
 		margin: auto;
-		h1 {
+		display: flex;
+		flex-direction: column;
+		color: #FFF;
+
+		@include adaptive(x1) {
+			padding: 0 $framePaddingX1;
 		}
-		h2 {
+		@include adaptive(x2) {
+			padding: 0 $framePaddingX2;
+		}
+		@include adaptive(x05) {
+			padding: 0 $framePaddingX05;
+		}
+		@include adaptive(x025) {
+			padding: 0 $framePaddingX025;
+		}
+
+		.headers {
+			margin: auto 0 -80px
+
 		}
 		.services {
+			margin: auto 0 $framePaddingX1
 		}
-		img {
-		}
+
 	}
 }

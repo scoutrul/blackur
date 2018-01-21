@@ -43,8 +43,9 @@ export default class Logo extends Component {
 		});
 	};
 	
-	_bindResize = element => {
+	_bindResize = () => {
 
+		const element = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
 		this.setState({
 			layerHeight: element.getBoundingClientRect().height,
 		});
@@ -68,7 +69,7 @@ export default class Logo extends Component {
 	};
 	
 	componentDidMount() {
-		this._bindResize(document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0]);
+		this._bindResize();
 		this._bindScroll(document.getElementsByClassName('scroll')[0]);
 		
 		this.setState({

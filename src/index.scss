@@ -24,7 +24,8 @@ $framePaddingX025: 20px;
 
 $x025: 640px;
 $x05: 960px;
-$x1: 2560px;
+$x1: 1280px;
+$x2: 2560px;
 
 
 
@@ -43,7 +44,7 @@ $x1: 2560px;
 			@content;
 		}
 	} @else if $media == x2 {
-		@media only screen and (min-width: $x1) {
+		@media only screen and (min-width: $x1) and (max-width: $x2){
 			@content;
 		}
 	}
