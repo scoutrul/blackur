@@ -53,13 +53,15 @@ $logoH: 48.5;
 	}
 
 	.logos {
-		min-height: $logoW+px;
-		min-width: $logoH+px;
 		@include adaptive(x1) {
+			min-height: $logoW+px;
+			min-width: $logoH+px;
+		}
+		@include adaptive(x2) {
 			min-height: $logoW * 1.2+px;
 			min-width: $logoH * 1.2+px;
 		}
-		@include adaptive(x2) {
+		@include adaptive(xx) {
 			min-height: $logoW * 1.4+px;
 			min-width: $logoH * 1.4+px;
 		}

@@ -27,17 +27,17 @@ export default class Logo extends Component {
 			let ticking = false;
 			let scrollTop = e.target.scrollTop || 0;
 			
+			const element = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
 			if (!ticking) {
 				window.requestAnimationFrame(() => {
 					ticking = false;
-					this._bindResize();
-					const element = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
+					
 					this.setState({
 						scrollTop: scrollTop,
 						logoHeight: this.logo.getBoundingClientRect().height,
 						logoWidth: this.logo.getBoundingClientRect().width,
 						layerHeight: element.getBoundingClientRect().height,
-					});
+					}, this._bindResize());
 				});
 				ticking = true;
 			}
@@ -81,26 +81,30 @@ export default class Logo extends Component {
 	}
 	
 	render() {
-		let {logoWidth, logoHeight, offsetLogo,
-			scrollTop, layerHeight} = this.state;
+		let {
+			logoWidth, logoHeight, offsetLogo,
+			scrollTop, layerHeight
+		} = this.state;
 		
 		let stopper1 = layerHeight - (logoHeight + offsetLogo);
-		let stopper2 = stopper1 + logoHeight *2;
+		let stopper2 = stopper1 + logoHeight * 2;
 		let actionBlock = scrollTop >= stopper1;
 		
-		let move = actionBlock && scrollTop - (layerHeight - offsetLogo - logoHeight);
-				
+		let move = actionBlock ? scrollTop - (layerHeight - offsetLogo - logoHeight) : 0;
+		
 		const doubbleLogo = () =>
 			<div className={'logos'}>
-				<div className="white" style={{ top: -move, height: logoHeight, width: logoWidth }}>
+				<div className="white"
+					 style={{ transform: `translateY(${-move}px)`, height: logoHeight, width: logoWidth }}>
 					<img src={'images/logo_blackur.svg'}
 						 alt={'Blackur logo'}
-						 style={{ top: move }}/>
+						 style={{ transform: `translateY(${move}px)` }}/>
 				</div>
-				<div className="black" style={{ top: move, height: logoHeight, width: logoWidth }}>
+				<div className="black"
+					 style={{ transform: `translateY(${move}px)`, height: logoHeight, width: logoWidth }}>
 					<img src={'images/logo_blackur.svg'}
 						 alt={'Blackur logo'}
-						 style={{ top: -move }}/>
+						 style={{ transform: `translateY(${-move}px)` }}/>
 				</div>
 			</div>
 		
