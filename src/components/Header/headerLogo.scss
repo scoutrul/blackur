@@ -2,45 +2,42 @@ $logoW: 54;
 $logoH: 48.5;
 
 .logo {
+	//overflow: hidden;
+	transition: .3s;
 	position: fixed;
-	left: $framePadding;
-	top: $framePadding;
-
-	min-height: $logoW+px;
-	min-width: $logoH+px;
 	transform-origin: left;
 	@include adaptive(x1) {
 		left: $framePaddingX1;
 		top: $framePaddingX1;
+		min-height: $logoW+px;
+		min-width: $logoH+px;
 	}
 	@include adaptive(x2) {
 		left: $framePaddingX2;
 		top: $framePaddingX2;
-		//transform: scale(1.4);
+		min-height: $logoW * 1.2+px;
+		min-width: $logoH * 1.2+px;
+	}
+	@include adaptive(xx) {
+		left: $framePaddingXx;
+		top: $framePaddingXx;
 		min-height: $logoW * 1.4+px;
 		min-width: $logoH * 1.4+px;
 	}
 	@include adaptive(x05) {
 		left: $framePaddingX05;
 		top: $framePaddingX05;
-		//transform: scale(.8);
 		min-height: $logoW * .8+px;
 		min-width: $logoH * .8+px;
 	}
 	@include adaptive(x025) {
 		left: $framePaddingX025;
 		top: $framePaddingX025;
-		//transform: scale(.6);
 		min-height: $logoW * .6+px;
 		min-width: $logoH * .6+px;
 	}
 
-	#svgLogo {
-		position: absolute;
-	}
-
 	&.appear_before {
-
 		margin-left: -50px;
 		opacity: 0;
 
@@ -53,5 +50,51 @@ $logoH: 48.5;
 	&.leave_animation {
 		margin-left: -50px !important;
 		opacity: 0 !important;
+	}
+
+	.logos {
+		min-height: $logoW+px;
+		min-width: $logoH+px;
+		@include adaptive(x1) {
+			min-height: $logoW * 1.2+px;
+			min-width: $logoH * 1.2+px;
+		}
+		@include adaptive(x2) {
+			min-height: $logoW * 1.4+px;
+			min-width: $logoH * 1.4+px;
+		}
+		@include adaptive(x05) {
+			min-height: $logoW * .8+px;
+			min-width: $logoH * .8+px;
+		}
+		@include adaptive(x025) {
+			min-height: $logoW * .6+px;
+			min-width: $logoH * .6+px;
+		}
+		.white {
+			width: 100%;
+			height: 100%;
+
+			position: relative;
+			img {
+				filter: invert(100%);
+				max-width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+		.black {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			img {
+				max-width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+
+			}
+		}
 	}
 }

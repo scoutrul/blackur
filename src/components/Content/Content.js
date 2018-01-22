@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 import Appear from '../HOC/Appear'
 import { Project } from './Projects'
@@ -8,19 +10,28 @@ import { Main } from './Main'
 
 import './content.scss'
 
-export default class extends Component {
-	
-	
+
+function mapStateToProps(state) {
+	return { state: 'hi' }
+}
+function mapDispatchToProps(dispatch) {
+	console.log('yo')
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class ContentRouter extends Component {
+
 	componentDidMount() {
-		// console.log(this.scroll)
-		// ++ padding right of scroll width
+		const scrollBarWidth = document.getElementsByClassName('scroll')[0].clientWidth - document.getElementsByClassName('scroll')[0].offsetWidth;
+		console.log(this.context)
+		// ToDO send scrollBar width to reducer. Use it for right-position elements (like burger or contact link)
 	}
 	
 	render() {
 		
 		return (
-			<div className="scroll" ref={p => this.scroll = p}>
-				<div className="main" ref={p => this.main = p}>
+			<div className='scroll' ref={p => this.scroll = p}>
+				<div className='main' ref={p => this.main = p}>
 					<Switch>
 						<Route exact path='/' component={Appear(Main)}/>
 						<Route path='/projects' component={Appear(Project)}/>
@@ -32,3 +43,5 @@ export default class extends Component {
 		);
 	}
 }
+
+

@@ -1,8 +1,19 @@
 .footer {
 	position: fixed;
-	bottom: $framePadding;
-	right: $framePadding;
+	display: flex;
 
+	@include adaptive(x1) {
+		bottom: $framePaddingX1;
+		right: $framePaddingX1;
+	}
+	@include adaptive(x2) {
+		bottom: $framePaddingX2;
+		right: $framePaddingX2;
+	}
+	@include adaptive(xx) {
+		bottom: $framePaddingXx;
+		right: $framePaddingXx;
+	}
 	@include adaptive(x05) {
 		bottom: $framePaddingX05;
 		right: $framePaddingX05;

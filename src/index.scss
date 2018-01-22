@@ -16,14 +16,14 @@ body, html {
 
 $specialBlack: #131517;
 
-$framePadding: 80px;
-$framePaddingX2: 160px;
-$framePaddingX1: 120px;
-$framePaddingX05: 40px;
 $framePaddingX025: 20px;
+$framePaddingX05: 40px;
+$framePaddingX1: 80px;
+$framePaddingX2: 120px;
+$framePaddingXx: 160px;
 
 $x025: 640px;
-$x05: 960px;
+$x05: 1024px;
 $x1: 1280px;
 $x2: 2560px;
 
@@ -32,19 +32,23 @@ $x2: 2560px;
 
 @mixin adaptive($media) {
 	@if $media == x025 {
-		@media only screen and (max-width: $x025) {
+		@media only screen and (min-width: 0) and (max-width: $x025) {
 			@content;
 		}
 	} @else if $media == x05 {
-		@media only screen and (max-width: $x05) {
+		@media only screen and (min-width: $x025) and (max-width: $x05) {
 			@content;
 		}
 	} @else if $media == x1 {
-		@media only screen and (max-width: $x1) {
+		@media only screen and (min-width: $x05) and (max-width: $x1) {
 			@content;
 		}
 	} @else if $media == x2 {
-		@media only screen and (min-width: $x1) and (max-width: $x2){
+		@media only screen and (min-width: $x1) and (max-width: $x2) {
+			@content;
+		}
+	} @else if $media == xx {
+		@media only screen and (min-width: $x2) {
 			@content;
 		}
 	}

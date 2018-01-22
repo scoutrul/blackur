@@ -3,6 +3,7 @@ import './headerLogo.scss';
 import InlineSVG from 'svg-inline-react';
 import Changer from '../HOC/Appear'
 import { connect } from 'react-redux'
+import AnimatedLink from '../HOC/AnimatedLink'
 
 const connectProps = (state) => {
 	return {
@@ -18,7 +19,7 @@ export default class Logo extends Component {
 		scrollTop: 0,
 		layerHeight: null,
 		offsetLogo: 0,
-		logoHeight:0,
+		logoHeight: 0,
 		logoWidth: 0
 	};
 	
@@ -35,8 +36,6 @@ export default class Logo extends Component {
 						logoHeight: this.logo.getBoundingClientRect().height,
 						logoWidth: this.logo.getBoundingClientRect().width
 					});
-					console.log(this.logo.getBoundingClientRect().height,
-						this.logo.getBoundingClientRect().width)
 				});
 				ticking = true;
 			}
@@ -44,7 +43,7 @@ export default class Logo extends Component {
 	};
 	
 	_bindResize = () => {
-
+		
 		const element = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
 		this.setState({
 			layerHeight: element.getBoundingClientRect().height,
@@ -52,7 +51,6 @@ export default class Logo extends Component {
 		window.addEventListener(
 			'resize',
 			() => {
-				console.log(this.logo.clientHeight)
 				let resizeTimeout;
 				if (!resizeTimeout) {
 					resizeTimeout = setTimeout(() => {
@@ -86,7 +84,7 @@ export default class Logo extends Component {
 		const LayerHeight = this.state.layerHeight;
 		
 		let stopper1 = LayerHeight - (svgH + offsetLogo);
-		let stopper2 = stopper1 + svgH
+		let stopper2 = stopper1 + svgH;
 		let viewLimit = scrollTop >= stopper1 && scrollTop <= stopper2;
 		
 		let koef = viewLimit && scrollTop - (LayerHeight - offsetLogo - svgH);
@@ -117,6 +115,20 @@ export default class Logo extends Component {
 				</g>
 			</svg>`;
 		
+		const doubbleLogo = () =>
+			<div className={'logos'}>
+				<div className="black" style={{ top: svgH }}>
+					<img src={'images/logo_blackur.svg'}
+						 alt={'Blackur logo'}
+						 style={{ top: whiteMask }}/>
+				</div>
+				<div className="white" style={{ top: 0 }}>
+					<img src={'images/logo_blackur.svg'}
+						 alt={'Blackur logo'}
+						 style={{ top: whiteMask }}/>
+				</div>
+			</div>
+		
 		
 		const beforeCss = 'appear_before';
 		const afterCss = this.props.appearAfter ? 'appear_after' : '';
@@ -124,9 +136,12 @@ export default class Logo extends Component {
 		const AnimationCss = `${beforeCss} ${afterCss} ${leaveCss}`;
 		
 		return (
-			<div className={`logo ${AnimationCss}`} ref={(logo) => this.logo = logo}>
-				<InlineSVG src={svgSource} id={'svgLogo'}/>
-			</div>
+			<AnimatedLink to={'/'}>
+				<div className={`logo ${AnimationCss}`} ref={(logo) => this.logo = logo}>
+					{doubbleLogo()}
+				</div>
+			</AnimatedLink>
+		
 		);
 	}
 }

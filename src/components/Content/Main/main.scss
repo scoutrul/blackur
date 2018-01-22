@@ -3,7 +3,6 @@
 	max-height: 100vh;
 	width: 100%;
 	.project {
-		padding: 80px;
 		height: 100%;
 		background: no-repeat 50%;
 		background-size: contain;
@@ -17,6 +16,9 @@
 		}
 		@include adaptive(x2) {
 			padding: 0 $framePaddingX2;
+		}
+		@include adaptive(xx) {
+			padding: 0 $framePaddingXx;
 		}
 		@include adaptive(x05) {
 			padding: 0 $framePaddingX05;

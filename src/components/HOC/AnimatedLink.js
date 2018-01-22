@@ -26,11 +26,14 @@ export default class extends Component {
 	
 	linkHandler = (event, href) => {
 		event.preventDefault();
-		this.props.leaveAnimation_action();
-		
+
 		let promise = new Promise(resolve => {
-			setTimeout(() => resolve(), this.props.timeToWait)
+			this.props.history.location.pathname !== href && this.props.leaveAnimation_action();
+			setTimeout(() => {
+				resolve()
+			}, this.props.timeToWait)
 		});
+		
 		
 		this.props.history.location.pathname !== href &&
 		promise.then(() => {
