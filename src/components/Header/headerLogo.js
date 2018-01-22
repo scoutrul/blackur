@@ -22,8 +22,8 @@ export default class Logo extends Component {
 		logoWidth: 0
 	};
 	
-	_bindScroll = element => {
-		element.addEventListener('scroll', e => {
+	_bindScroll = () => {
+		document.getElementsByClassName('scroll')[0].addEventListener('scroll', e => {
 			let ticking = false;
 			let scrollTop = e.target.scrollTop || 0;
 			
@@ -37,7 +37,7 @@ export default class Logo extends Component {
 						logoHeight: this.logo.getBoundingClientRect().height,
 						logoWidth: this.logo.getBoundingClientRect().width,
 						layerHeight: element.getBoundingClientRect().height,
-					}, this._bindResize());
+					});
 				});
 				ticking = true;
 			}
@@ -61,7 +61,7 @@ export default class Logo extends Component {
 							offsetLogo: this.logo.offsetTop,
 							logoHeight: this.logo.getBoundingClientRect().height,
 							logoWidth: this.logo.getBoundingClientRect().width,
-						});
+						}, this._bindScroll());
 					}, 66);
 				}
 			},
@@ -71,7 +71,7 @@ export default class Logo extends Component {
 	
 	componentDidMount() {
 		this._bindResize();
-		this._bindScroll(document.getElementsByClassName('scroll')[0]);
+		this._bindScroll();
 		
 		this.setState({
 			offsetLogo: this.logo.offsetTop,
@@ -86,9 +86,8 @@ export default class Logo extends Component {
 			scrollTop, layerHeight
 		} = this.state;
 		
-		let stopper1 = layerHeight - (logoHeight + offsetLogo);
-		let stopper2 = stopper1 + logoHeight * 2;
-		let actionBlock = scrollTop >= stopper1;
+		let stopper = layerHeight - (logoHeight + offsetLogo);
+		let actionBlock = scrollTop >= stopper;
 		
 		let move = actionBlock ? scrollTop - (layerHeight - offsetLogo - logoHeight) : 0;
 		

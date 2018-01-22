@@ -43,7 +43,7 @@ export default (MountedComponent) => {
 			const afterCss = this.props.appearAfter ? 'appear_after' : '';
 			const leaveCss = this.props.leaveAnimation ? 'leave_animation' : '';
 			const AnimationCss = `${beforeCss} ${afterCss} ${leaveCss}`;
-			return <MountedComponent AnimationCss={AnimationCss || ''}/>
+			return <MountedComponent AnimationCss={AnimationCss || ''} {...this.props}/>
 		}
 	}
 };

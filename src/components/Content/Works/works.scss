@@ -1,6 +1,26 @@
-.project {
+.works {
+	.list {
+		height: 100%;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		padding: 0;
+		list-style: none;
+		color: #FFF;
+		li {
+			margin: 20px 0;
+			width: fit-content;
+			&:hover {
+				color: #999
+			}
+		}
+	}
+}
+
+.work {
 	.firstScreen {
 		height: 100%;
+		min-height: 90vh;
 		color: #FFF;
 		display: flex;
 	}

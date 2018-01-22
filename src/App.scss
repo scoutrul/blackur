@@ -10,13 +10,15 @@
 	font-weight: 500;
 	line-height: 40px;
 	font-size: 20px;
+	font-kerning: none;
+
 
 	h1 {
 		font-weight: 700;
 		font-size: 84px;
 		line-height: 80px;
 		margin: 40px;
-		margin-left: -0.6%;
+		margin-left: -0.08em;
 
 	}
 
@@ -24,7 +26,7 @@
 		font-size: 77px;
 		line-height: 80px;
 		margin: 0;
-		margin-left: -0.5%;
+		margin-left: -0.08em;
 	}
 
 	h3 {
@@ -52,4 +54,8 @@
 
 	}
 
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
 }

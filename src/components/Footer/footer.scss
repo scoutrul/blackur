@@ -1,25 +1,28 @@
 .footer {
 	position: fixed;
 	display: flex;
-
+	writing-mode: vertical-lr;
 	@include adaptive(x1) {
-		bottom: $framePaddingX1;
+		top: $framePaddingX1;
 		right: $framePaddingX1;
 	}
 	@include adaptive(x2) {
-		bottom: $framePaddingX2;
+		top: $framePaddingX2;
 		right: $framePaddingX2;
 	}
 	@include adaptive(xx) {
-		bottom: $framePaddingXx;
+		top: $framePaddingXx;
 		right: $framePaddingXx;
 	}
 	@include adaptive(x05) {
-		bottom: $framePaddingX05;
+		top: $framePaddingX05;
 		right: $framePaddingX05;
 	}
 	@include adaptive(x025) {
-		bottom: $framePaddingX025;
+		top: $framePaddingX025;
 		right: $framePaddingX025;
+	}
+	a {
+		padding: 10px 0;
 	}
 }

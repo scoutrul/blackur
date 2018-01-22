@@ -9,9 +9,9 @@ export default class extends Component {
 	render() {
 		return (
 			<div className={'footer'}>
-				<div><AnimatedLink to={'/'}>home </AnimatedLink></div>
-				<div><AnimatedLink to={'/projects'}>Projects  </AnimatedLink></div>
-				<div><AnimatedLink to={'/contacts'}>contacts</AnimatedLink></div>
+				<div><AnimatedLink to={'/'}>Home </AnimatedLink></div>
+				<div><AnimatedLink to={'/works'}>Works  </AnimatedLink></div>
+				<div><AnimatedLink to={'/contacts'}>Contacts</AnimatedLink></div>
 			</div>
 		);
 	}
