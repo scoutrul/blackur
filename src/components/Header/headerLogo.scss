@@ -72,10 +72,11 @@ $logoH: 48.5;
 			min-width: $logoH * .6+px;
 		}
 		.white {
+			overflow: hidden;
 			width: 100%;
 			height: 100%;
-
-			position: relative;
+			position: absolute;
+			z-index: 2;
 			img {
 				filter: invert(100%);
 				max-width: 100%;
@@ -88,7 +89,9 @@ $logoH: 48.5;
 			width: 100%;
 			height: 100%;
 			position: absolute;
+			z-index: 1;
 			img {
+				filter: invert(0%);
 				max-width: 100%;
 				position: absolute;
 				top: 0;

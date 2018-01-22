@@ -11,14 +11,7 @@ import { Main } from './Main'
 import './content.scss'
 
 
-function mapStateToProps(state) {
-	return { state: 'hi' }
-}
-function mapDispatchToProps(dispatch) {
-	console.log('yo')
-}
 
-@connect(mapStateToProps, mapDispatchToProps)
 export default class ContentRouter extends Component {
 
 	componentDidMount() {
