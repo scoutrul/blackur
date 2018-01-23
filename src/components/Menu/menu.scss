@@ -3,6 +3,7 @@
 	display: flex;
 	writing-mode: vertical-lr;
 	color: #99D9D9;
+	z-index: 10;
 	@include adaptive(x1) {
 		top: $framePaddingX1;
 		right: $framePaddingX1;
