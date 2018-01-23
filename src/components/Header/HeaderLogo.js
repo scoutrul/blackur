@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './headerLogo.scss';
+import './HeaderLogo.scss';
 import Changer from '../HOC/Appear'
 import { connect } from 'react-redux'
 import AnimatedLink from '../HOC/AnimatedLink'
@@ -72,7 +72,7 @@ export default class Logo extends Component {
 	componentDidMount() {
 		this._bindResize();
 		this._bindScroll();
-		
+		//todo sometimes black logo appear, need to reset
 		this.setState({
 			offsetLogo: this.logo.offsetTop,
 			logoHeight: this.logo.getBoundingClientRect().height,

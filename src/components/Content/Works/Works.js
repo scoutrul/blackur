@@ -1,39 +1,18 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 import AnimatedLink from '../../HOC/AnimatedLink'
+import HeaderSlogan from '../../Header/HeaderSlogan'
 import './works.scss';
 
-const works = [
-	{
-		header: 'Epson ReadyInk',
-		slogan: 'Design & Fuck',
-		url: 'Epson',
-	},
-	{
-		header: 'Cloudburst',
-		slogan: 'Steam pack',
-		url: 'Cloudburst',
-	},
-	{
-		header: 'Edmunds',
-		slogan: 'slogan-mogan',
-		url: 'Edmunds',
-	},
-	{
-		header: 'Storymaze',
-		slogan: 'Design & Fuck',
-		url: 'Storymaze',
-	},
-	{
-		header: 'Omnistry',
-		slogan: 'Steam pack',
-		url: 'Omnistry',
-	},
-
-];
-
+const connectProps = (state) => {
+	return {
+		works: state.Content.works,
+	}
+};
+@connect(connectProps)
 export default class extends Component {
 	render() {
-		const Works = () => works.map(item =>
+		const WorksList = () => this.props.works.map(item =>
 			<li key={item.url}>
 				<AnimatedLink to={`/${item.url}`}>
 					<h2>{item.header}</h2>
@@ -44,9 +23,9 @@ export default class extends Component {
 		const { AnimationCss } = this.props;
 		return (
 			<div className={`works contentContainer ${AnimationCss}`}>
+				<HeaderSlogan text={'Works'}/>
 				<ul className="list">
-					<Works/>
-				
+					<WorksList/>
 				</ul>
 			</div>
 		);
