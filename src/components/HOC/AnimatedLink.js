@@ -6,8 +6,8 @@ import { leaveAnimation_action } from '../../store/reducers/Animations'
 
 const connectProps = (state) => {
 	return {
-		appearBefore: state.Animations.appearBefore,
-		appearAfter: state.Animations.appearAfter,
+		isAppearBefore: state.Animations.isAppearBefore,
+		isAppearAfter: state.Animations.isAppearAfter,
 		leaveAnimation: state.Animations.leaveAnimation,
 		timeToWait: state.Animations.timeToWait,
 	}

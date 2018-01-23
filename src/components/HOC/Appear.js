@@ -5,18 +5,19 @@ import { withRouter } from 'react-router-dom';
 
 const connectProps = (state) => {
 	return {
-		appearBefore: state.Animations.appearBefore,
-		appearAfter: state.Animations.appearAfter,
+		isAppearBefore: state.Animations.isAppearBefore,
+		isAppearAfter: state.Animations.isAppearAfter,
 		leaveAnimation: state.Animations.leaveAnimation,
+		timeToWait: state.Animations.timeToWait,
 	}
 };
 
 const connectDispatch = dispatch => {
 	return {
-		appearAfter_action: () => {
+		isAppearAfter_action: () => {
 			dispatch(appearAfter_action())
 		},
-		appearBefore_action: () => {
+		isAppearBefore_action: () => {
 			dispatch(appearBefore_action())
 		}
 	}
@@ -27,20 +28,21 @@ export default (MountedComponent) => {
 	return class extends Component {
 		
 		componentDidMount() {
-			this.props.appearBefore_action()
+			this.props.isAppearBefore_action();
+			
 			let promise = new Promise(resolve => {
 				setTimeout(() => resolve(), this.props.timeToWait)
 			});
 			
 			promise.then(() => {
-					this.props.appearAfter_action()
+					this.props.isAppearAfter_action()
 				}
 			);
 		}
 		
 		render() {
 			const beforeCss = 'appear_before';
-			const afterCss = this.props.appearAfter ? 'appear_after' : '';
+			const afterCss = this.props.isAppearAfter ? 'appear_after' : '';
 			const leaveCss = this.props.leaveAnimation ? 'leave_animation' : '';
 			const AnimationCss = `${beforeCss} ${afterCss} ${leaveCss}`;
 			return <MountedComponent AnimationCss={AnimationCss || ''} {...this.props}/>

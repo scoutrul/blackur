@@ -4,10 +4,10 @@ export const LEAVE_ANIMATION = 'LEAVE_ANIMATION';
 
 
 const initialState = {
-	appearBefore: false,
-	appearAfter: false,
+	isAppearBefore: false,
+	isAppearAfter: false,
 	leaveAnimation: false,
-	timeToWait: 1000
+	timeToWait: 480
 };
 
 export default(state = initialState, action) => {
@@ -25,16 +25,16 @@ export default(state = initialState, action) => {
 
 
 export function appearBefore_action() {
-	const payload = { appearBefore: true, appearAfter: false, leaveAnimation: false };
+	const payload = { isAppearBefore: true, isAppearAfter: false, leaveAnimation: false };
 	return { type: APPEAR_BEFORE, payload }
 }
 
 export function appearAfter_action() {
-	const payload = { appearBefore: false, appearAfter: true, leaveAnimation: false };
+	const payload = { isAppearBefore: false, isAppearAfter: true, leaveAnimation: false };
 	return { type: APPEAR_AFTER, payload }
 }
 
 export function leaveAnimation_action() {
-	const payload = { appearBefore: false, appearAfter: false, eaveAnimation: true };
+	const payload = { isAppearBefore: false, isAppearAfter: false, leaveAnimation: true };
 	return { type: LEAVE_ANIMATION, payload }
 }

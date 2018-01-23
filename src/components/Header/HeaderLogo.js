@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
 import './HeaderLogo.scss';
-import Changer from '../HOC/Appear'
-import { connect } from 'react-redux'
+import Appear from '../HOC/Appear'
+
 import AnimatedLink from '../HOC/AnimatedLink'
 
-const connectProps = state => {
-	return {
-		appearBefore: state.Animations.appearBefore,
-		appearAfter: state.Animations.appearAfter,
-		leaveAnimation: state.Animations.leaveAnimation,
-	}
-};
-
-@Changer @connect(connectProps)
+@Appear
 export default class Logo extends Component {
 	state = {
 		scrollTop: 0,
 		layerHeight: null,
-		offsetLogo: 0,
+		offset: 0,
 		logoHeight: 0,
 		logoWidth: 0
 	};
@@ -46,9 +38,6 @@ export default class Logo extends Component {
 	
 	_bindResize = () => {
 		const element = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
-		this.setState({
-			layerHeight: element.getBoundingClientRect().height,
-		});
 		window.addEventListener(
 			'resize',
 			() => {
@@ -57,10 +46,10 @@ export default class Logo extends Component {
 					resizeTimeout = setTimeout(() => {
 						resizeTimeout = null;
 						this.setState({
-							layerHeight: element.getBoundingClientRect().height,
-							offsetLogo: this.logo.offsetTop,
+							offset: this.logo.offsetTop,
 							logoHeight: this.logo.getBoundingClientRect().height,
 							logoWidth: this.logo.getBoundingClientRect().width,
+							layerHeight: element.getBoundingClientRect().height,
 						}, this._bindScroll());
 					}, 66);
 				}
@@ -74,22 +63,23 @@ export default class Logo extends Component {
 		this._bindScroll();
 		//todo sometimes black logo appear, need to reset
 		this.setState({
-			offsetLogo: this.logo.offsetTop,
+			offset: this.logo.offsetTop,
 			logoHeight: this.logo.getBoundingClientRect().height,
-			logoWidth: this.logo.getBoundingClientRect().width
+			logoWidth: this.logo.getBoundingClientRect().width,
+			layerHeight: document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body.getBoundingClientRect().height,
 		})
 	}
 	
 	render() {
 		let {
-			logoWidth, logoHeight, offsetLogo,
+			logoWidth, logoHeight, offset,
 			scrollTop, layerHeight
 		} = this.state;
 		
-		let stopper = layerHeight - (logoHeight + offsetLogo);
+		let stopper = layerHeight - (logoHeight + offset);
 		let actionBlock = scrollTop >= stopper;
 		
-		let move = actionBlock ? scrollTop - (layerHeight - offsetLogo - logoHeight) : 0;
+		let move = actionBlock ? scrollTop - (layerHeight - offset - logoHeight) : 0;
 		
 		const doubbleLogo = () =>
 			<div className={'logos'}>
@@ -107,11 +97,8 @@ export default class Logo extends Component {
 				</div>
 			</div>
 		
-		const beforeCss = 'appear_before';
-		const afterCss = this.props.appearAfter ? 'appear_after' : '';
-		const leaveCss = this.props.leaveAnimation ? 'leave_animation' : '';
-		const AnimationCss = `${beforeCss} ${afterCss} ${leaveCss}`;
 		
+		const { AnimationCss } = this.props;
 		return (
 			<div className={`logo ${AnimationCss}`} ref={(logo) => this.logo = logo}>
 				<AnimatedLink to={'/'}>

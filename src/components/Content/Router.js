@@ -7,11 +7,12 @@ import { Work } from './Works'
 import { Contacts } from './Contacts'
 import { Main } from './Main'
 
-export default () =><Switch>
+export default () =>
+	<Switch>
 		<Route exact path='/' component={Appear(Main)}/>
+		<Route exact path='/contacts' component={Appear(Contacts)}/>
 		<Route exact path='/works' component={Appear(Works)}/>
 		<Route path='/:url' render={({ match }) => <Work url={match.params.url}/>}/>
-		<Route exact path='/contacts' component={Appear(Contacts)}/>
 		<Route render={() => <h1>Page not found</h1>}/>
 	</Switch>
 
