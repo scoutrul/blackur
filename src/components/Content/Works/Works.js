@@ -35,7 +35,7 @@ export default class extends Component {
 	render() {
 		const Works = () => works.map(item =>
 			<li key={item.url}>
-				<AnimatedLink to={`/works/${item.url}`}>
+				<AnimatedLink to={`/${item.url}`}>
 					<h2>{item.header}</h2>
 					<h5>{item.slogan}</h5>
 				</AnimatedLink>
