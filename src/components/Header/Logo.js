@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './HeaderLogo.scss';
+import './Logo.scss';
 import Appear from '../HOC/Appear'
 
 import AnimatedLink from '../HOC/AnimatedLink'

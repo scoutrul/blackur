@@ -20,12 +20,14 @@ $specialBlack: #131517;
 $framePaddingX025: 20px;
 $framePaddingX05: 40px;
 $framePaddingX1: 80px;
+$framePaddingX15: 100px;
 $framePaddingX2: 120px;
 $framePaddingXx: 160px;
 
 $x025: 640px;
 $x05: 1024px;
 $x1: 1280px;
+$x15: 1680px;
 $x2: 2560px;
 
 
@@ -50,6 +52,11 @@ $x2: 2560px;
 		}
 	} @else if $media == xx {
 		@media only screen and (min-width: $x2) {
+			@content;
+		}
+	}
+	@else if $media == x15 {
+		@media only screen and (min-width: $x15) {
 			@content;
 		}
 	}
