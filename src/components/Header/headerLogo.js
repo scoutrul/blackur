@@ -95,13 +95,13 @@ export default class Logo extends Component {
 			<div className={'logos'}>
 				<div className="white"
 					 style={{ transform: `translateY(${-move}px)`, height: logoHeight, width: logoWidth }}>
-					<img src={'images/logo_blackur.svg'}
+					<img src={'/images/logo_blackur.svg'}
 						 alt={'Blackur logo'}
 						 style={{ transform: `translateY(${move}px)` }}/>
 				</div>
 				<div className="black"
 					 style={{ transform: `translateY(${move}px)`, height: logoHeight, width: logoWidth }}>
-					<img src={'images/logo_blackur.svg'}
+					<img src={'/images/logo_blackur.svg'}
 						 alt={'Blackur logo'}
 						 style={{ transform: `translateY(${-move}px)` }}/>
 				</div>

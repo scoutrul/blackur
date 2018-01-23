@@ -1,11 +1,19 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import Appear from '../../HOC/Appear'
 import './works.scss';
 
+@connect()
+@Appear
 export default class extends Component {
-	render() {
+	
+	componentWillMount() {
+		
 		console.log(this.props)
-		const name = this.props.name;
-		const { AnimationCss } = this.props;
+	}
+	
+	render() {
+		const { AnimationCss, name } = this.props;
 		return (
 			<div className={`work ${AnimationCss}`}>
 				<div className="firstScreen">

@@ -32,9 +32,23 @@
 
 		}
 		.services {
-			margin: auto 0 $framePaddingX1;
 			padding:0;
 			list-style: none;
+			@include adaptive(x1) {
+				margin: auto 0 $framePaddingX1;
+			}
+			@include adaptive(x2) {
+				margin: auto 0 $framePaddingX2;
+			}
+			@include adaptive(xx) {
+				margin: auto 0 $framePaddingXx;
+			}
+			@include adaptive(x05) {
+				margin: auto 0 $framePaddingX05;
+			}
+			@include adaptive(x025) {
+				margin: auto 0 $framePaddingX025;
+			}
 		}
 
 	}
