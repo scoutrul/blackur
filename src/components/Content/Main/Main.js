@@ -3,9 +3,7 @@ import './main.scss'
 
 
 export default class extends Component {
-	
 	render() {
-		
 		const Project = () => {
 			return <div className='project' style={{ backgroundImage: 'url(images/works/epson.png)' }}>
 				<div className="headers">
@@ -19,7 +17,7 @@ export default class extends Component {
 					<li>4444</li>
 				</ul>
 			</div>
-		}
+		};
 		
 		const { AnimationCss } = this.props;
 		return (

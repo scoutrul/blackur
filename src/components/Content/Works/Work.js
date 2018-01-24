@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Appear from '../../HOC/Appear'
-import HeaderSlogan from '../../Header/HeaderSlogan'
+import ScrollResizeChanger from '../../HOC/onScrollResizeChanger'
 import './works.scss';
-
+import PropTypes from "prop-types";
 
 const connectProps = (state) => {
 	return {
@@ -14,25 +14,32 @@ const connectProps = (state) => {
 @Appear
 export default class extends Component {
 	
-	state = {
-		work: ''
-	}
-	
-	componentDidMount() {
-		const work = this.props.works.find(item => item.url === this.props.url);
-		this.setState({ work })
-	
-	}
-	
 	render() {
+		const work = this.props.works.find(item => item.url === this.props.url);
 		const { AnimationCss } = this.props;
 		
-		const { header} = this.state.work || 'header';
-		const { slogan } = this.state.work || 'slogan';
+		const { header } = work || 'header';
+		const { slogan } = work || 'slogan';
+		
+		class Class extends Component {
+			static propTypes = {
+				MovingActions: PropTypes.object,
+			};
+			
+			render() {
+				let { viewBoxHeight, divHeight, divTopOffset, scrollTop } = this.props.MovingActions;
+				let stopper = viewBoxHeight - (divHeight / 2 + divTopOffset);
+				let actionBlock = scrollTop >= stopper;
+				return <div className="contentTitle" style={{ color: !actionBlock && 'white' }}>{slogan}</div>
+			}
+		}
+		
+		
 		return (
 			<div className={`work ${AnimationCss}`}>
 				<div className="firstScreen">
-					<HeaderSlogan text={slogan}/>
+					<ScrollResizeChanger component={Class}/>
+					
 					<div className="contentContainer">
 						<h1>{header}</h1>
 					</div>

@@ -12,7 +12,7 @@ export default class extends Component {
 	};
 	
 	render() {
-		let {viewBoxHeight, divHeight, divTopOffset, scrollTop} = this.props.MovingActions;
+		let { viewBoxHeight, divHeight, divTopOffset, scrollTop } = this.props.MovingActions;
 		
 		const { AnimationCss } = this.props;
 		
@@ -20,11 +20,13 @@ export default class extends Component {
 		let actionBlock = scrollTop >= stopper;
 		
 		return (
-
-				<div className={`footer ${AnimationCss}`} style={{ color: !actionBlock && 'white' }}>
+			
+			<div className={`footer ${AnimationCss}`}>
+				<div style={{ color: !actionBlock && 'white' }}>
 					<AnimatedLink to={'/contacts'}>Say Hello!</AnimatedLink>
 				</div>
-
+			</div>
+		
 		);
 	}
 }

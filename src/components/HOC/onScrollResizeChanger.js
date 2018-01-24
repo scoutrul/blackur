@@ -14,7 +14,6 @@ export default class extends Component {
 	_scrollEvent = e => {
 		let ticking = false;
 		let scrollTop = e && e.target.scrollTop || 0;
-		
 		let stopper = this.state.viewBoxHeight - (this.state.divHeight + this.state.divTopOffset);
 		let actionBlock = scrollTop >= stopper;
 		
@@ -88,10 +87,9 @@ export default class extends Component {
 	}
 	
 	render() {
-
 		return <div ref={div => this.divElement = div}>
 			<this.props.component MovingActions={this.state}/>
-		</div>;
+		</div>
 	}
 }
 	

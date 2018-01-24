@@ -14,10 +14,8 @@ class App extends Component {
 			<Fragment>
 				<ScrollResizeChanger component={Logo}/>
 				<ScrollResizeChanger component={Footer}/>
-				
-				<Menu/>
+				<ScrollResizeChanger component={Menu}/>
 				<Content/>
-			
 			</Fragment>
 		);
 	}
