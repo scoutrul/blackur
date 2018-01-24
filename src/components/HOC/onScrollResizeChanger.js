@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 
-
-export default class ScrollResizeChanger extends Component {
+export default class extends Component {
 	
 	state = {
 		scrollTop: 0,
 		divTopOffset: 0,
 		divHeight: 0,
-		divWidth: 0,
 		viewBoxHeight: 0,
 		stopper: 0,
 		actionBlock: false
 	};
-	
-	
-	getChildContext() {
-		return { ...this.state };
-	}
 	
 	_scrollEvent = e => {
 		let ticking = false;
@@ -29,12 +21,15 @@ export default class ScrollResizeChanger extends Component {
 		if (!ticking) {
 			window.requestAnimationFrame(() => {
 				ticking = false;
-				this.setState({ scrollTop, stopper, actionBlock }, this._resizeEvent())
+				this.setState({
+					scrollTop,
+					stopper,
+					actionBlock
+				}, this._resizeEvent)
 			});
 			ticking = true;
 		}
 	};
-	
 	
 	_resizeEvent = () => {
 		let resizeTimeout;
@@ -44,17 +39,20 @@ export default class ScrollResizeChanger extends Component {
 		let viewBoxHeight = vewBoxElement.getBoundingClientRect().height;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
-		let divWidth = divElement.getBoundingClientRect().width;
 		let stopper = viewBoxHeight - (divHeight + divTopOffset);
 		let actionBlock = this.state.scrollTop >= stopper;
 		
 		if (!resizeTimeout) {
 			resizeTimeout = setTimeout(() => {
-				resizeTimeout = null;
-				this.setState({ divTopOffset, divHeight, divWidth, viewBoxHeight, actionBlock });
+				resizeTimeout = false;
+				this.setState({
+					divTopOffset,
+					divHeight,
+					viewBoxHeight,
+					actionBlock
+				});
 			}, 66);
 		}
-		
 	};
 	
 	_findNestedDiv = (curElement) => {
@@ -65,7 +63,6 @@ export default class ScrollResizeChanger extends Component {
 		return curElement.clientHeight ? curElement : getInsideDiv(curElement.children[0])
 	};
 	
-
 	componentDidMount() {
 		const vewBoxElement = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
 		
@@ -73,14 +70,16 @@ export default class ScrollResizeChanger extends Component {
 		let viewBoxHeight = vewBoxElement.getBoundingClientRect().height;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
-		let divWidth = divElement.getBoundingClientRect().width;
 		
-		this.setState({ viewBoxHeight, divTopOffset, divHeight, divWidth });
-
+		this.setState({
+			viewBoxHeight,
+			divTopOffset,
+			divHeight
+		});
 		
 		window.addEventListener('resize', this._resizeEvent, false);
 		document.getElementsByClassName('scrollBox')[0].addEventListener('scroll', this._scrollEvent);
-		this._scrollEvent;
+		this._scrollEvent();
 	}
 	
 	componentWillUnmount() {
@@ -89,24 +88,11 @@ export default class ScrollResizeChanger extends Component {
 	}
 	
 	render() {
-		
-		return (
-			<div ref={div => this.divElement = div}>
-				{this.props.children}
-			</div>
-		
-		);
+
+		return <div ref={div => this.divElement = div}>
+			<this.props.component MovingActions={this.state}/>
+		</div>;
 	}
 }
-
-
-ScrollResizeChanger.childContextTypes = {
-	viewBoxHeight: PropTypes.number,
-	scrollTop: PropTypes.number,
-	divTopOffset: PropTypes.number,
-	divHeight: PropTypes.number,
-	divWidth: PropTypes.number,
-	stopper: PropTypes.number,
-	actionBlock: PropTypes.bool,
 	
-};
+

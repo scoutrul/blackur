@@ -1,10 +1,8 @@
-
-
 .logo {
-	//overflow: hidden;
-	transition: .3s;
+	transition: .2s;
 	position: fixed;
 	transform-origin: left;
+	z-index: 10;
 	@include adaptive(x1) {
 		left: $framePaddingX1;
 		top: $framePaddingX1;

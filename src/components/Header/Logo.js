@@ -5,22 +5,16 @@ import PropTypes from 'prop-types'
 
 import './logo.scss';
 
+@Appear
 export default class extends Component {
 	
-	static contextTypes = {
-		scrollTop: PropTypes.number,
-		divTopOffset: PropTypes.number,
-		divHeight: PropTypes.number,
-		divWidth: PropTypes.number,
-		viewBoxHeight: PropTypes.number,
-		stopper: PropTypes.number,
-		actionBlock: PropTypes.bool,
+	static propTypes = {
+		MovingActions: PropTypes.object,
 	}
-	
 
 	render() {
 		
-		let {viewBoxHeight, divHeight, divTopOffset, scrollTop, stopper, actionBlock} = this.context;
+		let {viewBoxHeight, divHeight, divTopOffset, scrollTop, stopper, actionBlock} = this.props.MovingActions;
 		
 		let move = actionBlock ? scrollTop - (viewBoxHeight - divTopOffset - divHeight) : 0;
 		return <AnimatedLink to={'/'}>

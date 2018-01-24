@@ -1,4 +1,4 @@
-import HeaderLogo from './Logos'
+import Logo from './Logo'
 import HeaderSlogan from './HeaderSlogan'
 
-export {HeaderLogo, HeaderSlogan};
+export {Logo, HeaderSlogan};

@@ -1,6 +1,7 @@
 .footer {
 	position: fixed;
 	display: flex;
+	transition: .2s ease;
 	@include adaptive(x1) {
 		bottom: $framePaddingX1;
 		right: $framePaddingX1;
@@ -23,5 +24,19 @@
 	}
 	a{
 		transition: .2s ease;
+	}
+	&.appear_before {
+		transform: translateX(50px);
+		opacity: 0;
+
+	}
+	&.appear_after {
+		transform: translateX(0);
+		opacity: 1;
+
+	}
+	&.leave_animation {
+		transform: translateX(50px) !important;
+		opacity: 0 !important;
 	}
 }

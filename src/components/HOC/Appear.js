@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { appearBefore_action, appearAfter_action } from '../../store/reducers/Animations'
 import { withRouter } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 const connectProps = (state) => {
 	return {
@@ -24,8 +25,17 @@ const connectDispatch = dispatch => {
 };
 
 @withRouter @connect(connectProps, connectDispatch)
-export default (MountedComponent) => {
+export default MountedComponent => {
 	return class extends Component {
+		
+		static contextTypes = {
+			viewBoxHeight: PropTypes.number,
+			scrollTop: PropTypes.number,
+			divTopOffset: PropTypes.number,
+			divHeight: PropTypes.number,
+			stopper: PropTypes.number,
+			actionBlock: PropTypes.bool,
+		};
 		
 		componentDidMount() {
 			this.props.isAppearBefore_action();
@@ -49,3 +59,5 @@ export default (MountedComponent) => {
 		}
 	}
 };
+
+
