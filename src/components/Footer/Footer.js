@@ -15,7 +15,7 @@ export default class extends Component {
 	//todo make a uiilit 4 auto resize and scroll and initial state ... and refactor here and logo
 	
 	_bindScroll = () => {
-		document.getElementsByClassName('scroll')[0].addEventListener('scroll', e => {
+		document.getElementsByClassName('scrollBox')[0].addEventListener('scroll', e => {
 			let ticking = false;
 			let scrollTop = e.target.scrollTop || 0;
 			
@@ -79,7 +79,7 @@ export default class extends Component {
 		let actionBlock = scrollTop >= stopper;
 		
 		return (
-			<div className={`footer ${AnimationCss}`} ref={(blockView) => this.blockView = blockView}
+			<div className={`footer ${AnimationCss}`} ref={blockView => this.blockView = blockView}
 				 style={{color: !actionBlock && 'white'}}>
 				<AnimatedLink to={'/contacts'}>Say Hello!</AnimatedLink>
 			</div>

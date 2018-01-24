@@ -1,7 +1,8 @@
 
-.scroll {
+.scrollBox {
 	overflow: hidden;
 	overflow-y: scroll;
+	z-index: 10;
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
 }
@@ -17,27 +18,27 @@
 		max-width: 1280px;
 		color: #FFF;
 		@include adaptive(x1) {
-			padding: $framePaddingX1;
+			margin: $framePaddingX1;
 			line-height: $logoH+px;
 			left: $framePaddingX2;
 		}
 		@include adaptive(x2) {
-			padding: $framePaddingX2 $framePaddingX1 ;
+			margin: $framePaddingX2 $framePaddingX1 ;
 			line-height: $logoH * 1.2+px;
 			left: $framePaddingXx;
 		}
 		@include adaptive(xx) {
-			padding: $framePaddingXx;
+			margin: $framePaddingXx;
 			line-height: $logoH * 1.4+px;
 			left: $framePaddingXx;
 		}
 		@include adaptive(x05) {
-			padding: $framePaddingX05;
+			margin: $framePaddingX05;
 			line-height: $logoH * .8+px;
 			left: $framePaddingX1;
 		}
 		@include adaptive(x025) {
-			padding: $framePaddingX025;
+			margin: $framePaddingX025;
 			line-height: $logoH * .6+px;
 			left: $framePaddingX05;
 		}

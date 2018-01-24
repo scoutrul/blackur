@@ -21,7 +21,6 @@ export default class extends Component {
 			</div>
 		}
 		
-		
 		const { AnimationCss } = this.props;
 		return (
 			<div className={`page-main ${AnimationCss}`} style={{ backgroundColor: '#0957b6' }}>
