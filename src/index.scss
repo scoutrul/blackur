@@ -39,15 +39,15 @@ $x2: 2560px;
 			@content;
 		}
 	} @else if $media == x05 {
-		@media only screen and (min-width: $x025) and (max-width: $x05) {
+		@media only screen and (max-width: $x05) {
 			@content;
 		}
 	} @else if $media == x1 {
-		@media only screen and (min-width: $x05) and (max-width: $x1) {
+		@media only screen and (max-width: $x1) {
 			@content;
 		}
 	} @else if $media == x2 {
-		@media only screen and (min-width: $x1) and (max-width: $x2) {
+		@media only screen and (max-width: $x2) {
 			@content;
 		}
 	} @else if $media == xx {

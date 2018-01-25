@@ -5,6 +5,7 @@ import Appear from '../HOC/Appear'
 import { Works } from './Works'
 import { Work } from './Works'
 import { Contacts } from './Contacts'
+import { About } from './About'
 import { Main } from './Main'
 
 export default () =>
@@ -12,6 +13,7 @@ export default () =>
 		<Route exact path='/' component={Appear(Main)}/>
 		<Route exact path='/contacts' component={Appear(Contacts)}/>
 		<Route exact path='/works' component={Appear(Works)}/>
+		<Route exact path='/about' component={Appear(About)}/>
 		<Route path='/:url' render={({ match }) => <Work url={match.params.url}/>}/>
 		<Route render={() => <h1>Page not found</h1>}/>
 	</Switch>

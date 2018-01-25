@@ -22,6 +22,7 @@ export default class extends Component {
 		let blackColor = actionBlock ? 'black' : 'white';
 		return <div className={`menu ${AnimationCss}`}>
 			<AnimatedLink to={'/'} style={{color: blackColor}}>Home </AnimatedLink>
+			<AnimatedLink to={'/about'} style={{color: blackColor}}>About </AnimatedLink>
 			<AnimatedLink to={'/works'} style={{color: blackColor}}>Works </AnimatedLink>
 			<AnimatedLink to={'/contacts'} style={{color: blackColor}}>Contacts</AnimatedLink>
 		</div>

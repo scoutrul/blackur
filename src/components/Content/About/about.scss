@@ -1,0 +1,43 @@
+.page-about {
+	h3, h4, h5, h6 {
+		margin: 0;
+		font-weight: 400;
+	}
+	.content {
+		color: #FFF;
+		padding: 420px 0;
+		.column {
+			display: flex;
+			flex-flow: row wrap;
+			margin: 100px 0;
+			div {
+				flex: 1 1 490px;
+				margin: 100px 70px 100px 0;
+			}
+		}
+
+		.dark {
+			color: #303336;
+			span {
+				color: #FFF;
+			}
+		}
+
+		&.appear_before {
+			opacity: 0;
+			transition: .3s;
+
+			h1 {
+				transform: translate(50px, 0);
+				transition: .3s;
+			}
+		}
+		&.appear_after {
+			opacity: 1;
+			h1 {
+				transform: translate(0);
+			}
+
+		}
+	}
+}
