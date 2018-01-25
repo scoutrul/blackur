@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Appear from '../../HOC/Appear'
-import ScrollResizeChanger from '../../HOC/onScrollResizeChanger'
+import ScrollResizeChanger from '../../HOC/colorChanger'
 import './works.scss';
 import PropTypes from "prop-types";
 
@@ -37,7 +37,7 @@ export default class extends Component {
 		
 		return (
 			<div className={`work ${AnimationCss}`}>
-				<div className="firstScreen">
+				<div className="firstScreen" style={{backgroundColor: work.color}}>
 					<ScrollResizeChanger component={Class}/>
 					
 					<div className="contentContainer">

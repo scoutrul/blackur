@@ -5,23 +5,23 @@ export default() => {
 				image: '/images/works/epson.png',
 				color: '#0957b6',
 				header: 'Epson ReadyInk',
-				slogan: 'Ready for hassle-free printing?',
+				slogan: 'Design & Development',
 				services: ['Product Design', 'Web Development'],
 				url: 'Epson'
 			},
 			{
 				image: '/images/works/epson.png',
-				color: '#0957b6',
+				color: '#57b609',
 				header: 'Cloudburst',
-				slogan: 'Ready for hassle-free printing?',
+				slogan: 'Concept & Design',
 				services: ['Product Design', 'Web Development'],
 				url: 'Cloudburst'
 			},
 			{
 				image: '/images/works/epson.png',
-				color: '#0957b6',
+				color: '#09b657',
 				header: 'Edmunds',
-				slogan: 'Ready for hassle-free printing?',
+				slogan: 'Design & Development',
 				services: ['Product Design', 'Web Development'],
 				url: 'Edmunds'
 			},
@@ -29,15 +29,15 @@ export default() => {
 				image: '/images/works/epson.png',
 				color: '#0957b6',
 				header: 'Storymaze',
-				slogan: 'Ready for hassle-free printing?',
+				slogan: 'Mobile app',
 				services: ['Product Design', 'Web Development'],
 				url: 'Storymaze'
 			},
 			{
 				image: '/images/works/epson.png',
-				color: '#0957b6',
+				color: '#b60957',
 				header: 'Omnistry',
-				slogan: 'Ready for hassle-free printing?',
+				slogan: 'Design & Development',
 				services: ['Product Design', 'Web Development'],
 				url: 'Omnistry'
 			},

@@ -7,8 +7,6 @@
 	z-index: 10;
 	transition: 1s ease;
 
-
-
 	@include adaptive(x1) {
 		top: $framePaddingX1;
 		right: $framePaddingX1;
@@ -58,7 +56,6 @@
 		}
 	}
 	&.leave_animation {
-
 		a {
 			transition: .2s ease;
 			transform: translateX(50px) !important;
@@ -74,5 +71,4 @@
 			}
 		}
 	}
-
 }

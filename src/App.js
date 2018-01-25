@@ -4,7 +4,7 @@ import Content from './components/Content/index'
 import { Menu } from './components/Menu'
 import { Footer } from './components/Footer'
 import { Logo } from './components/Header'
-import ScrollResizeChanger from './components/HOC/onScrollResizeChanger'
+import ScrollResizeChanger from './components/HOC/colorChanger'
 
 import './App.scss';
 

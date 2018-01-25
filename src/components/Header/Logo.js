@@ -14,7 +14,7 @@ export default class extends Component {
 
 	render() {
 		
-		let {viewBoxHeight, divHeight, divTopOffset, scrollTop, stopper, actionBlock} = this.props.MovingActions;
+		let {viewBoxHeight, divHeight, divTopOffset, scrollTop, actionBlock} = this.props.MovingActions;
 		
 		let move = actionBlock ? scrollTop - (viewBoxHeight - divTopOffset - divHeight) : 0;
 		return <AnimatedLink to={'/'}>

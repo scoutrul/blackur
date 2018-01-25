@@ -16,7 +16,7 @@ export default class extends Component {
 			<li key={item.url}>
 				<AnimatedLink to={`/${item.url}`}>
 					<h2>{item.header}</h2>
-					<h5>{item.slogan}</h5>
+					<span>{item.slogan}</span>
 				</AnimatedLink>
 			</li>);
 		

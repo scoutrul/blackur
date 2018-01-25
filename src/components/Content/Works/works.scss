@@ -1,4 +1,12 @@
 .works {
+	&.appear_before {
+		opacity: 0;
+		transition: .2s ease;
+	}
+	&.appear_after {
+		opacity: 1;
+	}
+
 	.list {
 		height: 100%;
 		display: flex;
@@ -8,11 +16,14 @@
 		list-style: none;
 		color: #FFF;
 		li {
-			margin: 20px 0;
+			margin: 30px 0;
 			width: fit-content;
 			&:hover {
 				color: #999
 			}
+		}
+		h1, h2,h3,h4,h5,h6 {
+			font-weight: 400;
 		}
 	}
 }
@@ -30,15 +41,5 @@
 		min-height: 100vh;
 		color: $specialBlack;
 		height: 100%;
-	}
-
-	&.appear_before {
-		transition: .5s;
-		opacity: 0;
-		margin-top: 30px;
-	}
-	&.appear_after {
-		opacity: 1;
-		margin-top: 0px;
 	}
 }
