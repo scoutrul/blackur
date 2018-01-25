@@ -43,7 +43,7 @@ export default class extends Component {
 	};
 	
 	render() {
-		return <a onClick={e => this.linkHandler(e, this.props.to)} href={this.props.to}>
+		return <a onClick={e => this.linkHandler(e, this.props.to)} href={this.props.to} style={this.props.style}>
 			{this.props.children}
 		</a>
 	}

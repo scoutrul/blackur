@@ -19,14 +19,13 @@ export default class extends Component {
 		let stopper = viewBoxHeight - (divHeight / 2 + divTopOffset);
 		let actionBlock = scrollTop >= stopper;
 		
+		let blackColor = actionBlock ? 'black' : 'white';
 		return <div className={`menu ${AnimationCss}`}>
-				<div style={{ color: !actionBlock && 'white' }}><AnimatedLink to={'/'}>Home </AnimatedLink></div>
-				<div style={{ color: !actionBlock && 'white' }}><AnimatedLink to={'/works'}>Works </AnimatedLink></div>
-				<div style={{ color: !actionBlock && 'white' }}><AnimatedLink to={'/contacts'}>Contacts</AnimatedLink>
-			</div>
-		
-		
+			<AnimatedLink to={'/'} style={{color: blackColor}}>Home </AnimatedLink>
+			<AnimatedLink to={'/works'} style={{color: blackColor}}>Works </AnimatedLink>
+			<AnimatedLink to={'/contacts'} style={{color: blackColor}}>Contacts</AnimatedLink>
 		</div>
+		
 		
 	}
 }

@@ -3,8 +3,12 @@
 	display: flex;
 	flex-direction: column;
 	writing-mode: vertical-lr;
-	color: #99D9D9;
+	color: #FFF;
 	z-index: 10;
+	transition: 1s ease;
+
+
+
 	@include adaptive(x1) {
 		top: $framePaddingX1;
 		right: $framePaddingX1;
@@ -29,7 +33,7 @@
 		padding: 10px 0;
 	}
 	&.appear_before {
-		div {
+		a {
 			transform: translateX(50px);
 			opacity: 0;
 		}
@@ -37,7 +41,7 @@
 	&.appear_after {
 		transform: translateX(0);
 		opacity: 1;
-		div {
+		a {
 			transition: .2s ease .0s;
 			transform: translateX(0);
 			opacity: 1;
@@ -55,7 +59,7 @@
 	}
 	&.leave_animation {
 
-		div {
+		a {
 			transition: .2s ease;
 			transform: translateX(50px) !important;
 			opacity: 0 !important;
