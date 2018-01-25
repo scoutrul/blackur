@@ -1,6 +1,30 @@
 .page-contacts {
-	color: darkgoldenrod;
+	.content {
+		color: #FFF;
+		height: 100%;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		padding: 420px 0;
+		.dark {
+			color: $specialDark;
+			margin: 100px 0;
+			span {
+				color: #FFF
+			}
+		}
+		form {
+			max-width: 300px;
+			input {
+				font-size: 140%;
+				background-color: transparent;
+				color: #FFF;
+				border: 0;
+				outline: none;
+			}
+		}
 
+	}
 	&.appear_before {
 		opacity: 0;
 		transition: .3s;

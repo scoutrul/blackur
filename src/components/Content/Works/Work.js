@@ -27,10 +27,11 @@ export default class extends Component {
 			};
 			
 			render() {
-				let { viewBoxHeight, divHeight, divTopOffset, scrollTop } = this.props.MovingActions;
-				let stopper = viewBoxHeight - (divHeight / 2 + divTopOffset);
-				let actionBlock = scrollTop >= stopper;
-				return <div className="contentTitle" style={{ color: !actionBlock && 'white' }}>{slogan}</div>
+				let { divTopOffset, scrollTop } = this.props.MovingActions;
+				let stopper = divTopOffset + scrollTop > 150;
+				
+				return <div className="contentTitle" style={{ opacity: stopper && 0 }}>
+					{slogan}</div>
 			}
 		}
 		

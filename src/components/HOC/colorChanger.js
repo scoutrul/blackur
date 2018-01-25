@@ -33,7 +33,7 @@ export default class extends Component {
 	_resizeEvent = () => {
 		let resizeTimeout;
 		let divElement = this._findNestedDiv(this.divElement);
-		let viewBoxHeight = document.getElementsByClassName('firstScreen')[0]? document.getElementsByClassName('firstScreen')[0].getBoundingClientRect().height : document.body.getElementsByClassName('main')[0].scrollHeight;
+		let viewBoxHeight = document.querySelector('.firstScreen')? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
 		let stopper = viewBoxHeight - (divHeight + divTopOffset);
@@ -62,7 +62,7 @@ export default class extends Component {
 	
 	componentDidMount() {
 		let divElement = this._findNestedDiv(this.divElement);
-		let viewBoxHeight = document.getElementsByClassName('firstScreen')[0]? document.getElementsByClassName('firstScreen')[0].getBoundingClientRect().height : document.body.getElementsByClassName('main')[0].scrollHeight;
+		let viewBoxHeight = document.querySelector('.firstScreen')? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
 		
@@ -73,13 +73,13 @@ export default class extends Component {
 		});
 		
 		window.addEventListener('resize', this._resizeEvent, false);
-		document.getElementsByClassName('scrollBox')[0].addEventListener('scroll', this._scrollEvent);
+		document.querySelector('.scrollBox').addEventListener('scroll', this._scrollEvent);
 		this._scrollEvent();
 	}
 	
 	componentWillUnmount() {
 		window.removeEventListener('resize', this._resizeEvent, false);
-		document.getElementsByClassName('scrollBox')[0].removeEventListener('scroll', this._scrollEvent);
+		document.querySelector('.scrollBox').removeEventListener('scroll', this._scrollEvent);
 	}
 	
 	render() {

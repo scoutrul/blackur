@@ -20,6 +20,7 @@ h1 {
 }
 
 h2 {
+	font-weight: 700;
 	font-size: 77px;
 	line-height: 80px;
 	margin: 0 0 0 -0.085em;
@@ -47,6 +48,10 @@ h6 {
 	font-size: 15px;
 	line-height: 30px;
 	margin: 0 0 0 -0.085em;
+}
+h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: 600;
 }
 
 a {

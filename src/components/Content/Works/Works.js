@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import AnimatedLink from '../../HOC/AnimatedLink'
-import HeaderSlogan from '../../Header/HeaderSlogan'
+import ScrollResizeChanger from '../../HOC/colorChanger'
 import './works.scss';
+import PropTypes from "prop-types";
 
 const connectProps = (state) => {
 	return {
@@ -11,7 +12,22 @@ const connectProps = (state) => {
 };
 @connect(connectProps)
 export default class extends Component {
+	
 	render() {
+		class Class extends Component {
+			static propTypes = {
+				MovingActions: PropTypes.object,
+			};
+			
+			render() {
+				let { divTopOffset, scrollTop } = this.props.MovingActions;
+				let stopper = divTopOffset + scrollTop > 150;
+
+				return <div className="contentTitle" style={{ opacity: stopper && 0 }}>
+					Works</div>
+			}
+		}
+		
 		const WorksList = () => this.props.works.map(item =>
 			<li key={item.url}>
 				<AnimatedLink to={`/${item.url}`}>
@@ -23,7 +39,7 @@ export default class extends Component {
 		const { AnimationCss } = this.props;
 		return (
 			<div className={`works contentContainer ${AnimationCss}`}>
-				<HeaderSlogan text={'Works'}/>
+				<ScrollResizeChanger component={Class}/>
 				<ul className="list">
 					<WorksList/>
 				</ul>

@@ -5,6 +5,10 @@
 	z-index: 10;
 	height: 100%;
 	-webkit-overflow-scrolling: touch;
+	touch-action: manipulation;
+	backface-visibility: hidden;
+	will-change: transform;
+	transform: translate(0);
 }
 
 .main {
@@ -17,13 +21,14 @@
 		flex-flow: column;
 		max-width: 1280px;
 		color: #FFF;
+		transition: .2s ease;
 		@include adaptive(x1) {
 			margin: $framePaddingX1;
 			line-height: $logoH+px;
 			left: $framePaddingX2;
 		}
 		@include adaptive(x2) {
-			margin: $framePaddingX2 $framePaddingX1 ;
+			margin: $framePaddingX2 $framePaddingX1;
 			line-height: $logoH * 1.2+px;
 			left: $framePaddingXx;
 		}

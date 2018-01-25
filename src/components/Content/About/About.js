@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
+import ScrollResizeChanger from '../../HOC/colorChanger'
 import './about.scss'
+import PropTypes from "prop-types";
 
 
 export default class extends Component {
 	
 	render() {
 		const { AnimationCss } = this.props;
+		
+		
+		class Class extends Component {
+			static propTypes = {
+				MovingActions: PropTypes.object,
+			};
+			
+			render() {
+				let { divTopOffset, scrollTop } = this.props.MovingActions;
+				let stopper = divTopOffset + scrollTop > 150;
+				
+				return <div className="contentTitle" style={{ opacity: stopper && 0 }}>
+					We help products find their place in digital void.</div>
+			}
+		}
+		
 		return (
 			<div className={`contentContainer page-about ${AnimationCss}`}>
+				<ScrollResizeChanger component={Class}/>
 				<div className="content">
 					
 					<h1>We are Blackur.</h1>
