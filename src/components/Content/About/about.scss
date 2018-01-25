@@ -1,4 +1,7 @@
 .page-about {
+	h1,h2 {
+		font-weight: 600;
+	}
 	h3, h4, h5, h6 {
 		margin: 0;
 		font-weight: 400;
@@ -8,11 +11,27 @@
 		padding: 420px 0;
 		.column {
 			display: flex;
-			flex-flow: row wrap;
 			margin: 100px 0;
+			@include adaptive(x05) {
+				flex-flow: row wrap;
+			}
 			div {
 				flex: 1 1 490px;
-				margin: 100px 70px 100px 0;
+				@include adaptive(xx) {
+					margin: 140px 80px 140px 0;
+				}
+				@include adaptive(x2) {
+					margin: 120px 100px 120px 0;
+				}
+				@include adaptive(x1) {
+					margin: 100px 70px 100px 0;
+				}
+				@include adaptive(x05) {
+					margin: 60px 40px 60px 0;
+				}
+				@include adaptive(x25) {
+					margin: 40px 20px 40px 0;
+				}
 			}
 		}
 

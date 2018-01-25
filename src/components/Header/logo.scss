@@ -3,6 +3,10 @@
 	position: fixed;
 	transform-origin: left;
 	z-index: 10;
+	@include adaptive(xx) {
+		left: $framePaddingXx;
+		top: $framePaddingXx;
+	}
 	@include adaptive(x1) {
 		left: $framePaddingX1;
 		top: $framePaddingX1;
@@ -10,10 +14,6 @@
 	@include adaptive(x2) {
 		left: $framePaddingX2;
 		top: $framePaddingX2;
-	}
-	@include adaptive(xx) {
-		left: $framePaddingXx;
-		top: $framePaddingXx;
 	}
 	@include adaptive(x05) {
 		left: $framePaddingX05;
@@ -45,12 +45,11 @@
 			min-width: $logoH * 1.4+px;
 		}
 		@include adaptive(x2) {
-			min-height: $logoW * 1.2+px;
-			min-width: $logoH * 1.2+px;
-		}
-		@include adaptive(x1) {
 			min-height: $logoW+px;
 			min-width: $logoH+px;
+		}
+		@include adaptive(x1) {
+
 		}
 		@include adaptive(x05) {
 			min-height: $logoW * .8+px;

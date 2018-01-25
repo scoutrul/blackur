@@ -32,10 +32,8 @@ export default class extends Component {
 	
 	_resizeEvent = () => {
 		let resizeTimeout;
-		const vewBoxElement = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
 		let divElement = this._findNestedDiv(this.divElement);
-		
-		let viewBoxHeight = vewBoxElement.getBoundingClientRect().height;
+		let viewBoxHeight = document.getElementsByClassName('firstScreen')[0]? document.getElementsByClassName('firstScreen')[0].getBoundingClientRect().height : document.body.getElementsByClassName('main')[0].scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
 		let stopper = viewBoxHeight - (divHeight + divTopOffset);
@@ -63,10 +61,8 @@ export default class extends Component {
 	};
 	
 	componentDidMount() {
-		const vewBoxElement = document.getElementsByClassName('firstScreen')[0] || document.getElementsByClassName('Main')[0] || document.body;
-		
 		let divElement = this._findNestedDiv(this.divElement);
-		let viewBoxHeight = vewBoxElement.getBoundingClientRect().height;
+		let viewBoxHeight = document.getElementsByClassName('firstScreen')[0]? document.getElementsByClassName('firstScreen')[0].getBoundingClientRect().height : document.body.getElementsByClassName('main')[0].scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
 		

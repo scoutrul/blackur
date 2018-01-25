@@ -11,7 +11,6 @@ body, html {
 	font-family: sans-serif;
 }
 
-
 $logoW: 54;
 $logoH: 48.5;
 
@@ -30,9 +29,6 @@ $x1: 1280px;
 $x15: 1680px;
 $x2: 2560px;
 
-
-
-
 @mixin adaptive($media) {
 	@if $media == x025 {
 		@media only screen and (min-width: 0) and (max-width: $x025) {
@@ -46,17 +42,16 @@ $x2: 2560px;
 		@media only screen and (max-width: $x1) {
 			@content;
 		}
+	} @else if $media == x15 {
+		@media only screen and (min-width: $x15) {
+			@content;
+		}
 	} @else if $media == x2 {
 		@media only screen and (max-width: $x2) {
 			@content;
 		}
 	} @else if $media == xx {
 		@media only screen and (min-width: $x2) {
-			@content;
-		}
-	}
-	@else if $media == x15 {
-		@media only screen and (min-width: $x15) {
 			@content;
 		}
 	}
