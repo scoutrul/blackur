@@ -28,9 +28,9 @@ export default class extends Component {
 			
 			render() {
 				let { divTopOffset, scrollTop } = this.props.MovingActions;
-				let stopper = divTopOffset + scrollTop > 150;
+				let stopper = divTopOffset + scrollTop > 170;
 				
-				return <div className="contentTitle" style={{ opacity: stopper && 0 }}>
+				return <div className="contentTitle" style={{ opacity: stopper && 0, top: scrollTop }}>
 					{slogan}</div>
 			}
 		}

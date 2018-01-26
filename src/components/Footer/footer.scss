@@ -2,17 +2,19 @@
 	position: fixed;
 	display: flex;
 	transition: .2s ease;
-	@include adaptive(x1) {
-		bottom: $framePaddingX1;
-		right: $framePaddingX1;
+	z-index: 10;
+	font-size: 15px;
+	@include adaptive(xx) {
+		bottom: $framePaddingXx;
+		right: $framePaddingXx;
 	}
 	@include adaptive(x2) {
 		bottom: $framePaddingX2;
 		right: $framePaddingX2;
 	}
-	@include adaptive(xx) {
-		bottom: $framePaddingXx;
-		right: $framePaddingXx;
+	@include adaptive(x1) {
+		bottom: $framePaddingX1;
+		right: $framePaddingX1;
 	}
 	@include adaptive(x05) {
 		bottom: $framePaddingX05;
@@ -22,7 +24,7 @@
 		bottom: $framePaddingX025;
 		right: $framePaddingX025;
 	}
-	a{
+	a {
 		transition: .1s ease;
 	}
 	&.appear_before {

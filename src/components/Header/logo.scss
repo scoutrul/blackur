@@ -7,13 +7,13 @@
 		left: $framePaddingXx;
 		top: $framePaddingXx;
 	}
-	@include adaptive(x1) {
-		left: $framePaddingX1;
-		top: $framePaddingX1;
-	}
 	@include adaptive(x2) {
 		left: $framePaddingX2;
 		top: $framePaddingX2;
+	}
+	@include adaptive(x1) {
+		left: $framePaddingX1;
+		top: $framePaddingX1;
 	}
 	@include adaptive(x05) {
 		left: $framePaddingX05;
@@ -47,9 +47,6 @@
 		@include adaptive(x2) {
 			min-height: $logoW+px;
 			min-width: $logoH+px;
-		}
-		@include adaptive(x1) {
-
 		}
 		@include adaptive(x05) {
 			min-height: $logoW * .8+px;

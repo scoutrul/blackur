@@ -17,37 +17,35 @@
 	.contentTitle {
 		display: flex;
 		position: absolute;
-		width: 100%;
 		flex-flow: column;
 		max-width: 1280px;
 		color: #FFF;
-		transition: .2s ease;
-		@include adaptive(x1) {
-			margin: $framePaddingX1;
-			line-height: $logoH+px;
-			left: $framePaddingX2;
-		}
-		@include adaptive(x2) {
-			margin: $framePaddingX2 $framePaddingX1;
-			line-height: $logoH * 1.2+px;
-			left: $framePaddingXx;
-		}
+		transition: opacity .1s ease;
 		@include adaptive(xx) {
-			margin: $framePaddingXx;
+			padding: $framePaddingXx;
 			line-height: $logoH * 1.4+px;
 			left: $framePaddingXx;
 		}
+		@include adaptive(x2) {
+			padding: $framePaddingX2 $framePaddingX1;
+			line-height: $logoH * 1.2+px;
+			left: $framePaddingXx;
+		}
+		@include adaptive(x1) {
+			padding: $framePaddingX1;
+			line-height: $logoH+px;
+			left: $framePaddingX2;
+		}
 		@include adaptive(x05) {
-			margin: $framePaddingX05;
+			padding: $framePaddingX05;
 			line-height: $logoH * .8+px;
 			left: $framePaddingX1;
 		}
 		@include adaptive(x025) {
-			margin: $framePaddingX025;
+			padding: $framePaddingX025;
 			line-height: $logoH * .6+px;
 			left: $framePaddingX05;
 		}
-
 	}
 	.contentContainer {
 		height: 100%;
@@ -55,14 +53,14 @@
 		flex-flow: column;
 		max-width: 1280px;
 		margin: auto;
-		@include adaptive(x1) {
-			padding: 0 $framePaddingX1;
+		@include adaptive(xx) {
+			padding: 0 $framePaddingXx;
 		}
 		@include adaptive(x2) {
 			padding: 0 $framePaddingX2;
 		}
-		@include adaptive(xx) {
-			padding: 0 $framePaddingXx;
+		@include adaptive(x1) {
+			padding: 0 $framePaddingX1;
 		}
 		@include adaptive(x05) {
 			padding: 0 $framePaddingX05;

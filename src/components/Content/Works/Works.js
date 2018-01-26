@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import AnimatedLink from '../../HOC/AnimatedLink'
 import ScrollResizeChanger from '../../HOC/colorChanger'
 import './works.scss';
@@ -21,9 +21,14 @@ export default class extends Component {
 			
 			render() {
 				let { divTopOffset, scrollTop } = this.props.MovingActions;
-				let stopper = divTopOffset + scrollTop > 150;
-
-				return <div className="contentTitle" style={{ opacity: stopper && 0 }}>
+				let stopper = divTopOffset + scrollTop > 170;
+				
+				return <div className="contentTitle"
+							style={
+								{
+									opacity: stopper && 0,
+									transform: `translateY(${scrollTop}px)`
+								}}>
 					Works</div>
 			}
 		}

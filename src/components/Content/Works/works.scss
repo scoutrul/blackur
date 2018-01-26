@@ -1,7 +1,6 @@
 .works {
 	&.appear_before {
 		opacity: 0;
-		transition: .2s ease;
 	}
 	&.appear_after {
 		opacity: 1;
@@ -9,7 +8,7 @@
 
 	.list {
 		height: 100%;
-		padding: 160px 0;
+		padding: 40vh 0;
 		list-style: none;
 		color: #FFF;
 		li {

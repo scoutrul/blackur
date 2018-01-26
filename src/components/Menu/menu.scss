@@ -7,17 +7,17 @@
 	z-index: 10;
 	transition: 1s ease;
 
-	@include adaptive(x1) {
-		top: $framePaddingX1;
-		right: $framePaddingX1;
+	@include adaptive(xx) {
+		top: $framePaddingXx;
+		right: $framePaddingXx;
 	}
 	@include adaptive(x2) {
 		top: $framePaddingX2;
 		right: $framePaddingX2;
 	}
-	@include adaptive(xx) {
-		top: $framePaddingXx;
-		right: $framePaddingXx;
+	@include adaptive(x1) {
+		top: $framePaddingX1;
+		right: $framePaddingX1;
 	}
 	@include adaptive(x05) {
 		top: $framePaddingX05;

@@ -18,38 +18,33 @@ export default class extends Component {
 		let actionBlock = scrollTop >= stopper;
 		
 		if (!ticking) {
-			window.requestAnimationFrame(() => {
-				ticking = false;
 				this.setState({
 					scrollTop,
 					stopper,
 					actionBlock
 				}, this._resizeEvent)
+			window.requestAnimationFrame(() => {
+				ticking = false;
 			});
 			ticking = true;
 		}
 	};
 	
 	_resizeEvent = () => {
-		let resizeTimeout;
 		let divElement = this._findNestedDiv(this.divElement);
-		let viewBoxHeight = document.querySelector('.firstScreen')? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
+		let viewBoxHeight = document.querySelector('.firstScreen') ? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
 		let stopper = viewBoxHeight - (divHeight + divTopOffset);
 		let actionBlock = this.state.scrollTop >= stopper;
 		
-		if (!resizeTimeout) {
-			resizeTimeout = setTimeout(() => {
-				resizeTimeout = false;
-				this.setState({
-					divTopOffset,
-					divHeight,
-					viewBoxHeight,
-					actionBlock
-				});
-			}, 66);
-		}
+		this.setState({
+			divTopOffset,
+			divHeight,
+			viewBoxHeight,
+			actionBlock
+		});
+		
 	};
 	
 	_findNestedDiv = (curElement) => {
@@ -62,7 +57,7 @@ export default class extends Component {
 	
 	componentDidMount() {
 		let divElement = this._findNestedDiv(this.divElement);
-		let viewBoxHeight = document.querySelector('.firstScreen')? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
+		let viewBoxHeight = document.querySelector('.firstScreen') ? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
 		
