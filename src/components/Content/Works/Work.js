@@ -23,6 +23,7 @@ export default class extends Component {
 	
 	componentDidMount() {
 		this.props.setTitle(this.props.works.find(item => item.url === this.props.url).slogan);
+		document.querySelector('.scrollBox').scrollTop = 0;
 	}
 	
 	render() {
