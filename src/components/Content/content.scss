@@ -15,6 +15,7 @@
 	position: fixed;
 	z-index: 10;
 	color: #FFF;
+	transition: .1s ease;
 	@include adaptive(xx) {
 		left: $logoW*1.4 + $framePaddingXx;
 		top: $framePaddingXx;

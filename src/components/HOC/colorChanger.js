@@ -47,11 +47,11 @@ export default class extends Component {
 	};
 	
 	_findNestedDiv = (curElement) => {
-		function getInsideDiv(curElement) {
-			return curElement.clientHeight ? curElement : getInsideDiv(curElement.children[0])
-		}
-		
-		return curElement.clientHeight ? curElement : getInsideDiv(curElement.children[0])
+		let child = 0;
+		// function getInsideDiv(curElement) {
+		// 	return curElement.clientHeight ? curElement : getInsideDiv(curElement.children[0])
+		// }
+		return curElement.clientHeight !==0 ? curElement : this._findNestedDiv(curElement.children[0])
 	};
 	
 	componentDidMount() {
