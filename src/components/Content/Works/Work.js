@@ -1,45 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import Appear from '../../HOC/Appear'
-import ScrollResizeChanger from '../../HOC/colorChanger'
 import './works.scss';
-import PropTypes from "prop-types";
+import { setTitle_action } from "../../../store/reducers/Content";
 
 const connectProps = (state) => {
 	return {
 		works: state.Content.works,
 	}
 };
-@connect(connectProps)
+const connectDispatch = dispatch => {
+	return {
+		setTitle: (payload) => {
+			dispatch(setTitle_action(payload))
+		}
+	}
+};
+
+@connect(connectProps,connectDispatch)
 @Appear
 export default class extends Component {
+	
+	componentDidMount() {
+		this.props.setTitle(this.props.works.find(item => item.url === this.props.url).slogan);
+	}
 	
 	render() {
 		const work = this.props.works.find(item => item.url === this.props.url);
 		const { AnimationCss } = this.props;
 		
 		const { header } = work || 'header';
-		const { slogan } = work || 'slogan';
-		
-		class Class extends Component {
-			static propTypes = {
-				MovingActions: PropTypes.object,
-			};
-			
-			render() {
-				let { divTopOffset, scrollTop } = this.props.MovingActions;
-				let stopper = divTopOffset + scrollTop > 170;
-				
-				return <div className="contentTitle" style={{ opacity: stopper && 0, top: scrollTop }}>
-					{slogan}</div>
-			}
-		}
 		
 		
 		return (
 			<div className={`work ${AnimationCss}`}>
 				<div className="firstScreen" style={{backgroundColor: work.color}}>
-					<ScrollResizeChanger component={Class}/>
 					
 					<div className="contentContainer">
 						<h1>{header}</h1>

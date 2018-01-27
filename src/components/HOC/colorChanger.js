@@ -18,13 +18,13 @@ export default class extends Component {
 		let actionBlock = scrollTop >= stopper;
 		
 		if (!ticking) {
+			window.requestAnimationFrame(() => {
+				ticking = false;
 				this.setState({
 					scrollTop,
 					stopper,
 					actionBlock
 				}, this._resizeEvent)
-			window.requestAnimationFrame(() => {
-				ticking = false;
 			});
 			ticking = true;
 		}
@@ -44,7 +44,6 @@ export default class extends Component {
 			viewBoxHeight,
 			actionBlock
 		});
-		
 	};
 	
 	_findNestedDiv = (curElement) => {

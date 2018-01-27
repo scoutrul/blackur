@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
-import ScrollResizeChanger from '../../HOC/colorChanger'
-import PropTypes from "prop-types";
 import './contacts.scss'
+import { setTitle_action } from "../../../store/reducers/Content";
+import { connect } from "react-redux";
 
-
+const connectProps = (state) => {
+	return {
+		title: state.Content.pages.contacts.title,
+	}
+};
+const connectDispatch = dispatch => {
+	return {
+		setTitle: (payload) => {
+			dispatch(setTitle_action(payload))
+		}
+	}
+};
+@connect(connectProps, connectDispatch)
 export default class extends Component {
-	
+	componentDidMount() {
+		this.props.setTitle(this.props.title);
+	}
 	render() {
 		const { AnimationCss } = this.props;
 		
-		class Class extends Component {
-			static propTypes = {
-				MovingActions: PropTypes.object,
-			};
-			
-			render() {
-				let { divTopOffset, scrollTop } = this.props.MovingActions;
-				let stopper = divTopOffset + scrollTop > 150;
-				
-				return <div className="contentTitle" style={{ opacity: stopper && 0 }}>
-					We take ambitious projects and are proud of the result.</div>
-			}
-		}
 		
 		return (
 			<div className={`contentContainer page-contacts ${AnimationCss}`}>
-				<ScrollResizeChanger component={Class}/>
 				<div className="content">
 					<h3 className={'dark'}><span>Tell us your</span> <br/>
 						black secrets.</h3>

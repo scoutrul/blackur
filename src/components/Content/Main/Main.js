@@ -2,14 +2,25 @@ import React, { Component } from 'react';
 import Project from './Project'
 import './main.scss'
 import { connect } from "react-redux";
+import { setTitle_action } from "../../../store/reducers/Content";
 
 const connectProps = (state) => {
 	return {
 		works: state.Content.works,
 	}
 };
-@connect(connectProps)
+const connectDispatch = dispatch => {
+	return {
+		setTitle: (payload) => {
+			dispatch(setTitle_action(payload))
+		}
+	}
+};
+@connect(connectProps, connectDispatch)
 export default class extends Component {
+	componentDidMount() {
+		this.props.setTitle('');
+	}
 	render() {
 		const { AnimationCss } = this.props;
 		return (

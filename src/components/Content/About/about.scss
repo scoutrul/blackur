@@ -1,30 +1,28 @@
 .page-about {
 	.content {
 		color: #FFF;
-		padding: 420px 0;
+		padding: 30vh 0;
 		.column {
 			display: flex;
-			margin: 100px 0;
+			@include adaptive(xx) {
+				margin: 200px 100px 150px 0;
+			}
+			@include adaptive(x2) {
+				margin: 180px 100px 150px 0;
+			}
+			@include adaptive(x1) {
+				margin: 150px 100px 150px 0;
+			}
 			@include adaptive(x05) {
 				flex-flow: row wrap;
+				margin: 120px 100px 150px 0;
+			}
+			@include adaptive(x25) {
+				margin: 100px 100px 150px 0;
 			}
 			div {
-				flex: 1 1 490px;
-				@include adaptive(xx) {
-					margin: 140px 80px 140px 0;
-				}
-				@include adaptive(x2) {
-					margin: 120px 100px 120px 0;
-				}
-				@include adaptive(x1) {
-					margin: 100px 70px 100px 0;
-				}
-				@include adaptive(x05) {
-					margin: 60px 40px 60px 0;
-				}
-				@include adaptive(x25) {
-					margin: 40px 20px 40px 0;
-				}
+				flex: 1 1 300px;
+				margin: 0 40px 40px 0;
 			}
 		}
 

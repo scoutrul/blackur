@@ -11,6 +11,32 @@
 	transform: translate(0);
 }
 
+.pageTitle {
+	position: fixed;
+	z-index: 10;
+	color: #FFF;
+	@include adaptive(xx) {
+		left: $logoW*1.4 + $framePaddingXx;
+		top: $framePaddingXx;
+	}
+	@include adaptive(x2) {
+		left: $logoW*2 + $framePaddingX2;
+		top: $framePaddingX2;
+	}
+	@include adaptive(x1) {
+		left: $logoW*2 + $framePaddingX1;
+		top: $framePaddingX1;
+	}
+	@include adaptive(x05) {
+		left: $logoW + $framePaddingX05;
+		top: $framePaddingX05;
+	}
+	@include adaptive(x025) {
+		left: $logoW + $framePaddingX025;
+		top: $framePaddingX025;
+	}
+}
+
 .main {
 	height: 100%;
 	max-height: 100vh;

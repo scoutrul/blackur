@@ -1,37 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import AnimatedLink from '../../HOC/AnimatedLink'
-import ScrollResizeChanger from '../../HOC/colorChanger'
 import './works.scss';
-import PropTypes from "prop-types";
+import { setTitle_action } from "../../../store/reducers/Content";
 
 const connectProps = (state) => {
 	return {
 		works: state.Content.works,
+		title: state.Content.pages.contacts.title,
 	}
 };
-@connect(connectProps)
+const connectDispatch = dispatch => {
+	return {
+		setTitle: (payload) => {
+			dispatch(setTitle_action(payload))
+		}
+	}
+};
+@connect(connectProps, connectDispatch)
 export default class extends Component {
 	
-	render() {
-		class Class extends Component {
-			static propTypes = {
-				MovingActions: PropTypes.object,
-			};
-			
-			render() {
-				let { divTopOffset, scrollTop } = this.props.MovingActions;
-				let stopper = divTopOffset + scrollTop > 170;
-				
-				return <div className="contentTitle"
-							style={
-								{
-									opacity: stopper && 0,
-									transform: `translateY(${scrollTop}px)`
-								}}>
-					Works</div>
-			}
+		componentDidMount() {
+			this.props.setTitle(this.props.title);
 		}
+		
+	render() {
+		
 		
 		const WorksList = () => this.props.works.map(item =>
 			<li key={item.url}>
@@ -44,7 +38,6 @@ export default class extends Component {
 		const { AnimationCss } = this.props;
 		return (
 			<div className={`works contentContainer ${AnimationCss}`}>
-				<ScrollResizeChanger component={Class}/>
 				<ul className="list">
 					<WorksList/>
 				</ul>
