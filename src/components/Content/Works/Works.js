@@ -25,8 +25,6 @@ export default class extends Component {
 		}
 		
 	render() {
-		
-		
 		const WorksList = () => this.props.works.map(item =>
 			<li key={item.url}>
 				<AnimatedLink to={`/${item.url}`}>

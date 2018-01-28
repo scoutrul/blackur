@@ -20,7 +20,12 @@ const connectDispatch = dispatch => {
 export default class extends Component {
 	componentDidMount() {
 		this.props.setTitle('');
+		
+		document.querySelector('.scrollBox').scrollTop = 0;
+		
+		
 	}
+	
 	render() {
 		const { AnimationCss } = this.props;
 		return (

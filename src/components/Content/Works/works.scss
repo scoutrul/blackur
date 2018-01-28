@@ -34,9 +34,14 @@
 		flex-direction: column;
 	}
 	.otherScreen {
+		padding: $logoH*3+px 0;
 		background-color: #FFFFFF;
 		min-height: 100vh;
 		color: $specialBlack;
 		height: 100%;
+
+		H4 {
+			padding: $logoH*3+px 0;
+		}
 	}
 }

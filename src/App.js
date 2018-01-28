@@ -10,6 +10,7 @@ import ScrollResizeChanger from './components/HOC/colorChanger'
 import './App.scss';
 
 class App extends Component {
+	
 	render() {
 		return (
 			<Fragment>

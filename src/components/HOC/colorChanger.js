@@ -31,7 +31,7 @@ export default class extends Component {
 	};
 	
 	_resizeEvent = () => {
-		let divElement = this._findNestedDiv(this.divElement);
+		let divElement = this._findNestedElement(this.divElement);
 		let viewBoxHeight = document.querySelector('.firstScreen') ? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
@@ -46,16 +46,12 @@ export default class extends Component {
 		});
 	};
 	
-	_findNestedDiv = (curElement) => {
-		let child = 0;
-		// function getInsideDiv(curElement) {
-		// 	return curElement.clientHeight ? curElement : getInsideDiv(curElement.children[0])
-		// }
-		return curElement.clientHeight !==0 ? curElement : this._findNestedDiv(curElement.children[0])
+	_findNestedElement = (curElement) => {
+		return curElement.clientHeight !== 0 ? curElement : this._findNestedElement(curElement.children[0])
 	};
 	
 	componentDidMount() {
-		let divElement = this._findNestedDiv(this.divElement);
+		let divElement = this._findNestedElement(this.divElement);
 		let viewBoxHeight = document.querySelector('.firstScreen') ? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.main').scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
