@@ -1,24 +1,24 @@
 .page-about {
 	.content {
 		color: #FFF;
-		padding: 30vh 0;
+		padding: 40vh 0;
 		.column {
 			display: flex;
 			@include adaptive(xx) {
-				margin: 200px 100px 150px 0;
+				margin: 200px 100px 75px 0;
 			}
 			@include adaptive(x2) {
-				margin: 180px 100px 150px 0;
+				margin: 180px 100px 75px 0;
 			}
 			@include adaptive(x1) {
-				margin: 150px 100px 150px 0;
+				margin: 75px 100px 75px 0;
 			}
 			@include adaptive(x05) {
 				flex-flow: row wrap;
-				margin: 120px 100px 150px 0;
+				margin: 75px 100px 75px 0;
 			}
 			@include adaptive(x25) {
-				margin: 100px 100px 150px 0;
+				margin: 75px 100px 75px 0;
 			}
 			div {
 				flex: 1 1 300px;
@@ -26,6 +26,9 @@
 			}
 		}
 
+		h1 {
+			margin: 20px 0
+		}
 		.dark {
 			color: $specialDark;
 			span {

@@ -21,7 +21,8 @@
 				display: block;
 				color: $specialDark;
 				transform: translateY(-90%);
-				transition: .2s ease;
+				transition: .3s ease;
+				opacity: 1;
 			}
 			input {
 				z-index: 9;
@@ -33,7 +34,7 @@
 				border: 0;
 				&:focus {
 					& + label {
-						transform: translateY(-200%);
+						opacity: 0;
 					}
 				}
 			}

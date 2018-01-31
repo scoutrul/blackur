@@ -44,21 +44,22 @@ export default class extends Component {
 	render() {
 		const { AnimationCss } = this.props;
 		
+
 		
 		return (
 			<div className={`contentContainer page-contacts ${AnimationCss}`}>
 				<div className="content">
-					<h3 className={'dark'}><span>Tell us your</span> <br/>
-						black secrets.</h3>
+					<h1 className={'dark'}><span>Tell us your</span> <br/>
+						black secrets.</h1>
 					<form>
 						
 						<input value={this.state.email} onChange={e => this._onChangeEmail(e)}/>
-						<label style={{ transform: this.state.email && `translateY(-200%)` }}>
+						<label style={{ opacity: this.state.email && 0 }}>
 							<h4>enter your email</h4>
 						</label>
 						
 						<input value={this.state.message} onChange={e => this._onChangeMessage(e)}/>
-						<label style={{ transform: this.state.message && `translateY(-200%)` }}>
+						<label style={{ opacity: this.state.message && 0 }}>
 							<h4>type message</h4>
 						</label>
 						

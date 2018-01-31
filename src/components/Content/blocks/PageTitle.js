@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import './pagetitle.scss'
+
 const connectProps = (state) => {
 	return {
 		pageTitle: state.Content.pageTitle,
