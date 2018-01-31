@@ -47,10 +47,10 @@ export default class extends Component {
 
 		
 		return (
-			<div className={`contentContainer page-contacts ${AnimationCss}`}>
+			<div className={`contentContainer container page-contacts ${AnimationCss}`}>
 				<div className="content">
-					<h1 className={'dark'}><span>Tell us your</span> <br/>
-						black secrets.</h1>
+					<h1><span>Tell us your</span></h1>
+					<h1 className={'dark'}>black secrets.</h1>
 					<form>
 						
 						<input value={this.state.email} onChange={e => this._onChangeEmail(e)}/>
