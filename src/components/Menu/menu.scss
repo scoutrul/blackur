@@ -2,10 +2,12 @@
 	position: fixed;
 	display: flex;
 	flex-direction: column;
-	writing-mode: vertical-lr;
 	color: #FFF;
 	z-index: 10;
 	transition: 1s ease;
+	width: 40px;
+	height: 100%;
+	max-height: 40px;
 
 	@include adaptive(xx) {
 		top: $framePaddingXx;
@@ -27,9 +29,33 @@
 		top: $framePaddingX025;
 		right: $framePaddingX025;
 	}
+
+	#burger {
+		color: #FFF;
+		display: flex;
+		width: 40px;
+		min-height: 40px;
+		justify-content: center;
+		align-self: flex-end;
+		outline: 1px solid currentColor;
+		cursor: pointer;
+		margin-left: auto;
+		transition: 1s ease;
+	}
+
 	a {
 		padding: 10px 0;
 	}
+
+
+	nav {
+		visibility: hidden;
+	}
+
+
+
+	//ANIMATION
+
 	&.appear_before {
 		a {
 			transform: translateX(50px);

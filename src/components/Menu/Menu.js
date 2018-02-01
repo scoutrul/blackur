@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import AnimatedLink from '../HOC/AnimatedLink'
 import Appear from "../HOC/Appear";
-import PropTypes from "prop-types";
 
 import './menu.scss'
 
 @Appear
 export default class extends Component {
-	static propTypes = {
-		MovingActions: PropTypes.object,
+	state = {
+		opened: false
+	};
+	
+	_opener = () => {
+		this.setState(prevState => {
+			return {
+				opened: !prevState.opened
+			}})
+		console.log('ck')
 	};
 	
 	render() {
@@ -21,10 +28,15 @@ export default class extends Component {
 		
 		let blackColor = actionBlock ? 'black' : 'white';
 		return <div className={`menu ${AnimationCss}`}>
-			<AnimatedLink to={'/'} style={{color: blackColor}}>Home </AnimatedLink>
-			<AnimatedLink to={'/about'} style={{color: blackColor}}>About </AnimatedLink>
-			<AnimatedLink to={'/works'} style={{color: blackColor}}>Works </AnimatedLink>
-			<AnimatedLink to={'/contacts'} style={{color: blackColor}}>Contacts</AnimatedLink>
+			<div id="burger" style={{ color: blackColor }}  onClick={this._opener} >
+				=
+			</div>
+			<nav style={{visibility: this.state.opened && 'visible'}}>
+				<AnimatedLink to={'/'} style={{color: blackColor}}>Home </AnimatedLink>
+				<AnimatedLink to={'/about'} style={{color: blackColor}}>About </AnimatedLink>
+				<AnimatedLink to={'/works'} style={{color: blackColor}}>Works </AnimatedLink>
+				<AnimatedLink to={'/contacts'} style={{color: blackColor}}>Contacts</AnimatedLink>
+			</nav>
 		</div>
 		
 		

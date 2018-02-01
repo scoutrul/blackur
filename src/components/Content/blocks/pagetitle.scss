@@ -15,17 +15,17 @@
 		max-width: 1280px;
 		width: 100%;
 		left: calc(50% - 690px);
-		top: $framePaddingX2;
+		top: $framePaddingX2 + 5px;
 		padding-left: 37px;
 
 	}
 	@include adaptive(x15) {
 		left: $logoW + $framePaddingX15;
-		top: $framePaddingX2;
+		top: $framePaddingX2 + 5px;
 	}
 	@include adaptive(x1) {
 		left: $logoW*2 + $framePaddingX1;
-		top: $framePaddingX1;
+		top: $framePaddingX1 + 5px;
 	}
 	@include adaptive(x05) {
 		left: $logoW + $framePaddingX05;
