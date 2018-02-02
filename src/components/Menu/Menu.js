@@ -15,8 +15,12 @@ export default class extends Component {
 			return {
 				opened: !prevState.opened
 			}})
-		console.log('ck')
 	};
+	
+	
+	componentDidMount() {
+		console.log(this)
+	}
 	
 	render() {
 		let { viewBoxHeight, divHeight, divTopOffset, scrollTop } = this.props.MovingActions;
@@ -27,18 +31,18 @@ export default class extends Component {
 		let actionBlock = scrollTop >= stopper;
 		
 		let blackColor = actionBlock ? 'black' : 'white';
-		return <div className={`menu ${AnimationCss}`}>
-			<div id="burger" style={{ color: blackColor }}  onClick={this._opener} >
+		return <div className={`menu`}>
+			<div id="burger" style={{ color: blackColor }}  onClick={this._opener} className={`${AnimationCss}`}>
 				=
 			</div>
-			<nav style={{visibility: this.state.opened && 'visible'}}>
-				<AnimatedLink to={'/'} style={{color: blackColor}}>Home </AnimatedLink>
-				<AnimatedLink to={'/about'} style={{color: blackColor}}>About </AnimatedLink>
-				<AnimatedLink to={'/works'} style={{color: blackColor}}>Works </AnimatedLink>
-				<AnimatedLink to={'/contacts'} style={{color: blackColor}}>Contacts</AnimatedLink>
+			<nav className={this.state.opened && 'visible' || 'hidden'}>
+				<ul className="nav__menu">
+					<li><div onClick={this._opener}><AnimatedLink to={'/'}>Home </AnimatedLink></div></li>
+					<li><div onClick={this._opener}><AnimatedLink to={'/about'} >About </AnimatedLink></div></li>
+					<li><div onClick={this._opener}><AnimatedLink to={'/works'} >Works </AnimatedLink></div></li>
+					<li><div onClick={this._opener}><AnimatedLink to={'/contacts'} >Contacts</AnimatedLink></div></li>
+				</ul>
 			</nav>
 		</div>
-		
-		
 	}
 }
