@@ -44,7 +44,6 @@ export default class extends Component {
 	render() {
 		const { AnimationCss } = this.props;
 		
-
 		
 		return (
 			<div className={`contentContainer container page-contacts ${AnimationCss}`}>
@@ -53,14 +52,14 @@ export default class extends Component {
 					<h1 className={'dark'}>black secrets.</h1>
 					<form>
 						
-						<input value={this.state.email} onChange={e => this._onChangeEmail(e)} autoFocus/>
-						<label style={{ opacity: this.state.email && 0 }}>
-							<h4>enter your email</h4>
+						<label>
+							<h4 >enter your email</h4>
+							<input value={this.state.email} onChange={e => this._onChangeEmail(e)} autoFocus/>
 						</label>
 						
-						<input value={this.state.message} onChange={e => this._onChangeMessage(e)}/>
-						<label style={{ opacity: this.state.message && 0 }}>
-							<h4>type message</h4>
+						<label>
+							<h4 style={{ opacity: this.state.message && 0 }}>type message</h4>
+							<textarea rows={3} value={this.state.message} onChange={e => this._onChangeMessage(e)}/>
 						</label>
 						
 						<h4 className={'send'} onClick={this._send}>

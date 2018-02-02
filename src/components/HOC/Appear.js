@@ -38,6 +38,7 @@ export default MountedComponent => {
 		};
 		
 		componentDidMount() {
+			document.querySelector('.scrollBox').scrollTop = 0;
 			this.props.isAppearBefore_action();
 			
 			let promise = new Promise(resolve => {

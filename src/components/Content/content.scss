@@ -58,19 +58,19 @@
 		max-width: 1280px;
 		margin: auto;
 		@include adaptive(xx) {
-			padding: 0 $framePaddingXx;
+			padding: 0 $framePaddingXx - 17 0 $framePaddingXx;
 		}
 		@include adaptive(x2) {
-			padding: 0 $framePaddingX2;
+			padding: 0 $framePaddingX2 - 17 0 $framePaddingX2;
 		}
 		@include adaptive(x1) {
-			padding: 0 $framePaddingX1;
+			padding: 0 $framePaddingX1 - 17 0 $framePaddingX1;
 		}
 		@include adaptive(x05) {
-			padding: 0 $framePaddingX05;
+			padding: 0 $framePaddingX05 - 17 0 $framePaddingX05;
 		}
 		@include adaptive(x025) {
-			padding: 0 $framePaddingX025;
+			padding: 0 $framePaddingX025 - 17 0 $framePaddingX025;
 		}
 	}
 }

@@ -17,7 +17,7 @@
 		width: 100%;
 		left: calc(50% - 690px);
 		top: $framePaddingX2;
-		padding-left: 37px;
+		padding-left: 40px;
 		line-height: $logoH+px;
 	}
 	@include adaptive(x15) {
@@ -25,7 +25,7 @@
 		top: $framePaddingX2;
 	}
 	@include adaptive(x1) {
-		left: $logoW*2 + $framePaddingX1;
+		left: $logoW + $framePaddingX1;
 		top: $framePaddingX1;
 	}
 	@include adaptive(x05) {

@@ -15,13 +15,11 @@ const store = configureStore();
 
 
 ReactDOM.render(
-
-		<Provider store={store}>
-			<Router history={history}>
-				<App/>
-			</Router>
-		</Provider>
-
+	<Provider store={store}>
+		<Router history={history}>
+			<App/>
+		</Router>
+	</Provider>
 	, document.getElementById('app'));
 registerServiceWorker();
 
