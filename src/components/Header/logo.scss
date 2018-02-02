@@ -40,16 +40,16 @@
 
 	.logos {
 		@include adaptive(xx) {
-			min-height: $logoW * 1.4+px;
-			min-width: $logoH * 1.4+px;
+			min-height: $logoH * 1.4+px;
+			min-width: $logoW * 1.4+px;
 		}
 		@include adaptive(x2) {
-			min-height: $logoW+px;
-			min-width: $logoH+px;
+			min-height: $logoH+px;
+			min-width: $logoW+px;
 		}
 		@include adaptive(x05) {
-			min-height: $logoW * .8+px;
-			min-width: $logoH * .8+px;
+			min-height: $logoH * .8+px;
+			min-width: $logoW * .8+px;
 		}
 
 		.white {

@@ -3,39 +3,42 @@
 	z-index: 10;
 	color: #FFF;
 	transition: .1s ease;
+	line-height: $logoH+px;
 	@include adaptive(xx) {
 		max-width: 1280px;
 		width: 100%;
 		left: calc(50% - 690px);
 		top: $framePaddingXx;
 		padding-left: 37px;
-
+		line-height: $logoH * 1.4+px;
 	}
 	@include adaptive(x2) {
 		max-width: 1280px;
 		width: 100%;
 		left: calc(50% - 690px);
-		top: $framePaddingX2 + 5px;
+		top: $framePaddingX2;
 		padding-left: 37px;
-
+		line-height: $logoH+px;
 	}
 	@include adaptive(x15) {
 		left: $logoW + $framePaddingX15;
-		top: $framePaddingX2 + 5px;
+		top: $framePaddingX2;
 	}
 	@include adaptive(x1) {
 		left: $logoW*2 + $framePaddingX1;
-		top: $framePaddingX1 + 5px;
+		top: $framePaddingX1;
 	}
 	@include adaptive(x05) {
 		left: $logoW + $framePaddingX05;
 		top: $framePaddingX05;
+		line-height: $logoH * .8+px;
 	}
 	@include adaptive(x025) {
 		left: $logoW + $framePaddingX025;
 		top: $framePaddingX025;
 		opacity: 0 !important;
 	}
+
 }
 
 

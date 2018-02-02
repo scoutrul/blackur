@@ -36,7 +36,7 @@ export default class extends Component {
 		const { AnimationCss } = this.props;
 		return (
 			<div className={`works contentContainer ${AnimationCss}`}>
-				<ul className="list">
+				<ul className="list content">
 					<WorksList/>
 				</ul>
 			</div>

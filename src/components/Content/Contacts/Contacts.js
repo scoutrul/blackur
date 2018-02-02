@@ -53,7 +53,7 @@ export default class extends Component {
 					<h1 className={'dark'}>black secrets.</h1>
 					<form>
 						
-						<input value={this.state.email} onChange={e => this._onChangeEmail(e)}/>
+						<input value={this.state.email} onChange={e => this._onChangeEmail(e)} autoFocus/>
 						<label style={{ opacity: this.state.email && 0 }}>
 							<h4>enter your email</h4>
 						</label>

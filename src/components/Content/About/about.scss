@@ -1,56 +1,53 @@
 .page-about {
-	.content {
-		color: #FFF;
-		padding: 40vh 0;
-		.column {
-			display: flex;
-			@include adaptive(xx) {
-				margin: 200px 100px 75px 0;
-			}
-			@include adaptive(x2) {
-				margin: 180px 100px 75px 0;
-			}
-			@include adaptive(x1) {
-				margin: 75px 100px 75px 0;
-			}
-			@include adaptive(x05) {
-				flex-flow: row wrap;
-				margin: 75px 100px 75px 0;
-			}
-			@include adaptive(x25) {
-				margin: 75px 100px 75px 0;
-			}
-			div {
-				flex: 1 1 300px;
-				margin: 0 40px 40px 0;
-			}
+	.column {
+		display: flex;
+		@include adaptive(xx) {
+			margin: 200px 100px 75px 0;
 		}
-
-		h1 {
-			margin: 20px 0
+		@include adaptive(x2) {
+			margin: 180px 100px 75px 0;
 		}
-		.dark {
-			color: $specialDark;
-			span {
-				color: #FFF;
-			}
+		@include adaptive(x1) {
+			margin: 75px 100px 75px 0;
 		}
-
-		&.appear_before {
-			opacity: 0;
-			transition: .3s;
-
-			h1 {
-				transform: translate(50px, 0);
-				transition: .3s;
-			}
+		@include adaptive(x05) {
+			flex-flow: row wrap;
+			margin: 75px 100px 75px 0;
 		}
-		&.appear_after {
-			opacity: 1;
-			h1 {
-				transform: translate(0);
-			}
-
+		@include adaptive(x25) {
+			margin: 75px 100px 75px 0;
+		}
+		div {
+			flex: 1 1 300px;
+			margin: 0 40px 40px 0;
 		}
 	}
+
+	h1 {
+		margin: 20px 0
+	}
+	.dark {
+		color: $specialDark;
+		span {
+			color: #FFF;
+		}
+	}
+
+	&.appear_before {
+		opacity: 0;
+		transition: .3s;
+
+		h1 {
+			transform: translate(50px, 0);
+			transition: .3s;
+		}
+	}
+	&.appear_after {
+		opacity: 1;
+		h1 {
+			transform: translate(0);
+		}
+
+	}
+
 }

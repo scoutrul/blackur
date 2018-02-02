@@ -7,10 +7,8 @@
 	}
 
 	.list {
-		height: 100%;
-		padding: 40vh 0;
 		list-style: none;
-		color: #FFF;
+		margin: 0;
 		li {
 			margin: 105px 0;
 			width: fit-content;
@@ -34,9 +32,8 @@
 		flex-direction: column;
 	}
 	.otherScreen {
-		padding: $logoH*3+px 0;
+		padding: $logoH*3+px 0 40vh;
 		background-color: #FFFFFF;
-		min-height: 100vh;
 		color: $specialBlack;
 		height: 100%;
 

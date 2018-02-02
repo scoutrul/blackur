@@ -1,6 +1,6 @@
 import React from 'react';
 import AnimatedLink from '../../HOC/AnimatedLink'
-
+import './project.scss'
 export default (props) => <div className='project'
 							   style={{ backgroundImage: `url(${props.image})`, backgroundColor: props.color }}>
 	<div className="headers">
