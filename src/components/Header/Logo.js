@@ -17,6 +17,7 @@ export default class extends Component {
 		let {viewBoxHeight, divHeight, divTopOffset, scrollTop, actionBlock} = this.props.MovingActions;
 		
 		let move = actionBlock ? scrollTop - (viewBoxHeight - divTopOffset - divHeight) : 0;
+
 		return <AnimatedLink to={'/'}>
 				<div className={`logo ${this.props.AnimationCss}`}>
 					<div className={'logos'}>
@@ -27,7 +28,7 @@ export default class extends Component {
 								 style={{ transform: `translateY(${move}px)` }}/>
 						</div>
 						<div className="black"
-							 style={{ transform: `translateY(${move}px)` }}>
+							 style={{ transform: `translateY(${move}px)`, opacity: !actionBlock && 0 }}>
 							<img src={'images/logo_blackur.svg'}
 								 alt={'Blackur logo'}
 								 style={{ transform: `translateY(${-move}px)` }}/>

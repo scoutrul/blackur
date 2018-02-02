@@ -36,7 +36,6 @@
 		}
 
 		.headers {
-
 			position: fixed;
 			height: 100%;
 			display: flex;
@@ -46,12 +45,30 @@
 				font-weight: 500;
 			}
 		}
-
-		a:hover h1 {
-			color: #999999;
+		a {
+			position: relative;
 		}
-		.services {
+		a:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			max-width: 100%;
+			z-index: -1;
+			height: 100px;
+			left: 0px;
+			bottom: 20px;
+			transform: scaleX(0);
+			transform-origin: left center 0px;
+			background: rgb(255, 255, 255);
+			overflow: hidden;
+			transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1);
+		}
+		a:hover:before {
+			transform: none;
+			transform-origin: right center 0px;
+		}
 
+		.services {
 			padding: 0;
 			list-style: none;
 			font-size: 15px;
