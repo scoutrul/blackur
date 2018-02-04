@@ -20,7 +20,8 @@ const connectDispatch = dispatch => {
 export default class extends Component {
 	
 	state = {
-		currSlide: 0
+		currSlide: 0,
+		changerAnimation: ''
 	}
 	
 	componentDidMount() {
@@ -32,6 +33,8 @@ export default class extends Component {
 	
 	changeSlide = (move) => {
 		let limit = this.props.works.length - 1;
+		console.log(move)
+		let right = move === 1 && 'right' ;
 		
 		let currSlide = this.state.currSlide + move;
 		
@@ -41,7 +44,25 @@ export default class extends Component {
 			currSlide = limit;
 		}
 		
-		this.setState({ currSlide })
+		let promise = new Promise(resolve => {
+			this.setState({ changerAnimation: `out ${right}` });
+			setTimeout(() => {
+				resolve()
+			}, 400)
+		});
+		
+		promise.then(() => {
+				this.setState({
+					currSlide,
+					changerAnimation: `${this.state.changerAnimation} before`
+				});
+				setTimeout(() => {
+					this.setState({ changerAnimation: `${this.state.changerAnimation} now` });
+				}, 300)
+				
+			}
+		);
+		
 	};
 	
 	_moveBack = () => {
@@ -73,7 +94,8 @@ export default class extends Component {
 							 image1={item.image1}
 							 image2={item.image2}
 							 url={item.url}
-							 key={item.url}/>
+							 key={item.url}
+							 className={this.state.changerAnimation}/>
 				</div>]
 		
 		);

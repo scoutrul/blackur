@@ -1,5 +1,4 @@
 .page-main {
-
 	transition: .7s ease;
 	.project {
 		height: 100%;
@@ -11,6 +10,44 @@
 		color: #FFF;
 		position: relative;
 		overflow: hidden;
+		transition: .4s cubic-bezier(0.1, 0.1, 0.3, 1.1);
+		&.out {
+			.headers h1, .headers h5{
+				transform: translateY(-100px);
+			}
+			.images {
+				transform: translateX(-100vw);
+
+			}
+			&.right {
+				.headers h1, .headers h5{
+					transform: translateY(-100px);
+				}
+				.images {
+					transform: translateX(100vw);
+				}
+			}
+		}
+		&.before {
+			.images {
+				transform: translateX(100vw);
+			}
+			&.right {
+
+				.images {
+					transform: translateX(-110vw);
+				}
+			}
+		}
+		&.now, &.now.right {
+			.headers h1, .headers h5{
+				transform: translateY(0);
+			}
+			.images {
+				transform: translateX(0);
+			}
+
+		}
 
 		@include adaptive(xx) {
 			padding: 0 $framePaddingXx;
@@ -36,8 +73,18 @@
 			justify-content: center;
 			flex-direction: column;
 			z-index: 10;
+			transition: $Transition;
+
+			.hidden {
+				overflow: hidden;
+			}
+			h1 {
+				transition: $Transition;
+			}
 			h5 {
 				font-weight: 500;
+				transition: $Transition;
+				transition-delay: .1s;
 			}
 		}
 		a {
@@ -94,18 +141,22 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			transition: .4s cubic-bezier(0.1, 0.1, 0.3, 1.1);
 			img {
 				transition: .4s cubic-bezier(0.1, 0.1, 0.3, 1.1)
 			}
-		}
-		#img0 {
-			z-index: 1;
-		}
-		#img1 {
-			z-index: 2;
-		}
-		#img2 {
-			z-index: 3;
+			&#img0 {
+				transition-delay: .2s;
+				z-index: 1;
+			}
+			&#img1 {
+				transition-delay: .3s;
+
+				z-index: 2;
+			}
+			&#img2 {
+				z-index: 3;
+			}
 		}
 
 	}

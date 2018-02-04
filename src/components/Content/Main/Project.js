@@ -48,7 +48,7 @@ export default class extends React.Component {
 		let img0Y = -Y / 70;
 		
 		
-		return <div className='project' ref={layer => this.layer = layer}>
+		return <div className={`project ${this.props.className}`} ref={layer => this.layer = layer}>
 			<div className="images" id="img0">
 				<img src={this.props.image} style={{ transform: `translate(${img0X}px, ${img0Y}px)` }}/>
 			</div>
@@ -58,11 +58,16 @@ export default class extends React.Component {
 			<div className="images" id="img2">
 				<img src={this.props.image2} style={{ transform: `translate(${img2X}px, ${img2Y}px)` }}/>
 			</div>
+			
 			<div className="headers">
-				<AnimatedLink to={`/${this.props.url}`}>
-					<h1>{this.props.header}</h1>
-				</AnimatedLink>
-				<h5>{this.props.slogan}</h5>
+				<div className='hidden'>
+					<AnimatedLink to={`/${this.props.url}`}>
+						<h1>{this.props.header}</h1>
+					</AnimatedLink>
+				</div>
+				<div className='hidden'>
+					<h5>{this.props.slogan}</h5>
+				</div>
 			</div>
 			<ul className="services">
 				{this.props.services.map(services => {

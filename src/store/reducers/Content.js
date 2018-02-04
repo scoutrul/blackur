@@ -20,7 +20,7 @@ const initialState = {
 			color: '#57b609',
 			header: 'Cloudburst',
 			slogan: 'Concept & Design',
-			services: ['Product Design', 'Web Development'],
+			services: ['Web Development2', 'Product Design', 'Web Development3'],
 			url: 'Cloudburst'
 		},
 		{
@@ -30,7 +30,7 @@ const initialState = {
 			color: '#09b657',
 			header: 'Edmunds',
 			slogan: 'Design & Development & Puppies',
-			services: ['Product Design', 'Web Development'],
+			services: ['DesignProduct ', 'DevelopmentWeb '],
 			url: 'Edmunds'
 		},
 		{
@@ -38,7 +38,7 @@ const initialState = {
 			color: '#0957b6',
 			header: 'Storymaze',
 			slogan: 'Mobile app',
-			services: ['Product Design', 'Web Development'],
+			services: ['Product Design', ' Development'],
 			url: 'Storymaze'
 		},
 		{
@@ -46,7 +46,7 @@ const initialState = {
 			color: '#b60957',
 			header: 'Omnistry',
 			slogan: 'Design & Development',
-			services: ['Product Design', 'Web Development'],
+			services: ['Product ', 'Web Development12'],
 			url: 'Omnistry'
 		},
 	],
