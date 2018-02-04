@@ -36,6 +36,8 @@ export default class extends Component {
 									services={item.services}
 									color={item.color}
 									image={item.image}
+									image1={item.image1}
+									image2={item.image2}
 									url={item.url}
 									key={i}/>
 				})}

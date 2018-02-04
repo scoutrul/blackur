@@ -33,19 +33,19 @@
 		color: #FFF;
 		display: flex;
 		flex-flow: column wrap;
-		justify-content: flex-start;
+		justify-content: space-between;
 		align-self: flex-end;
 		cursor: pointer;
 		margin-left: auto;
 		transition: .2s ease;
 		z-index: 10;
-		min-height: 35px;
+		min-height: 20px;
+
 		span {
 			width: 100%;
 			background-color: currentColor;
-			transition: $Transition;
-			position: absolute;
-			left: 0;
+			transition: 0;
+
 			&:nth-of-type(1) {
 				transform-origin: top right;
 			}
@@ -59,7 +59,7 @@
 				height: 3px;
 			}
 			span:nth-of-type(2) {
-				top: 21px;
+
 			}
 		}
 		@include adaptive(x1) {
@@ -68,7 +68,7 @@
 				height: 2px;
 			}
 			span:nth-of-type(2) {
-				top: 16px;
+
 			}
 		}
 		&.opened {

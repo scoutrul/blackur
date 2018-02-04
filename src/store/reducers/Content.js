@@ -5,6 +5,8 @@ const initialState = {
 	works: [
 		{
 			image: '/images/works/epson.png',
+			image1: '/images/works/epson1.png',
+			image2: '/images/works/epson2.png',
 			color: '#0957b6',
 			header: 'Epson ReadyInk',
 			slogan: 'Design & Development',
