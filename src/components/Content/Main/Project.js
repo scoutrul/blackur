@@ -20,8 +20,6 @@ export default class extends React.Component {
 	}
 	
 	_mouseMove = e => {
-		let time = Date.now();
-		
 		let ScreenH = this.layer.clientHeight;
 		let ScreenW = this.layer.clientWidth;
 		
@@ -44,13 +42,13 @@ export default class extends React.Component {
 		
 		let img2X = -X / 20;
 		let img1X = -X / 40;
-		let img0X = -X / 60;
+		let img0X = -X / 70;
 		let img2Y = -Y / 20;
 		let img1Y = -Y / 40;
-		let img0Y = -Y / 60;
+		let img0Y = -Y / 70;
 		
 		
-		return <div className='project' style={{ backgroundColor: this.props.color }} ref={layer => this.layer = layer}>
+		return <div className='project' ref={layer => this.layer = layer}>
 			<div className="images" id="img0">
 				<img src={this.props.image} style={{ transform: `translate(${img0X}px, ${img0Y}px)` }}/>
 			</div>
@@ -67,8 +65,8 @@ export default class extends React.Component {
 				<h5>{this.props.slogan}</h5>
 			</div>
 			<ul className="services">
-				{this.props.services.map(item => {
-					return <li key={item}>{item}</li>
+				{this.props.services.map(services => {
+					return <li key={services}>{services}</li>
 				})}
 			</ul>
 		</div>

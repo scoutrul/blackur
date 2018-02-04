@@ -18,30 +18,63 @@ const connectDispatch = dispatch => {
 };
 @connect(connectProps, connectDispatch)
 export default class extends Component {
+	
+	state = {
+		currSlide: 0
+	}
+	
 	componentDidMount() {
 		this.props.setTitle('');
 		
 		document.querySelector('.scrollBox').scrollTop = 0;
+	}
+	
+	
+	changeSlide = (move) => {
+		let limit = this.props.works.length - 1;
 		
+		let currSlide = this.state.currSlide + move;
 		
+		if (currSlide > limit) {
+			currSlide = 0
+		} else if (currSlide < 0) {
+			currSlide = limit;
+		}
+		
+		this.setState({ currSlide })
+	};
+	
+	_moveBack = () => {
+		this.changeSlide(-1)
+	};
+	
+	_moveForward = () => {
+		this.changeSlide(1)
+	};
+	
+	componentDidUpdate() {
+		console.log(this.state)
 	}
 	
 	render() {
 		const { AnimationCss } = this.props;
-		return (
-			<div className={`page-main ${AnimationCss}`}>
-				{this.props.works.map((item, i) => {
-					return <Project header={item.header}
-									slogan={item.slogan}
-									services={item.services}
-									color={item.color}
-									image={item.image}
-									image1={item.image1}
-									image2={item.image2}
-									url={item.url}
-									key={i}/>
-				})}
-			</div>
+		let item = this.props.works[this.state.currSlide];
+		return ([
+				<div id='slider_ui'>
+					<button onClick={this._moveBack}>Back</button>
+					<button onClick={this._moveForward}>Forward</button>
+				</div>,
+				<div className={`page-main ${AnimationCss}`} style={{ backgroundColor: item.color }}>
+					<Project header={item.header}
+							 slogan={item.slogan}
+							 services={item.services}
+							 color={item.color}
+							 image={item.image}
+							 image1={item.image1}
+							 image2={item.image2}
+							 url={item.url}
+							 key={item.url}/>
+				</div>]
 		
 		);
 	}

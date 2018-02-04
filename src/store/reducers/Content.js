@@ -14,7 +14,9 @@ const initialState = {
 			url: 'Epson'
 		},
 		{
-			image: 'images/works/epson.png',
+			image: 'images/works/epson1.png',
+			image1: 'images/works/epson2.png',
+			image2: 'images/works/epson.png',
 			color: '#57b609',
 			header: 'Cloudburst',
 			slogan: 'Concept & Design',
@@ -22,7 +24,9 @@ const initialState = {
 			url: 'Cloudburst'
 		},
 		{
-			image: 'images/works/epson.png',
+			image: 'images/works/epson2.png',
+			image1: 'images/works/epson.png',
+			image2: 'images/works/epson1.png',
 			color: '#09b657',
 			header: 'Edmunds',
 			slogan: 'Design & Development & Puppies',

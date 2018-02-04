@@ -23,7 +23,6 @@ export default class extends Component {
 	
 	componentDidMount() {
 		this.props.setTitle(this.props.works.find(item => item.url === this.props.url).slogan);
-		// document.querySelector('.scrollBox').scrollTop = 0;
 	}
 	
 	render() {
@@ -32,11 +31,9 @@ export default class extends Component {
 		
 		const { header, slogan } = work;
 		
-		
 		return (
 			<div className={`work ${AnimationCss}`}>
 				<div className="firstScreen" style={{ backgroundColor: work.color }}>
-					
 					<div className="contentContainer">
 						<h1>{header}</h1>
 					</div>
