@@ -39,50 +39,47 @@
 		margin-left: auto;
 		transition: .2s ease;
 		z-index: 10;
-		min-height: 20px;
+		min-height: 35px;
+		min-width: 35px;
 
 		span {
 			width: 100%;
 			background-color: currentColor;
-			transition: 0;
-
+			transition: $Transition;
+			position: absolute;
+			height: 2px;
 			&:nth-of-type(1) {
-				transform-origin: top right;
+				transform-origin: right top;
+				top: 0;
 			}
 			&:nth-of-type(2) {
-				transform-origin: bottom left;
+				transform-origin: right bottom;
+				top: 16px;
+				left: 0;
 			}
 		}
+		&.opened {
+			span {
+				background-color: #d5dade;
+				&:nth-of-type(1) {
+					transform: rotate(-45deg);
+				}
+				&:nth-of-type(2) {
+					transform: rotate(45deg);
+					top: 23.5px;
+					//left: 12px;
+				}
+			}
+		}
+
 		@include adaptive(x2) {
 			width: 47px;
 			span {
 				height: 3px;
 			}
-			span:nth-of-type(2) {
-
-			}
 		}
 		@include adaptive(x1) {
 			width: 35px;
-			span {
-				height: 2px;
-			}
-			span:nth-of-type(2) {
-
-			}
-		}
-		&.opened {
-			span:nth-of-type(1) {
-				transform: rotate(-45deg);
-				left: -5px;
-				background-color: #d5dade;
-			}
-			span:nth-of-type(2) {
-				transform: rotate(45deg);
-				top: 0;
-				left: 5px;
-				background-color: #d5dade;
-			}
 		}
 
 		//ANIMATION
