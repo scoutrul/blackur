@@ -63,6 +63,7 @@
 				background-color: #d5dade;
 				&:nth-of-type(1) {
 					transform: rotate(-45deg);
+					top: 0;
 				}
 				&:nth-of-type(2) {
 					transform: rotate(45deg);
@@ -71,13 +72,16 @@
 			}
 		}
 
-		@include adaptive(x2) {
+		@include adaptive(xx) {
 			width: 47px;
 			span {
 				height: 3px;
+				&:nth-of-type(2) {
+					top: 30.5px !important;
+				}
 			}
 		}
-		@include adaptive(x1) {
+		@include adaptive(x2) {
 			width: 35px;
 		}
 
@@ -115,6 +119,7 @@
 		background-color: #FFF;
 		top: 0;
 		right: 0;
+		transition-delay: .1s;
 
 		&.visible {
 			transform: translateX(0%);
@@ -125,25 +130,25 @@
 					transform: translateY(0%);
 				}
 				li:nth-child(1) div {
-					transition-delay: 0s
+					transition-delay: 0.1s
 				}
 				li:nth-child(2) div {
-					transition-delay: 0.08s
+					transition-delay: 0.18s
 				}
 				li:nth-child(3) div {
-					transition-delay: 0.16s
+					transition-delay: 0.26s
 				}
 				li:nth-child(4) div {
-					transition-delay: 0.24s
+					transition-delay: 0.34s
 				}
 				li:nth-child(5) div {
-					transition-delay: 0.32s
+					transition-delay: 0.42s
 				}
 				li:nth-child(6) div {
-					transition-delay: 0.32s
+					transition-delay: 0.60s
 				}
 				li:nth-child(7) div {
-					transition-delay: 0.32s
+					transition-delay: 0.78s
 				}
 			}
 		}
