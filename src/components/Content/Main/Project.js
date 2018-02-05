@@ -60,8 +60,8 @@ export default class extends React.Component {
 			</div>
 			
 			<div className="headers">
-				<div className='hidden'>
-					<AnimatedLink to={`/${this.props.url}`}>
+				<div className='hidden' >
+					<AnimatedLink to={`/${this.props.url}`} >
 						<h1>{this.props.header}</h1>
 					</AnimatedLink>
 				</div>

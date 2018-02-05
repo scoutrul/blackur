@@ -55,7 +55,6 @@
 		@include adaptive(x2) {
 			padding: 0 $framePaddingX2;
 		}
-
 		@include adaptive(x1) {
 			padding: 0 $framePaddingX1;
 		}
@@ -80,6 +79,7 @@
 			}
 			h1 {
 				transition: $Transition;
+
 			}
 			h5 {
 				font-weight: 500;
@@ -89,6 +89,12 @@
 		}
 		a {
 			position: relative;
+			display: inline-block;
+			color: currentColor;
+			&:hover {
+
+				transition: 0.1s cubic-bezier(0.8, 0, 0.2, 1);
+			}
 		}
 		a:before {
 			content: "";
@@ -96,7 +102,7 @@
 			width: 100%;
 			max-width: 100%;
 			z-index: -1;
-			height: 38px;
+			height: 88px;
 			left: 0px;
 			bottom: 20px;
 			transform: scaleX(0);
