@@ -37,7 +37,6 @@
 		align-self: flex-end;
 		cursor: pointer;
 		margin-left: auto;
-		transition: .2s ease;
 		z-index: 10;
 		min-height: 35px;
 		min-width: 35px;
@@ -45,7 +44,7 @@
 		span {
 			width: 100%;
 			background-color: currentColor;
-			transition: $Transition;
+			transition: transform $Transition, background-color $Transition, top $Transition, color 0s;
 			position: absolute;
 			height: 2px;
 			&:nth-of-type(1) {
