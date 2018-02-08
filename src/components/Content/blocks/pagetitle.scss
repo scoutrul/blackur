@@ -6,14 +6,14 @@
 	@include adaptive(xx) {
 		left: calc(50% - 690px);
 		top: $framePaddingXx;
-		padding-left: 90px;
+		padding-left: 50px;
 		line-height: $logoH * 1.4+px;
 	}
 	@include adaptive(x2) {
 		left: calc(50% - 690px);
 		top: $framePaddingX2;
 		padding-right: 80px;
-		padding-left: 90px;
+		padding-left: 50px;
 		line-height: $logoH+px;
 	}
 	@include adaptive(x15) {

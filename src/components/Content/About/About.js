@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './about.scss'
-import { connect } from "react-redux";
-import { setTitle_action } from "../../../store/reducers/Content";
+import { connect } from 'react-redux';
+import { setTitle_action } from '../../../store/reducers/Content';
 
 const connectDispatch = dispatch => {
 	return {
@@ -23,11 +23,11 @@ export default class extends Component {
 		return (
 			<div className={`contentContainer page-about ${AnimationCss}`}>
 				
-				<div className="content">
+				<div className='content'>
 					
 					<h1>We are Blackur.</h1>
 					<h1 className={'dark'}>And we are in the black.</h1>
-					<div className="column">
+					<div className='column'>
 						<div>We are young agency with drastically new approach to work. We’ve got rid of everything that
 							prevents us to create perfect products.
 						</div>
@@ -37,7 +37,7 @@ export default class extends Component {
 					</div>
 					<h3>We just use mathematics.<br/>
 						It helps us to optimize work and brings the best result for every project we work on.</h3>
-					<div className="column">
+					<div className='column'>
 						<div>We have developed a system that helps us to assemble teams of experts to work on each
 							project.
 							It's so smart that can analyze up to several tens of different parameters.
@@ -47,14 +47,14 @@ export default class extends Component {
 							overall picture of the team. That’s how our dream team formed.
 						</div>
 					</div>
-					<div className="column">
+					<div className='column'>
 						<div>Every day we examine a lot of resumes to find the best. We make an offer to the unique
 							candidates with interesting experience to keep the quality of our products at the highest
 							level.
 						</div>
 					</div>
-					<h3 className={'dark'}>
-						Tell about yourself & move to the dark side using <span>work@blackur.com</span>
+					<h3 className='dark'>
+						Tell about yourself & move to the dark side using <a href='mailto:work@blackur.com'><span>work@blackur.com</span></a>
 					</h3>
 				</div>
 			</div>
