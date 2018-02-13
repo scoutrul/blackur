@@ -23,7 +23,7 @@ export default class extends Component {
 			
 			<div className={`footer ${AnimationCss}`}>
 				<div style={{ color: !actionBlock && 'white' }}>
-					<AnimatedLink to={'/contacts'}>Say Hello!</AnimatedLink>
+					<a href="mailto:hello@blackur.com">Say Hello!</a>
 				</div>
 			</div>
 		

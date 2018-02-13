@@ -14,44 +14,129 @@
 
 h1 {
 	font-weight: 700;
-	font-size: 84px;
 	line-height: 80px;
-	margin: 0px 0px 30px 0;
+	margin: 0 0 30px 0;
+	@include adaptive(xx) {
+		font-size: 126px;
+	}
+	@include adaptive(x2) {
+		font-size: 126px;
+	}
+	@include adaptive(x1) {
+		font-size: 84px;
+	}
+	@include adaptive(x05) {
+		font-size: 67px;
+	}
+	@include adaptive(x025) {
+		font-size: 56px;
+	}
 }
 
 h2 {
 	font-weight: 700;
-	font-size: 77px;
 	line-height: 80px;
 	margin: 0 0 0 -0.085em;
+	@include adaptive(xx) {
+		font-size: 115px;
+	}
+	@include adaptive(x2) {
+		font-size: 115px;
+	}
+	@include adaptive(x1) {
+		font-size: 77px;
+	}
+	@include adaptive(x05) {
+		font-size: 60px;
+	}
+	@include adaptive(x025) {
+		font-size: 56px;
+	}
 }
 
 h3 {
-	font-size: 51px;
 	line-height: 60px;
 	margin: 0 0 0 -0.085em;
+	@include adaptive(xx) {
+		font-size: 77px;
+	}
+	@include adaptive(x2) {
+		font-size: 77px;
+	}
+	@include adaptive(x1) {
+		font-size: 51px;
+	}
+	@include adaptive(x05) {
+		font-size: 40px;
+	}
+	@include adaptive(x025) {
+		font-size: 34px;
+	}
 }
 
 h4 {
-	font-size: 35px;
 	line-height: 60px;
 	margin: 0 0 0 -0.085em;
+	@include adaptive(xx) {
+		font-size: 54px;
+	}
+	@include adaptive(x2) {
+		font-size: 54px;
+	}
+	@include adaptive(x1) {
+		font-size: 35px;
+	}
+	@include adaptive(x05) {
+		font-size: 28px;
+	}
+	@include adaptive(x025) {
+		font-size: 23px;
+	}
 }
 
 h5 {
 	font-size: 20px;
 	line-height: 26px;
 	margin: 0 0 0 -0.085em;
+	@include adaptive(xx) {
+		font-size: 30px;
+	}
+	@include adaptive(x2) {
+		font-size: 30px;
+	}
+	@include adaptive(x1) {
+		font-size: 20px;
+	}
+	@include adaptive(x05) {
+		font-size: 18px;
+	}
+	@include adaptive(x025) {
+		font-size: 16px;
+	}
 }
 
 h6 {
-	font-size: 15px;
 	line-height: 30px;
 	margin: 0 0 0 -0.085em;
+	@include adaptive(xx) {
+		font-size: 25px;
+	}
+	@include adaptive(x2) {
+		font-size: 25px;
+	}
+	@include adaptive(x1) {
+		font-size: 15px;
+	}
+	@include adaptive(x05) {
+		font-size: 14px;
+	}
+	@include adaptive(x025) {
+		font-size: 13px;
+	}
 }
 h3, h4, h5, h6 {
-
 	font-weight: 600;
+	line-height: 100%;
 }
 
 a {

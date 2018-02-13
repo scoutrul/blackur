@@ -2,20 +2,20 @@
 	.column {
 		display: flex;
 		@include adaptive(xx) {
-			margin: 200px 100px 75px 0;
+			margin: 200px 0 75px 0;
 		}
 		@include adaptive(x2) {
-			margin: 180px 100px 75px 0;
+			margin: 180px 0 75px 0;
 		}
 		@include adaptive(x1) {
-			margin: 75px 100px 75px 0;
+			margin: 75px 0 75px 0;
 		}
 		@include adaptive(x05) {
 			flex-flow: row wrap;
-			margin: 75px 100px 75px 0;
+			margin: 75px 0 75px 0;
 		}
 		@include adaptive(x25) {
-			margin: 75px 100px 75px 0;
+			margin: 75px 0 75px 0;
 		}
 		div {
 			flex: 1 1 300px;

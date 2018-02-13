@@ -17,16 +17,16 @@
 		line-height: $logoH+px;
 	}
 	@include adaptive(x15) {
-		left: $logoW + $framePaddingX15;
+		left: $logoW + $framePaddingXx;
 		top: $framePaddingX2;
 	}
 	@include adaptive(x1) {
-		left: $logoW + $framePaddingX1;
+		left: $logoW + $framePaddingXx;
 		top: $framePaddingX1;
 		padding-left: 20px;
 	}
 	@include adaptive(x05) {
-		left: $logoW + $framePaddingX05;
+		left: $logoW + $framePaddingX1;
 		top: $framePaddingX05;
 		line-height: $logoH * .8+px;
 	}
