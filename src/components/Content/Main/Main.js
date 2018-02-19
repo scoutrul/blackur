@@ -26,14 +26,13 @@ export default class extends Component {
 	
 	componentDidMount() {
 		this.props.setTitle('');
-		
 		document.querySelector('.scrollBox').scrollTop = 0;
 	}
 	
 	
 	changeSlide = (move) => {
 		let limit = this.props.works.length - 1;
-		console.log(move)
+
 		let right = move === 1 && 'right' ;
 		
 		let currSlide = this.state.currSlide + move;
@@ -72,11 +71,7 @@ export default class extends Component {
 	_moveForward = () => {
 		this.changeSlide(1)
 	};
-	
-	componentDidUpdate() {
-		console.log(this.state)
-	}
-	
+		
 	render() {
 		const { AnimationCss } = this.props;
 		let item = this.props.works[this.state.currSlide];
