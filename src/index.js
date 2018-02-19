@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import 'normalize.css';
 import './index.scss';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const history = createBrowserHistory();
 const store = configureStore();
@@ -21,5 +21,6 @@ ReactDOM.render(
 		</Router>
 	</Provider>
 	, document.getElementById('app'));
-registerServiceWorker();
+
+// registerServiceWorker();
 
