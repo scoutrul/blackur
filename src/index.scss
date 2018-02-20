@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -26,14 +27,19 @@ $framePaddingX15: 100px;
 $framePaddingX2: 120px;
 $framePaddingXx: 160px;
 
-$x025: 640px;
-$x05: 1024px;
-$x1: 1280px;
-$x15: 1680px;
+$x01: 640px;
+$x025: 960px;
+$x05: 1280px;
+$x1: 1680px;
+$x15: 2560px;
 $x2: 2560px;
 
 @mixin adaptive($media) {
-	@if $media == x025 {
+	@if $media == x01 {
+		@media (min-width: 0) and (max-width: $x01) {
+			@content;
+		}
+	} @else if $media == x025 {
 		@media (min-width: 0) and (max-width: $x025) {
 			@content;
 		}
@@ -59,4 +65,3 @@ $x2: 2560px;
 		}
 	}
 }
-

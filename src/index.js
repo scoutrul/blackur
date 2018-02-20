@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store';
-import createBrowserHistory from 'history/createBrowserHistory'
+import createBrowserHistory from 'history/createBrowserHistory';
 import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
@@ -13,14 +13,13 @@ import App from './App';
 const history = createBrowserHistory();
 const store = configureStore();
 
-
 ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
-			<App/>
+			<App />
 		</Router>
-	</Provider>
-	, document.getElementById('app'));
+	</Provider>,
+	document.getElementById('app')
+);
 
 // registerServiceWorker();
-

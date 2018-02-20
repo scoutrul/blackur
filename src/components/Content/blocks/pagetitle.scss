@@ -4,26 +4,25 @@
 	color: #FFF;
 	line-height: $logoH+px;
 	@include adaptive(xx) {
-		left: calc(50% - 690px);
+		left: calc(50% - 660px);
 		top: $framePaddingXx;
-		padding-left: 50px;
+		padding-left: 20px;
 		line-height: $logoH * 1.4+px;
 	}
 	@include adaptive(x2) {
-		left: calc(50% - 690px);
+		left: calc(50% - 660px);
 		top: $framePaddingX2;
 		padding-right: 80px;
-		padding-left: 50px;
+		padding-left: 20px;
 		line-height: $logoH+px;
 	}
 	@include adaptive(x15) {
-		left: $logoW + $framePaddingXx;
+		left: calc(50% - 660px);
 		top: $framePaddingX2;
 	}
 	@include adaptive(x1) {
 		left: $logoW + $framePaddingXx;
 		top: $framePaddingX1;
-		padding-left: 20px;
 	}
 	@include adaptive(x05) {
 		left: $logoW + $framePaddingX1;
@@ -31,6 +30,11 @@
 		line-height: $logoH * .8+px;
 	}
 	@include adaptive(x025) {
+		left: $logoW + $framePaddingX025;
+		top: $framePaddingX025;
+		line-height: $logoH * .8+px;
+	}
+	@include adaptive(x01) {
 		opacity: 0 !important;
 	}
 

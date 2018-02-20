@@ -17,19 +17,19 @@ h1, .nav__menu a {
 	line-height: 80px;
 	margin: 0 0 30px 0;
 	@include adaptive(xx) {
-		font-size: 126px;
+		font-size: 120px;
 	}
 	@include adaptive(x2) {
-		font-size: 126px;
+		font-size: 120px;
 	}
-	@include adaptive(x15) {
+	@include adaptive(x1) {
 		font-size: 84px;
 	}
 	@include adaptive(x05) {
-		font-size: 67px;
+		font-size: 60px;
 	}
 	@include adaptive(x025) {
-		font-size: 56px;
+		font-size: 48px;
 	}
 }
 
@@ -38,19 +38,19 @@ h2 {
 	line-height: 80px;
 	margin: 0 0 0 -0.085em;
 	@include adaptive(xx) {
-		font-size: 115px;
+		font-size: 110px;
 	}
 	@include adaptive(x2) {
-		font-size: 115px;
+		font-size: 110px;
 	}
-	@include adaptive(x15) {
+	@include adaptive(x1) {
 		font-size: 77px;
 	}
 	@include adaptive(x05) {
-		font-size: 60px;
+		font-size: 50px;
 	}
 	@include adaptive(x025) {
-		font-size: 56px;
+		font-size: 42px;
 	}
 }
 
@@ -63,7 +63,7 @@ h3 {
 	@include adaptive(x2) {
 		font-size: 77px;
 	}
-	@include adaptive(x15) {
+	@include adaptive(x1) {
 		font-size: 51px;
 	}
 	@include adaptive(x05) {
@@ -83,7 +83,7 @@ h4 {
 	@include adaptive(x2) {
 		font-size: 54px;
 	}
-	@include adaptive(x15) {
+	@include adaptive(x1) {
 		font-size: 35px;
 	}
 	@include adaptive(x05) {
@@ -104,14 +104,14 @@ h5 {
 	@include adaptive(x2) {
 		font-size: 30px;
 	}
-	@include adaptive(x15) {
+	@include adaptive(x1) {
 		font-size: 20px;
 	}
 	@include adaptive(x05) {
-		font-size: 18px;
+		font-size: 17px;
 	}
 	@include adaptive(x025) {
-		font-size: 16px;
+		font-size: 15px;
 	}
 }
 
@@ -119,12 +119,12 @@ h6 {
 	line-height: 30px;
 	margin: 0 0 0 -0.085em;
 	@include adaptive(xx) {
-		font-size: 25px;
+		font-size: 23px;
 	}
 	@include adaptive(x2) {
-		font-size: 25px;
+		font-size: 23px;
 	}
-	@include adaptive(x15) {
+	@include adaptive(x1) {
 		font-size: 15px;
 	}
 	@include adaptive(x05) {
