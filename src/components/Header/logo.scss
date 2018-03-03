@@ -1,5 +1,5 @@
 .logo {
-	transition: .2s;
+
 	position: fixed;
 	z-index: 10;
 	@include adaptive(xx) {
@@ -23,23 +23,29 @@
 		top: $framePaddingX025;
 	}
 
-	transition: $Transition;
-	&.appear_before {
-		margin-left: -50px;
-		opacity: 0;
+	overflow: hidden;
 
+	&.appear_before {
+		div {
+			transition: 0;
+			left: -$logoW - 10+px;
+		}
 	}
 	&.appear_after {
-		margin-left: 0;
-		opacity: 1;
-
+		div {
+			transition: 0;
+			left: 0;
+		}
 	}
 	&.leave_animation {
-		margin-left: -50px;
-		opacity: 0;
+		div {
+			transition: left $Transition;
+			left: -$logoW - 10+px;
+		}
 	}
 
 	.logos {
+		transition: $Transition;
 		@include adaptive(xx) {
 			min-height: $logoH * 1.4+px;
 			min-width: $logoW * 1.4+px;
@@ -78,7 +84,6 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-
 			}
 		}
 	}

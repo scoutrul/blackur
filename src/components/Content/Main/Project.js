@@ -56,7 +56,7 @@ export default class extends React.Component {
 					<img
 						src={'/images/bg_2.png'}
 						style={{
-							transform: `translate(${img1X * 1.1}px, ${img1Y}px) perspective(${this.state
+							transform: `translate3d(${img1X * 1.1}px, ${img1Y}px, 0) perspective(${this.state
 								.screenW}px) rotateY(${persp / 3}deg) rotateX(${persp / 2}deg)`
 						}}
 						alt=""
@@ -67,7 +67,7 @@ export default class extends React.Component {
 						src={'/images/bg_1.jpg'}
 						alt=""
 						style={{
-							transform: `translate(${img1X / 5}px, ${img1Y / 5}px) perspective(${this.state
+							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) perspective(${this.state
 								.screenW}px) rotateY(${persp / 11}deg) rotateX(${persp / 11}deg)`
 						}}
 					/>

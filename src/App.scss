@@ -1,3 +1,5 @@
+
+
 #app {
 	position: fixed;
 	left: 0;
@@ -75,7 +77,8 @@ h3 {
 	}
 }
 
-h4, .works_services li {
+h4,
+.works_services li {
 	line-height: 60px;
 	margin: 0 0 0 -0.085em;
 	@include adaptive(xx) {
@@ -95,7 +98,8 @@ h4, .works_services li {
 	}
 }
 
-h5, .content_text {
+h5,
+.content_text {
 	font-size: 20px;
 	line-height: 26px;
 	margin: 0 0 0 -0.085em;

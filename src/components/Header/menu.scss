@@ -2,7 +2,7 @@
 	position: fixed;
 	display: flex;
 	flex-direction: column;
-	color: #FFF;
+	color: #fff;
 	z-index: 10;
 	width: 40px;
 	height: 100%;
@@ -30,7 +30,7 @@
 	}
 
 	#burger {
-		color: #FFF;
+		color: #fff;
 		display: flex;
 		flex-flow: column wrap;
 		justify-content: space-between;
@@ -41,33 +41,33 @@
 		min-height: 35px;
 		min-width: 35px;
 		position: relative;
-
+		overflow: hidden;
 		span {
 			width: 100%;
 			background-color: currentColor;
-			transition: transform $Transition;
+
 			position: absolute;
 			height: 2px;
 			&:nth-of-type(1) {
+				transition: $Transition, color 0s;
 				transform-origin: right top;
-				top: 0;
 			}
 			&:nth-of-type(2) {
+				transition: $Transition, color 0s;
 				transform-origin: right bottom;
-				top: 16px;
-				left: 0;
+				margin-top: 16px;
 			}
 		}
 		&.opened {
 			span {
-				background-color: #d5dade;
+				transition: $Transition;
+				color: #d5dade !important;
 				&:nth-of-type(1) {
 					transform: rotate(-45deg);
-					top: 0;
 				}
 				&:nth-of-type(2) {
 					transform: rotate(45deg);
-					top: 23.5px;
+					margin-top: 23.5px;
 				}
 			}
 		}
@@ -84,21 +84,22 @@
 			top: 15px;
 		}
 
-
 		//ANIMATION
-		transition: $Transition;
+
 		&.appear_before {
-			transform: translateX(50px);
-			opacity: 0;
+			span {
+				transform: translateX(50px);
+			}
 		}
 		&.appear_after {
-			transform: translateX(0);
-			opacity: 1;
-
+			span {
+				transform: translateX(0);
+			}
 		}
 		&.leave_animation {
-			transform: translateX(50px) !important;
-			opacity: 0 !important;
+			span {
+				transform: translateX(50px) !important;
+			}
 		}
 	}
 
@@ -116,7 +117,7 @@
 		}
 		transform: translateX(100%);
 		transition: transform $Transition;
-		background-color: #FFF;
+		background-color: #fff;
 		top: 0;
 		right: 0;
 		transition-delay: .1s;
@@ -127,7 +128,7 @@
 				li div {
 					transition: $Transition;
 					transform: translateY(0%);
-					transition-delay: 0.3s
+					transition-delay: 0.3s;
 				}
 				// li:nth-child(1) div {
 				// 	transition-delay: 0.1s
@@ -157,7 +158,7 @@
 						display: block;
 						transition: $Transition;
 						transform: translateY(0%);
-						transition-delay: 0.3s
+						transition-delay: 0.3s;
 					}
 				}
 			}
@@ -196,7 +197,6 @@
 					transform: translateY(-70%);
 				}
 			}
-		
 		}
 		.nav__menu {
 			position: fixed;
@@ -248,9 +248,7 @@
 				@include adaptive(x025) {
 					margin-left: $framePaddingX025;
 				}
-
 			}
 		}
 	}
-
 }
