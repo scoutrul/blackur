@@ -25,12 +25,12 @@ export default class extends Component {
 
 		const burgerColor1 = () => {
 			let stopper = viewBoxHeight - divTopOffset;
-			let actionBlock = scrollTop >= stopper;
+			let actionBlock = scrollTop >= stopper -15;
 			return actionBlock ? 'black' : 'white';
 		};
 		const burgerColor2 = () => {
 			let stopper = viewBoxHeight - (divTopOffset + divHeight / 2);
-			let actionBlock = scrollTop >= stopper;
+			let actionBlock = scrollTop >= stopper -15;
 			return actionBlock ? 'black' : 'white';
 		};
 
