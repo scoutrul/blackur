@@ -62,7 +62,7 @@ export default class extends Component {
 						</label>
 						
 						<h4 className={'send'} onClick={this._send}>
-							<img src='images/icon_send.svg'/>
+							<img src='images/icon_send.svg' alt='send'/>
 							<span>Send</span>
 						</h4>
 					</form>

@@ -40,6 +40,7 @@
 		z-index: 10;
 		min-height: 35px;
 		min-width: 35px;
+		position: relative;
 
 		span {
 			width: 100%;
@@ -72,20 +73,20 @@
 		}
 
 		@include adaptive(xx) {
+			top: 15px;
 			width: 47px;
 			span {
 				height: 3px;
-				&:nth-of-type(2) {
-					top: 30.5px !important;
-				}
 			}
 		}
 		@include adaptive(x2) {
 			width: 35px;
+			top: 15px;
 		}
 
-		//ANIMATION
 
+		//ANIMATION
+		transition: $Transition;
 		&.appear_before {
 			transform: translateX(50px);
 			opacity: 0;
@@ -96,8 +97,8 @@
 
 		}
 		&.leave_animation {
-			transform: translateX(50px);
-			opacity: 0;
+			transform: translateX(50px) !important;
+			opacity: 0 !important;
 		}
 	}
 
@@ -124,30 +125,40 @@
 			transform: translateX(0%);
 			.nav__menu {
 				li div {
-					display: block;
 					transition: $Transition;
 					transform: translateY(0%);
+					transition-delay: 0.3s
 				}
-				li:nth-child(1) div {
-					transition-delay: 0.1s
-				}
-				li:nth-child(2) div {
-					transition-delay: 0.18s
-				}
-				li:nth-child(3) div {
-					transition-delay: 0.26s
-				}
-				li:nth-child(4) div {
-					transition-delay: 0.34s
-				}
-				li:nth-child(5) div {
-					transition-delay: 0.42s
-				}
-				li:nth-child(6) div {
-					transition-delay: 0.60s
-				}
-				li:nth-child(7) div {
-					transition-delay: 0.78s
+				// li:nth-child(1) div {
+				// 	transition-delay: 0.1s
+				// }
+				// li:nth-child(2) div {
+				// 	transition-delay: 0.18s
+				// }
+				// li:nth-child(3) div {
+				// 	transition-delay: 0.26s
+				// }
+				// li:nth-child(4) div {
+				// 	transition-delay: 0.34s
+				// }
+				// li:nth-child(5) div {
+				// 	transition-delay: 0.42s
+				// }
+				// li:nth-child(6) div {
+				// 	transition-delay: 0.60s
+				// }
+				// li:nth-child(7) div {
+				// 	transition-delay: 0.78s
+				// }
+			}
+			.hello {
+				div {
+					a {
+						display: block;
+						transition: $Transition;
+						transform: translateY(0%);
+						transition-delay: 0.3s
+					}
 				}
 			}
 		}
@@ -177,6 +188,15 @@
 				bottom: $framePaddingX025;
 				left: $framePaddingX025;
 			}
+			div {
+				overflow: hidden;
+				a {
+					display: block;
+					transition: $Transition;
+					transform: translateY(-70%);
+				}
+			}
+		
 		}
 		.nav__menu {
 			position: fixed;
@@ -198,7 +218,7 @@
 				margin: 0.2em 0;
 				div {
 					transition-delay: 0s;
-					display: block;
+					display: flex;
 					transform: translateY(-100%);
 					transition: $Transition;
 					line-height: 113%;
@@ -207,6 +227,7 @@
 						line-height: 100%;
 						transition: $Transition;
 						color: #d5dade;
+						margin: auto;
 						&:hover {
 							color: #131517;
 						}

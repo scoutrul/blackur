@@ -23,6 +23,7 @@
 		top: $framePaddingX025;
 	}
 
+	transition: $Transition;
 	&.appear_before {
 		margin-left: -50px;
 		opacity: 0;
@@ -34,8 +35,8 @@
 
 	}
 	&.leave_animation {
-		margin-left: -50px !important;
-		opacity: 0 !important;
+		margin-left: -50px;
+		opacity: 0;
 	}
 
 	.logos {

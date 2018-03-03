@@ -1,71 +1,94 @@
 import React from 'react';
-import AnimatedLink from '../../HOC/AnimatedLink'
-import './project.scss'
+import AnimatedLink from '../../HOC/AnimatedLink';
+import './project.scss';
 
 export default class extends React.Component {
 	state = {
 		mouseCursor: {
 			X: null,
-			Y: null
+			Y: null,
+			screenW: null
 		}
-	}
-	
+	};
+
 	componentDidMount() {
 		//add listeners
-		this.layer.addEventListener('mousemove', this._mouseMove)
+		this.layer.addEventListener('mousemove', this._mouseMove);
+
+		this.setState({
+			screenW: this.layer.clientWidth
+		});
 	}
-	
+
 	componentWillUnmount() {
-		this.layer.removeEventListener('mousemove', this._mouseMove)
+		this.layer.removeEventListener('mousemove', this._mouseMove);
 	}
-	
-	_mouseMove = e => {
+
+	_mouseMove = (e) => {
 		let ScreenH = this.layer.clientHeight;
 		let ScreenW = this.layer.clientWidth;
-		
+
 		let xCenter = e.clientX - ScreenH / 2;
 		let yCenter = e.clientY - ScreenW / 2;
-		
+
 		const setState = () => {
 			this.setState({
 				mouseCursor: {
 					X: xCenter,
 					Y: yCenter
 				}
-			})
+			});
 		};
 		setState();
 	};
-	
+
 	render() {
 		let { X, Y } = this.state.mouseCursor;
-		
+
 		let img1X = -X / 40;
 		let img1Y = -Y / 40;
-		
-		return <div className={`project ${this.props.className}`} ref={layer => this.layer = layer}>
-			<div className="images" id="img0">
-				<img src={this.props.image} />
-			</div>
-			<div className="images" id="img1">
-				<img src={this.props.image1} style={{ transform: `translate(${img1X}px, ${img1Y}px)` }}/>
-			</div>
-			<div className="headers">
-				<div className='hidden' >
-					<AnimatedLink to={`/${this.props.url}`} >
-						<h1>{this.props.header}</h1>
-					</AnimatedLink>
+
+		let persp = -X / 100;
+
+		return (
+			<div className={`project ${this.props.className}`} ref={(layer) => (this.layer = layer)}>
+				<div className="images" id="img1">
+					<img
+						src={'/images/bg_2.png'}
+						style={{
+							transform: `translate(${img1X * 1.1}px, ${img1Y}px) perspective(${this.state
+								.screenW}px) rotateY(${persp / 3}deg) rotateX(${persp / 2}deg)`
+						}}
+						alt=""
+					/>
 				</div>
-				<div className='hidden'>
-					<h5>{this.props.slogan}</h5>
+				<div className="images" id="img0">
+					<img
+						src={'/images/bg_1.jpg'}
+						alt=""
+						style={{
+							transform: `translate(${img1X / 5}px, ${img1Y / 5}px) perspective(${this.state
+								.screenW}px) rotateY(${persp / 11}deg) rotateX(${persp / 11}deg)`
+						}}
+					/>
 				</div>
+
+				<div className="headers">
+					<div className="hidden">
+						<AnimatedLink to={`/${this.props.url}`}>
+							<h1>{this.props.header}</h1>
+						</AnimatedLink>
+					</div>
+					<div className="hidden">
+						<h5>{this.props.slogan}</h5>
+					</div>
+				</div>
+				<ul className="services">
+					{this.props.services.map((services) => {
+						return <li key={services}>{services}</li>;
+					})}
+				</ul>
 			</div>
-			<ul className="services">
-				{this.props.services.map(services => {
-					return <li key={services}>{services}</li>
-				})}
-			</ul>
-		</div>
-		
+		);
 	}
 }

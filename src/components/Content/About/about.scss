@@ -6,30 +6,40 @@
 		}
 		@include adaptive(x2) {
 			margin: 180px 0 75px 0;
+			div {
+				flex: 1 1 300px;
+				margin: 0 40px 40px 0;
+			}
 		}
 		@include adaptive(x1) {
 			margin: 75px 0 75px 0;
+			div {
+				margin: 0 40px 40px 0;
+
+			}
 		}
 		@include adaptive(x05) {
 			flex-flow: row wrap;
 			margin: 75px 0 75px 0;
+			div {
+				margin-right: 20px
+			}
 		}
 		@include adaptive(x25) {
 			margin: 75px 0 75px 0;
-		}
-		div {
-			flex: 1 1 300px;
-			margin: 0 40px 40px 0;
+			div {
+				margin-right: 0
+			}
 		}
 	}
 
 	h1 {
-		margin: 20px 0
+		margin: 20px 0;
 	}
 	.dark {
 		color: $specialDark;
 		span {
-			color: #FFF;
+			color: #fff;
 		}
 	}
 
@@ -47,7 +57,5 @@
 		h1 {
 			transform: translate(0);
 		}
-
 	}
-
 }

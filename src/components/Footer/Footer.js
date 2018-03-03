@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import AnimatedLink from '../HOC/AnimatedLink'
-
 import './footer.scss'
 import Appear from "../HOC/Appear";
 import PropTypes from "prop-types";
@@ -22,7 +20,7 @@ export default class extends Component {
 		return (
 			
 			<div className={`footer ${AnimationCss}`}>
-				<div style={{ color: !actionBlock && 'white' }}>
+				<div className="sayhello" style={{ color: !actionBlock && 'white' }}>
 					<a href="mailto:hello@blackur.com">Say Hello!</a>
 				</div>
 			</div>

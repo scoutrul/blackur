@@ -52,7 +52,7 @@ export default MountedComponent => {
 		}
 		
 		render() {
-			const beforeCss = 'appear_before';
+			const beforeCss = this.props.isAppearBefore ? 'appear_before' : '';
 			const afterCss = this.props.isAppearAfter ? 'appear_after' : '';
 			const leaveCss = this.props.leaveAnimation ? 'leave_animation' : '';
 			const AnimationCss = `${beforeCss} ${afterCss} ${leaveCss}`;

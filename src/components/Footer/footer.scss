@@ -20,6 +20,9 @@
 	@include adaptive(x05) {
 		bottom: $framePaddingX05;
 		right: $framePaddingX05;
+		.sayhello {
+			visibility: hidden;
+		}
 	}
 	@include adaptive(x025) {
 		bottom: $framePaddingX025;
@@ -28,18 +31,36 @@
 	a {
 		transition: .1s ease;
 	}
-	&.appear_before {
-		transform: translateX(50px);
-		opacity: 0;
 
+	.sayhello {
+		a {
+			transition: $Transition;
+			display: inline-block;
+		}
+		overflow: hidden;
+	}
+	&.appear_before {
+		.sayhello {
+			a {
+				transform: translateY(-50px);
+				opacity: 0;
+			}
+		}
 	}
 	&.appear_after {
-		transform: translateX(0);
-		opacity: 1;
-
+		.sayhello {
+			a {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
 	}
 	&.leave_animation {
-		transform: translateX(50px) !important;
-		opacity: 0 !important;
+		.sayhello {
+			a {
+				transform: translateY(-50px) !important;
+				opacity: 0 !important;
+			}
+		}
 	}
 }

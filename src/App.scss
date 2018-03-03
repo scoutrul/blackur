@@ -12,7 +12,8 @@
 	font-size: 20px;
 }
 
-h1, .nav__menu a {
+h1,
+.nav__menu a {
 	font-weight: 700;
 	line-height: 80px;
 	margin: 0 0 30px 0;
@@ -74,7 +75,7 @@ h3 {
 	}
 }
 
-h4 {
+h4, .works_services li {
 	line-height: 60px;
 	margin: 0 0 0 -0.085em;
 	@include adaptive(xx) {
@@ -94,7 +95,7 @@ h4 {
 	}
 }
 
-h5 {
+h5, .content_text {
 	font-size: 20px;
 	line-height: 26px;
 	margin: 0 0 0 -0.085em;
@@ -135,7 +136,10 @@ h6 {
 	}
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
 	font-weight: 600;
 	line-height: 100%;
 }

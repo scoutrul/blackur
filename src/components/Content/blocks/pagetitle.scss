@@ -1,8 +1,33 @@
 .pageTitle {
 	position: fixed;
 	z-index: 10;
-	color: #FFF;
+	color: #fff;
 	line-height: $logoH+px;
+	transition: $Transition;
+	overflow: hidden;
+	span {
+		display: block;
+		transition: $Transition;
+	}
+	&.appear_before {
+		span {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+	}
+	&.appear_after {
+		span {
+			transform: translateY(-0%);
+			opacity: 1;
+		}
+	}
+	&.leave_animation {
+		span {
+			transform: translateY(-100%) !important;
+			opacity: 0 !important;
+		}
+	}
+
 	@include adaptive(xx) {
 		left: calc(50% - 660px);
 		top: $framePaddingXx;
@@ -38,6 +63,20 @@
 		opacity: 0 !important;
 	}
 
+	font-size: 20px;
+	@include adaptive(xx) {
+		font-size: 30px;
+	}
+	@include adaptive(x2) {
+		font-size: 30px;
+	}
+	@include adaptive(x1) {
+		font-size: 20px;
+	}
+	@include adaptive(x05) {
+		font-size: 17px;
+	}
+	@include adaptive(x025) {
+		font-size: 15px;
+	}
 }
-
-

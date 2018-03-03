@@ -27,7 +27,7 @@ export default class extends Component {
 					
 					<h1>We are Blackur.</h1>
 					<h1 className={'dark'}>And we are in the black.</h1>
-					<div className='column'>
+					<div className='column content_text'>
 						<div>We are young agency with drastically new approach to work. We’ve got rid of everything that
 							prevents us to create perfect products.
 						</div>
@@ -37,7 +37,7 @@ export default class extends Component {
 					</div>
 					<h3>We just use mathematics.<br/>
 						It helps us to optimize work and brings the best result for every project we work on.</h3>
-					<div className='column'>
+					<div className='column content_text'>
 						<div>We have developed a system that helps us to assemble teams of experts to work on each
 							project.
 							It's so smart that can analyze up to several tens of different parameters.
@@ -47,7 +47,7 @@ export default class extends Component {
 							overall picture of the team. That’s how our dream team formed.
 						</div>
 					</div>
-					<div className='column'>
+					<div className='column content_text'>
 						<div>Every day we examine a lot of resumes to find the best. We make an offer to the unique
 							candidates with interesting experience to keep the quality of our products at the highest
 							level.

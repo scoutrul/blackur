@@ -35,6 +35,6 @@ export function appearAfter_action() {
 }
 
 export function leaveAnimation_action() {
-	const payload = { isAppearBefore: false, isAppearAfter: false, leaveAnimation: true };
+	const payload = { isAppearBefore: true, isAppearAfter: true, leaveAnimation: true };
 	return { type: LEAVE_ANIMATION, payload }
 }

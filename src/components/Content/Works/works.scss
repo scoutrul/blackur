@@ -10,35 +10,73 @@
 		list-style: none;
 		padding: 0;
 		li {
-			margin: 105px 0;
+			margin: 130px 0;
 			width: fit-content;
 			&:hover {
 				color: #999;
 				transition: .2s ease;
 			}
 		}
-		h1, h2,h3,h4,h5,h6 {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
 			font-weight: 400;
+			line-height: 120%;
 		}
 	}
 }
 
 .work {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 400;
+		line-height: 120%;
+	}
+	h4 {
+		padding: $framePaddingXx 0;
+	}
 	.firstScreen {
 		height: 100%;
 		min-height: 100vh;
-		color: #FFF;
+		color: #fff;
 		display: flex;
 		flex-direction: column;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
 	}
 	.otherScreen {
-		padding: $logoH*3+px 0 40vh;
-		background-color: #FFFFFF;
+		padding: $logoH*3+px 0 0;
+		background-color: #ffffff;
 		color: $specialBlack;
 		height: 100%;
-
-		H4 {
-			padding: $logoH*3+px 0;
+		.works_images {
+			margin: $framePaddingXx 0 0;
+			line-height: 0;
+			img {
+				min-width: 100vh;
+				max-width: 100%;
+				margin:0;
+			}
+		}
+		.works_services {
+			padding: $framePaddingXx*2 0;
+			background-color: #343434;
+			ul {
+				margin:0 0 $framePaddingXx*4;
+				padding:0;
+				list-style: none;
+				li {
+					
+				}
+			}
 		}
 	}
 }
