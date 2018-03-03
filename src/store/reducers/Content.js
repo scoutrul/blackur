@@ -4,51 +4,18 @@ const initialState = {
 	pageTitle: '',
 	works: [
 		{
-			image: 'images/works/epson.png',
-			image1: 'images/works/epson1.png',
-			image2: 'images/works/epson2.png',
-			color: '#0957b6',
+			image1: 'images/bg_1.jpg',
+			image2: 'images/bg_2.png',
 			header: 'Epson ReadyInk',
-			slogan: 'Design & Development',
-			services: ['Product Design', 'Web Development'],
+			subheader: 'Design & Development',
+			title: 'Ready for hassle-free printing?',
+			slogan: 'Web application to help Epson provide clients with automatic ongoing support.',
+			services: [ 'Product Design', 'Web Development' ],
+			text:
+				"Thanks to this technology, you'll never run out of ink again. Just register with the retailer or reseller that you purchased the printer from and get a new cartridge is needed. With this automated system, you’ll always have a supply of high-quality ink.",
 			url: 'Epson'
 		},
-		{
-			image: 'images/works/epson1.png',
-			image1: 'images/works/epson2.png',
-			image2: 'images/works/epson.png',
-			color: '#57b609',
-			header: 'Cloudburst',
-			slogan: 'Concept & Design',
-			services: ['Web Development2', 'Product Design', 'Web Development3'],
-			url: 'Cloudburst'
-		},
-		{
-			image: 'images/works/epson2.png',
-			image1: 'images/works/epson.png',
-			image2: 'images/works/epson1.png',
-			color: '#09b657',
-			header: 'Edmunds',
-			slogan: 'Design & Development & Puppies',
-			services: ['DesignProduct ', 'DevelopmentWeb '],
-			url: 'Edmunds'
-		},
-		{
-			image: 'images/works/epson.png',
-			color: '#0957b6',
-			header: 'Storymaze',
-			slogan: 'Mobile app',
-			services: ['Product Design', ' Development'],
-			url: 'Storymaze'
-		},
-		{
-			image: 'images/works/epson.png',
-			color: '#b60957',
-			header: 'Omnistry',
-			slogan: 'Design & Development',
-			services: ['Product ', 'Web Development12'],
-			url: 'Omnistry'
-		},
+		
 	],
 	pages: {
 		works: {
@@ -63,17 +30,16 @@ const initialState = {
 	}
 };
 
-
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case SET_PAGE_TITLE:
 			return { ...state, pageTitle: action.payload };
 		default:
-			return state
+			return state;
 	}
-}
+};
 
 export function setTitle_action(payload) {
-	console.log(payload)
-	return { type: SET_PAGE_TITLE, payload }
+	console.log(payload);
+	return { type: SET_PAGE_TITLE, payload };
 }

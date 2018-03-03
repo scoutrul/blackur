@@ -54,7 +54,7 @@ export default class extends React.Component {
 			<div className={`project ${this.props.className}`} ref={(layer) => (this.layer = layer)}>
 				<div className="images" id="img1">
 					<img
-						src={'/images/bg_2.png'}
+						src={this.props.image2}
 						style={{
 							transform: `translate3d(${img1X * 1.1}px, ${img1Y}px, 0) perspective(${this.state
 								.screenW}px) rotateY(${persp / 3}deg) rotateX(${persp / 2}deg)`
@@ -64,7 +64,7 @@ export default class extends React.Component {
 				</div>
 				<div className="images" id="img0">
 					<img
-						src={'/images/bg_1.jpg'}
+						src={this.props.image1}
 						alt=""
 						style={{
 							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) perspective(${this.state
@@ -80,7 +80,7 @@ export default class extends React.Component {
 						</AnimatedLink>
 					</div>
 					<div className="hidden">
-						<h5>{this.props.slogan}</h5>
+						<h5>{this.props.subheader}</h5>
 					</div>
 				</div>
 				<ul className="services">

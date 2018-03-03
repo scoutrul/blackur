@@ -89,6 +89,7 @@ export default class extends Component {
 				<div className={`page-main ${AnimationCss}`}>
 					<Project
 						header={item.header}
+						subheader={item.subheader}
 						slogan={item.slogan}
 						services={item.services}
 						color={item.color}
