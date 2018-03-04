@@ -6,9 +6,9 @@ const initialState = {
 		{
 			image_main: 'images/works/pr1_cover.jpg',
 			images_page: [
-				'images/works/pr1_page1.png',
-				'images/works/pr1_page2.png',
-				'images/works/pr1_page3.png'
+				'images/works/pr1_page1.jpg',
+				'images/works/pr1_page2.jpg',
+				'images/works/pr1_page3.jpg'
 			],
 			image1: 'images/works/pr1_bg_1.jpg',
 			image2: 'images/works/pr1_bg_2.png',
@@ -24,9 +24,9 @@ const initialState = {
 		{
 			image_main: 'images/works/pr2_cover.jpg',
 			images_page: [
-				'images/works/pr2_page1.png',
-				'images/works/pr2_page2.png',
-				'images/works/pr2_page3.png'
+				'images/works/pr2_page1.jpg',
+				'images/works/pr2_page2.jpg',
+				'images/works/pr2_page3.jpg'
 			],
 			image1: 'images/works/pr2_bg_1.jpg',
 			image2: 'images/works/pr2_bg_2.png',
@@ -42,9 +42,9 @@ const initialState = {
 		{
 			image_main: 'images/works/pr3_cover.jpg',
 			images_page: [
-				'images/works/pr3_page1.png',
-				'images/works/pr3_page2.png',
-				'images/works/pr3_page3.png'
+				'images/works/pr3_page1.jpg',
+				'images/works/pr3_page2.jpg',
+				'images/works/pr3_page3.jpg'
 			],
 			image1: 'images/works/pr3_bg_1.jpg',
 			image2: 'images/works/pr3_bg_2.png',
@@ -60,9 +60,9 @@ const initialState = {
 		{
 			image_main: 'images/works/pr4_cover.jpg',
 			images_page: [
-				'images/works/pr4_page1.png',
-				'images/works/pr4_page2.png',
-				'images/works/pr4_page3.png'
+				'images/works/pr4_page1.jpg',
+				'images/works/pr4_page2.jpg',
+				'images/works/pr4_page3.jpg'
 			],
 			image1: 'images/works/pr4_bg_1.jpg',
 			image2: 'images/works/pr4_bg_2.png',
@@ -78,9 +78,9 @@ const initialState = {
 		{
 			image_main: 'images/works/pr5_cover.jpg',
 			images_page: [
-				'images/works/pr5_page1.png',
-				'images/works/pr5_page2.png',
-				'images/works/pr5_page3.png'
+				'images/works/pr5_page1.jpg',
+				'images/works/pr5_page2.jpg',
+				'images/works/pr5_page3.jpg'
 			],
 			image1: 'images/works/pr5_bg_1.jpg',
 			image2: 'images/works/pr5_bg_2.png',

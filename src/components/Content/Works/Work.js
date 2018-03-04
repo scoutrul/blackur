@@ -32,11 +32,11 @@ export default class extends Component {
 		const work = this.props.works.find((item) => item.url === this.props.url);
 		const { AnimationCss } = this.props;
 
-		const { header, subheader, slogan, text, services, image1 } = work;
+		const { header, subheader, slogan, text, services, image_main, images_page } = work;
 
 		return (
 			<div className={`work ${AnimationCss}`} id="focus">
-				<div className="firstScreen" style={{ backgroundImage: `url('images/bg_1.jpg')` }}>
+				<div className="firstScreen" style={{ backgroundImage: `url(${image_main})` }}>
 					{}
 				</div>
 				<div className="otherScreen">
@@ -44,13 +44,13 @@ export default class extends Component {
 						<h2>{header}</h2>
 						<h5 className="content_text">{subheader}</h5>
 
-
 						<h4>{slogan}</h4>
 						<h5>{text}</h5>
 					</div>
 					<div className="works_images">
-						<img src={image1} alt="" />
-						<img src={image1} alt="" />
+						{images_page.map((url, i) => {
+							return <img src={url} alt="" key={i}/>;
+						})}
 					</div>
 					<div className="works_services">
 						<div className="contentContainer">
@@ -59,7 +59,6 @@ export default class extends Component {
 									return <li key={i}>{services}</li>;
 								})}
 							</ul>
-
 						</div>
 						<div className={`works contentContainer ${AnimationCss}`}>
 							<ul className="list content">
