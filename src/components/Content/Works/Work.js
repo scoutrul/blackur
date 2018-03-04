@@ -45,7 +45,7 @@ export default class extends Component {
 	_scrollEvent = (e) => {
 		let ticking = false;
 		let scrollTop = e ? e.target.scrollTop : 0;
-		let stopper = this.state.viewBoxHeight - (this.state.divTopOffset - this.state.divHeight / 2);
+		let stopper = this.state.divTopOffset ;
 		let actionBlock = scrollTop >= stopper;
 
 		if (!ticking) {
@@ -57,6 +57,7 @@ export default class extends Component {
 			});
 			ticking = true;
 		}
+		console.log(this.state);
 	};
 
 	render() {
@@ -65,7 +66,7 @@ export default class extends Component {
 
 		const { header, subheader, slogan, text, services, image_main, images_page } = work;
 
-		const inViewCss = this.state.actionBlock ? 'makeChange':'setInitial'
+		const inViewCss = this.state.actionBlock ? 'makeChange' : 'setInitial';
 		return (
 			<div className={`work ${AnimationCss}`} id="focus">
 				<div className="firstScreen" style={{ backgroundImage: `url(${image_main})` }}>
@@ -84,15 +85,15 @@ export default class extends Component {
 							return <img src={url} alt="" key={i} />;
 						})}
 					</div>
-					<div className={`works_services ${inViewCss}`} ref={(changeColors) => (this.changeColors = changeColors)}>
-						<div className="contentContainer">
-							<ul className="services">
+					<div className={`works_services ${inViewCss}`}>
+						<div className="contentContainer" >
+							<ul className="works_services_list">
 								{services.map((services, i) => {
 									return <li key={i}>{services}</li>;
 								})}
 							</ul>
 						</div>
-						<div className={`works contentContainer ${AnimationCss}`}>
+						<div className={`works contentContainer ${AnimationCss}`} ref={(changeColors) => (this.changeColors = changeColors)}>
 							<ul className="list content">
 								<WorksList works={this.props.works} curr={this.props.history.location.pathname} />
 							</ul>

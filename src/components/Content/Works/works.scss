@@ -69,13 +69,14 @@
 		.works_services {
 			padding: $framePaddingXx*2 0;
 			transition: $Transition;
-			ul {
+			.works_services_list {
 				margin:0 0 $framePaddingXx*4;
 				padding:0;
 				list-style: none;
 				li {
-					
+					transition: $Transition;
 				}
+
 			}
 
 			&.setInitial {
@@ -83,6 +84,11 @@
 			};
 			&.makeChange {
 				background-color: $specialBlack;
+.works_services_list {
+	li {
+		opacity: 0;
+	}
+}
 			}
 		}
 	}

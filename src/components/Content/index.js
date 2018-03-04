@@ -5,6 +5,9 @@ import './content.scss'
 
 
 export default class extends Component {
+	componentDidUpdate() {
+		document.querySelector('.scrollBox').scrollTop = 0;
+	}
 	render() {
 		return (
 			<div className='scrollBox'>

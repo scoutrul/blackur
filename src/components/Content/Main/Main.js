@@ -26,7 +26,7 @@ export default class extends Component {
 
 	componentDidMount() {
 		this.props.setTitle('');
-		document.querySelector('.scrollBox').scrollTop = 0;
+		
 	}
 
 	changeSlide = (move) => {
