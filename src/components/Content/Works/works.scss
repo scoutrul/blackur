@@ -68,7 +68,7 @@
 		}
 		.works_services {
 			padding: $framePaddingXx*2 0;
-			background-color: #343434;
+			transition: $Transition;
 			ul {
 				margin:0 0 $framePaddingXx*4;
 				padding:0;
@@ -76,6 +76,13 @@
 				li {
 					
 				}
+			}
+
+			&.setInitial {
+				background-color: #FFF;
+			};
+			&.makeChange {
+				background-color: $specialBlack;
 			}
 		}
 	}

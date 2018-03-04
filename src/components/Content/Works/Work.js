@@ -22,11 +22,42 @@ const connectDispatch = (dispatch) => {
 @connect(connectProps, connectDispatch)
 @Appear
 export default class extends Component {
+	state = {};
+
 	componentDidMount() {
 		this.props.setTitle(this.props.works.find((item) => item.url === this.props.url).title);
 
-		document.getElementById('focus').focus({ preventScroll: false });
+		let divElement = this.changeColors;
+		let viewBoxHeight = document.body.querySelector('.scrollBox').scrollHeight;
+		let divTopOffset = divElement.offsetTop;
+		let divHeight = divElement.getBoundingClientRect().height;
+
+		this.setState({
+			viewBoxHeight,
+			divTopOffset,
+			divHeight
+		});
+
+		document.querySelector('.scrollBox').addEventListener('scroll', this._scrollEvent);
+		this._scrollEvent();
 	}
+
+	_scrollEvent = (e) => {
+		let ticking = false;
+		let scrollTop = e ? e.target.scrollTop : 0;
+		let stopper = this.state.viewBoxHeight - (this.state.divTopOffset - this.state.divHeight / 2);
+		let actionBlock = scrollTop >= stopper;
+
+		if (!ticking) {
+			window.requestAnimationFrame(() => {
+				ticking = false;
+				this.setState({
+					actionBlock
+				});
+			});
+			ticking = true;
+		}
+	};
 
 	render() {
 		const work = this.props.works.find((item) => item.url === this.props.url);
@@ -34,6 +65,7 @@ export default class extends Component {
 
 		const { header, subheader, slogan, text, services, image_main, images_page } = work;
 
+		const inViewCss = this.state.actionBlock ? 'makeChange':'setInitial'
 		return (
 			<div className={`work ${AnimationCss}`} id="focus">
 				<div className="firstScreen" style={{ backgroundImage: `url(${image_main})` }}>
@@ -49,10 +81,10 @@ export default class extends Component {
 					</div>
 					<div className="works_images">
 						{images_page.map((url, i) => {
-							return <img src={url} alt="" key={i}/>;
+							return <img src={url} alt="" key={i} />;
 						})}
 					</div>
-					<div className="works_services">
+					<div className={`works_services ${inViewCss}`} ref={(changeColors) => (this.changeColors = changeColors)}>
 						<div className="contentContainer">
 							<ul className="services">
 								{services.map((services, i) => {
