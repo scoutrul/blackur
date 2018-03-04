@@ -63,32 +63,31 @@
 			img {
 				min-width: 100vw;
 				max-width: 100%;
-				margin:0;
+				margin: 0;
 			}
 		}
 		.works_services {
 			padding: $framePaddingXx*2 0;
 			transition: $Transition;
 			.works_services_list {
-				margin:0 0 $framePaddingXx*4;
-				padding:0;
+				margin: 0 0 $framePaddingXx*4;
+				padding: 0;
 				list-style: none;
 				li {
 					transition: $Transition;
 				}
-
 			}
 
 			&.setInitial {
-				background-color: #FFF;
-			};
+				background-color: #fff;
+			}
 			&.makeChange {
 				background-color: $specialBlack;
-.works_services_list {
-	li {
-		opacity: 0;
-	}
-}
+				.works_services_list {
+					li {
+						opacity: 0;
+					}
+				}
 			}
 		}
 	}
