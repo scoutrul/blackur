@@ -6,7 +6,7 @@ const initialState = {
 		{
 			image_main: 'images/works/pr1_cover.jpg',
 			images_page: [
-				'images/works/pr1_page1.jpg',
+				'images/works/pr1_page1.jpg`',
 				'images/works/pr1_page2.jpg',
 				'images/works/pr1_page3.jpg'
 			],
