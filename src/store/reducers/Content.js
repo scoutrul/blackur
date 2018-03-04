@@ -4,7 +4,7 @@ const initialState = {
 	pageTitle: '',
 	works: [
 		{
-			image_main: 'images/works/pr1_cover.png',
+			image_main: 'images/works/pr1_cover.jpg',
 			images_page: [
 				'images/works/pr1_page1.png',
 				'images/works/pr1_page2.png',
@@ -22,7 +22,7 @@ const initialState = {
 			url: 'ReadyInk'
 		},
 		{
-			image_main: 'images/works/pr2_cover.png',
+			image_main: 'images/works/pr2_cover.jpg',
 			images_page: [
 				'images/works/pr2_page1.png',
 				'images/works/pr2_page2.png',
@@ -40,7 +40,7 @@ const initialState = {
 			url: 'Edmunds'
 		},
 		{
-			image_main: 'images/works/pr3_cover.png',
+			image_main: 'images/works/pr3_cover.jpg',
 			images_page: [
 				'images/works/pr3_page1.png',
 				'images/works/pr3_page2.png',
@@ -58,7 +58,7 @@ const initialState = {
 			url: 'Cloudburst'
 		},
 		{
-			image_main: 'images/works/pr4_cover.png',
+			image_main: 'images/works/pr4_cover.jpg',
 			images_page: [
 				'images/works/pr4_page1.png',
 				'images/works/pr4_page2.png',
@@ -76,7 +76,7 @@ const initialState = {
 			url: 'Omnistry'
 		},
 		{
-			image_main: 'images/works/pr5_cover.png',
+			image_main: 'images/works/pr5_cover.jpg',
 			images_page: [
 				'images/works/pr5_page1.png',
 				'images/works/pr5_page2.png',
