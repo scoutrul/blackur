@@ -13,8 +13,8 @@
 			margin: 130px 0;
 			width: fit-content;
 			&:hover {
-				color: #999;
-				transition: .2s ease;
+				color: $linkColor;
+				transition: $Transition;
 			}
 		}
 		h1,

@@ -34,8 +34,11 @@
 
 	.sayhello {
 		a {
-			transition: $Transition;
 			display: inline-block;
+			&:hover {
+				color: $linkColor;
+				transition: $Transition;
+			}
 		}
 		overflow: hidden;
 	}
