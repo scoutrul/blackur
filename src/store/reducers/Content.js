@@ -36,7 +36,7 @@ const initialState = {
 			slogan: 'High loaded platform for car owners.',
 			services: [ 'Product Design', 'Web Development' ],
 			text:
-				"Edmunds is one of the world’s largest automotive platforms with more lots of monthly visitors. It has huge car database with hundreds of different parameters.<br><br>Main problem here is really big database, which makes requests processing too slow to be a part of reality. That’s why the main challenge here was to make the site really fast and convenient for the user.",
+				"Edmunds is one of the world’s largest automotive platforms with more lots of monthly visitors. It has huge car database with hundreds of different parameters. <br/><br/> Main problem here is really big database, which makes requests processing too slow to be a part of reality. That’s why the main challenge here was to make the site really fast and convenient for the user.",
 			url: 'Edmunds'
 		},
 		{
@@ -72,7 +72,7 @@ const initialState = {
 			slogan: 'Create media content with friends.',
 			services: [ 'Product Design', 'Web Development' ],
 			text:
-				"Joint creation of content is the most important for creatives. Omnistry provides an opportunity to share content and quickly create publications together to people in different parts of the world.<br><br>We have given professionals a powerful tool in creating and managing media content. Now composing music, writing publications and creating stylish boards can be much more effective.",
+				"Joint creation of content is the most important for creatives. Omnistry provides an opportunity to share content and quickly create publications together to people in different parts of the world. <br/><br/> We have given professionals a powerful tool in creating and managing media content. Now composing music, writing publications and creating stylish boards can be much more effective.",
 			url: 'Omnistry'
 		},
 		{

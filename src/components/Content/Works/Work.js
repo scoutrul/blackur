@@ -45,7 +45,7 @@ export default class extends Component {
 	_scrollEvent = (e) => {
 		let ticking = false;
 		let scrollTop = e ? e.target.scrollTop : 0;
-		let stopper = this.state.divTopOffset ;
+		let stopper = this.state.divTopOffset + this.state.divHeight/2;
 		let actionBlock = scrollTop >= stopper;
 
 		if (!ticking) {
@@ -57,7 +57,6 @@ export default class extends Component {
 			});
 			ticking = true;
 		}
-		console.log(this.state);
 	};
 
 	render() {
@@ -67,6 +66,7 @@ export default class extends Component {
 		const { header, subheader, slogan, text, services, image_main, images_page } = work;
 
 		const inViewCss = this.state.actionBlock ? 'makeChange' : 'setInitial';
+
 		return (
 			<div className={`work ${AnimationCss}`} id="focus">
 				<div className="firstScreen" style={{ backgroundImage: `url(${image_main})` }}>
@@ -93,8 +93,8 @@ export default class extends Component {
 								})}
 							</ul>
 						</div>
-						<div className={`works contentContainer ${AnimationCss}`} ref={(changeColors) => (this.changeColors = changeColors)}>
-							<ul className="list content">
+						<div className={`works contentContainer ${AnimationCss}`}>
+							<ul className="list content" ref={(changeColors) => (this.changeColors = changeColors)}>
 								<WorksList works={this.props.works} curr={this.props.history.location.pathname} />
 							</ul>
 						</div>

@@ -67,6 +67,9 @@
 			}
 		}
 		.works_services {
+			.works .list.content {
+				margin:0;
+			}
 			padding: $framePaddingXx*2 0;
 			transition: $Transition;
 			.works_services_list {
