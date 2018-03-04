@@ -31,7 +31,7 @@ $x01: 640px;
 $x025: 960px;
 $x05: 1280px;
 $x1: 1930px;
-$x15: 2560px;
+$titlefrom: 1734px;
 $x2: 2560px;
 
 @mixin adaptive($media) {
@@ -51,8 +51,9 @@ $x2: 2560px;
 		@media (min-width: 0) and (max-width: $x1) {
 			@content;
 		}
-	} @else if $media == x15 {
-		@media (min-width: 0) and (max-width: $x15) {
+
+	} @else if $media == title {
+		@media (min-width: $titlefrom) and (max-width: $x1) {
 			@content;
 		}
 	} @else if $media == x2 {

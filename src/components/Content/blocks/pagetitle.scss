@@ -42,8 +42,9 @@
 		padding-left: 20px;
 		line-height: $logoH+px;
 	}
-	@include adaptive(x15) {
-		left: calc(50% - 660px);
+
+	@include adaptive(title) {
+		left: calc(50% - 660px) !important;
 		top: $framePaddingX2;
 	}
 	@include adaptive(x1) {
