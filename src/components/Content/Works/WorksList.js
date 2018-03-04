@@ -7,7 +7,7 @@ export const WorksList = ({ works, curr }) => {
 				<li key={item.url}>
 					<AnimatedLink to={`/${item.url}`}>
 						<h2>{item.header}</h2>
-						<h5 className="content_text">{item.slogan}</h5>
+						<h5 className="content_text">{item.subheader}</h5>
 					</AnimatedLink>
 				</li>
 			)
