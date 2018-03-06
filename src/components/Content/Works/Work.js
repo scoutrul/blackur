@@ -56,7 +56,7 @@ export default class extends Component {
 
 		let { viewBoxHeight, stopper } = this.props.MovingActions;
 		let scrollTop = e ? e.target.scrollTop : 0;
-		let stop = -stopper - viewBoxHeight/2;
+		let stop = -stopper - viewBoxHeight * 2;
 		let actionLine = scrollTop >= stop;
 		// console.log(scrollTop, stopper, actionLine)
 
@@ -107,7 +107,7 @@ export default class extends Component {
 								})}
 							</ul>
 						</div>
-						<div className={`works contentContainer ${AnimationCss}`} ref={workListDiv => this.workListDiv = workListDiv}>
+						<div className={`works contentContainer works_list ${AnimationCss}`} ref={workListDiv => this.workListDiv = workListDiv}>
 							<ul className="list content">
 								<WorksList works={this.props.works} curr={this.props.history.location.pathname} />
 							</ul>

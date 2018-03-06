@@ -1,14 +1,12 @@
 .works {
-
-
 	.workList_item {
 		div {
 			overflow: hidden;
 			padding-left: 10px;
-			transform: translateX(10px);
-			h2, h5 {
+			transform: translateX(-10px);
+			h2,
+			h5 {
 				transform: translateY(-100%);
-				
 			}
 		}
 	}
@@ -16,7 +14,8 @@
 	&.appear_before {
 		.workList_item {
 			div {
-				h2, h5 {
+				h2,
+				h5 {
 					transform: translateY(-100%);
 				}
 			}
@@ -24,7 +23,8 @@
 	}
 	&.appear_after {
 		.workList_item {
-			h2, h5 {
+			h2,
+			h5 {
 				transform: translateY(0);
 				transition: $Transition;
 			}
@@ -61,7 +61,7 @@
 		.works_images {
 			opacity: 1;
 			transition: $Transition;
-			transition-delay: .2s;
+			transition-delay: .4s;
 		}
 	}
 	&.makeChange {
@@ -116,7 +116,7 @@
 			.works {
 				// padding:0;
 				.list.content {
-					margin:0;
+					margin: 0;
 				}
 			}
 
@@ -129,8 +129,9 @@
 					transition: $Transition;
 				}
 			}
-
-
+			.works_list {
+				margin: $framePaddingXx*4 0;
+			}
 		}
 	}
 }

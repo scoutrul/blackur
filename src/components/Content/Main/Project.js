@@ -45,10 +45,10 @@ export default class extends React.Component {
 	render() {
 		let { X, Y } = this.state.mouseCursor;
 
-		let img1X = -X / 40;
+		let img1X = -X / 80;
 		let img1Y = -Y / 40;
 
-		let persp = -X / 100;
+		let persp = -X / 500;
 
 		return (
 			<div className={`project ${this.props.className}`} ref={(layer) => (this.layer = layer)}>
@@ -57,7 +57,7 @@ export default class extends React.Component {
 						src={this.props.image2}
 						style={{
 							transform: `translate3d(${img1X * 1.1}px, ${img1Y}px, 0) perspective(${this.state
-								.screenW}px) rotateY(${persp / 3}deg) rotateX(${persp / 2}deg)`
+								.screenW}px) rotateX(${persp/4}deg) rotateY(${persp}deg) `
 						}}
 						alt=""
 					/>
