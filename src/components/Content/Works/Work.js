@@ -56,7 +56,7 @@ export default class extends Component {
 
 		let { viewBoxHeight, stopper } = this.props.MovingActions;
 		let scrollTop = e ? e.target.scrollTop : 0;
-		let stop = -stopper - viewBoxHeight * 2;
+		let stop = -stopper - viewBoxHeight * 1.5;
 		let actionLine = scrollTop >= stop;
 		// console.log(scrollTop, stopper, actionLine)
 
