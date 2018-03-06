@@ -32,7 +32,7 @@ export default class extends Component {
 	
 	_resizeEvent = () => {
 		let divElement = this._findNestedElement(this.divElement);
-		let viewBoxHeight = document.querySelector('.firstScreen') ? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.scrollBox').scrollHeight;
+		let viewBoxHeight = document.querySelector('.firstScreen') && (document.querySelector('.firstScreen').getBoundingClientRect().height || document.body.querySelector('.scrollBox').scrollHeight);
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
 		let stopper = viewBoxHeight - (divHeight + divTopOffset);

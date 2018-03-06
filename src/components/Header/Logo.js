@@ -7,36 +7,36 @@ import './logo.scss';
 
 @Appear
 export default class extends Component {
-	
+
 	static propTypes = {
 		MovingActions: PropTypes.object,
 	}
 
 	render() {
-		
-		let {viewBoxHeight, divHeight, divTopOffset, scrollTop, actionBlock} = this.props.MovingActions;
-		
+
+		let { viewBoxHeight, divHeight, divTopOffset, scrollTop, actionBlock } = this.props.MovingActions;
+
 		let move = actionBlock ? scrollTop - (viewBoxHeight - divTopOffset - divHeight) : 0;
 
 		return <AnimatedLink to={'/'}>
-				<div className={`logo ${this.props.AnimationCss}`}>
-					<div className={'logos'}>
-						<div className="white"
-							 style={{ transform: `translateY(${-move}px)` }}>
-							<img src={'images/logo_blackur.svg'}
-								 alt={'Blackur logo'}
-								 style={{ transform: `translateY(${move}px)` }}/>
-						</div>
-						<div className="black"
-							 style={{ transform: `translateY(${move}px)`, opacity: !actionBlock && 0 }}>
-							<img src={'images/logo_blackur.svg'}
-								 alt={'Blackur logo'}
-								 style={{ transform: `translateY(${-move}px)` }}/>
-						</div>
+			<div className={`logo ${this.props.AnimationCss}`}>
+				<div className={'logos'}>
+					<div className="white"
+						style={{ transform: `translateY(${-move}px)` }}>
+						<img src={'images/logo_blackur.svg'}
+							alt={'Blackur logo'}
+							style={{ transform: `translateY(${move}px)` }} />
+					</div>
+					<div className="black"
+						style={{ transform: `translateY(${move}px)`, opacity: !actionBlock && 0 }}>
+						<img src={'images/logo_blackur.svg'}
+							alt={'Blackur logo'}
+							style={{ transform: `translateY(${-move}px)` }} />
 					</div>
 				</div>
-			</AnimatedLink>
+			</div>
+		</AnimatedLink>
 
 	}
-	
+
 }

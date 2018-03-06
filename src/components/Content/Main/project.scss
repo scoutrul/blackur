@@ -3,6 +3,7 @@
 
 	.project {
 		height: 100%;
+		min-height: 100vh;
 		background: no-repeat 50%;
 		background-size: contain;
 		margin: auto;
@@ -176,20 +177,14 @@
 			align-items: center;
 			transition: .4s cubic-bezier(0.1, 0.1, 0.3, 1.1);
 			img {
-				transition: .4s cubic-bezier(0.1, 0.1, 0.3, 1.1);
+				// transition: .4s cubic-bezier(0.1, 0.1, 0.3, 1.1);
 				min-height: 120vh;
 			}
 			&#img0 {
-				transition-delay: .2s;
 				z-index: 1;
 			}
 			&#img1 {
-				transition-delay: .3s;
-
 				z-index: 2;
-			}
-			&#img2 {
-				z-index: 3;
 			}
 		}
 	}

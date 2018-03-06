@@ -1,9 +1,34 @@
 .works {
+
+
+	.workList_item {
+		div {
+			overflow: hidden;
+			padding-left: 10px;
+			transform: translateX(10px);
+			h2, h5 {
+				transform: translateY(-100%);
+				
+			}
+		}
+	}
+
 	&.appear_before {
-		opacity: 0;
+		.workList_item {
+			div {
+				h2, h5 {
+					transform: translateY(-100%);
+				}
+			}
+		}
 	}
 	&.appear_after {
-		opacity: 1;
+		.workList_item {
+			h2, h5 {
+				transform: translateY(0);
+				transition: $Transition;
+			}
+		}
 	}
 
 	.list {
@@ -30,6 +55,27 @@
 }
 
 .work {
+	transition: $Transition;
+	&.setInitial {
+		background-color: #fff;
+		.works_images {
+			opacity: 1;
+			transition: $Transition;
+			transition-delay: .2s;
+		}
+	}
+	&.makeChange {
+		background-color: $specialBlack;
+		.works_services_list {
+			li {
+				opacity: 0;
+			}
+		}
+		.works_images {
+			opacity: 0;
+		}
+	}
+
 	h1,
 	h2,
 	h3,
@@ -40,7 +86,8 @@
 		line-height: 120%;
 	}
 	h4 {
-		padding: $framePaddingXx 0;
+		padding: $framePaddingX1 0;
+		line-height: 160%;
 	}
 	.firstScreen {
 		height: 100%;
@@ -54,7 +101,6 @@
 	}
 	.otherScreen {
 		padding: $logoH*3+px 0 0;
-		background-color: #ffffff;
 		color: $specialBlack;
 		height: 100%;
 		.works_images {
@@ -67,13 +113,16 @@
 			}
 		}
 		.works_services {
-			.works .list.content {
-				margin:0;
+			.works {
+				// padding:0;
+				.list.content {
+					margin:0;
+				}
 			}
-			padding: $framePaddingXx*2 0;
+
 			transition: $Transition;
 			.works_services_list {
-				margin: 0 0 $framePaddingXx*4;
+				margin: $framePaddingXx*2 0 $framePaddingXx*2;
 				padding: 0;
 				list-style: none;
 				li {
@@ -81,17 +130,7 @@
 				}
 			}
 
-			&.setInitial {
-				background-color: #fff;
-			}
-			&.makeChange {
-				background-color: $specialBlack;
-				.works_services_list {
-					li {
-						opacity: 0;
-					}
-				}
-			}
+
 		}
 	}
 }

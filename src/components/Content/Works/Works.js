@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import './works.scss';
 import { setTitle_action } from "../../../store/reducers/Content";
 
-import {WorksList} from "./WorksList"
+import WorksList from "./WorksList"
 
 const connectProps = (state) => {
 	return {

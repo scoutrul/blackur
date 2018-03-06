@@ -25,18 +25,18 @@ export default class extends Component {
 
 		const burgerColor1 = () => {
 			let stopper = viewBoxHeight - divTopOffset;
-			let actionBlock = scrollTop >= stopper -15;
+			let actionBlock = scrollTop >= stopper - 15;
 			return actionBlock ? 'black' : 'white';
 		};
 		const burgerColor2 = () => {
 			let stopper = viewBoxHeight - (divTopOffset + divHeight / 2);
-			let actionBlock = scrollTop >= stopper -15;
+			let actionBlock = scrollTop >= stopper - 15;
 			return actionBlock ? 'black' : 'white';
 		};
 
 		return (
 			<div className={`menu`}>
-				<div id="burger" onClick={this._opener} className={`${AnimationCss} ${this.state.opened ? 'opened':''}`}>
+				<div id="burger" onClick={this._opener} className={`${AnimationCss} ${this.state.opened ? 'opened' : ''}`}>
 					<span style={{ color: burgerColor1() }}>{}</span>
 					<span style={{ color: burgerColor2() }}>{}</span>
 				</div>
@@ -47,19 +47,20 @@ export default class extends Component {
 								<AnimatedLink to={'/'}>Home </AnimatedLink>
 							</div>
 						</li>
+
 						<li>
 							<div onClick={this._opener}>
-								<AnimatedLink to={'/about'}>About </AnimatedLink>
+								<AnimatedLink to={'/works'}>Projects </AnimatedLink>
 							</div>
 						</li>
 						<li>
 							<div onClick={this._opener}>
-								<AnimatedLink to={'/works'}>Works </AnimatedLink>
+								<AnimatedLink to={'/about'}>Agency </AnimatedLink>
 							</div>
 						</li>
 						<li>
 							<div onClick={this._opener}>
-								<AnimatedLink to={'/contacts'}>Contacts</AnimatedLink>
+								<AnimatedLink to={'/contacts'}>Contact</AnimatedLink>
 							</div>
 						</li>
 					</ul>

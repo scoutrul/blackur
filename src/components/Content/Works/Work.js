@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 import Appear from '../../HOC/Appear';
 import './works.scss';
 import { setTitle_action } from '../../../store/reducers/Content';
 
-import { WorksList } from './WorksList';
+import WorksList from './WorksList';
 
 const connectProps = (state) => {
 	return {
@@ -24,16 +25,25 @@ const connectDispatch = (dispatch) => {
 export default class extends Component {
 	state = {};
 
+	static propTypes = {
+		MovingActions: PropTypes.object,
+	}
+
+	componentDidUpdate() {
+		this.props.setTitle(this.props.works.find((item) => item.url === this.props.url).title);
+	}
 	componentDidMount() {
 		this.props.setTitle(this.props.works.find((item) => item.url === this.props.url).title);
 
-		let divElement = this.changeColors;
-		let viewBoxHeight = document.body.querySelector('.scrollBox').scrollHeight;
-		let divTopOffset = divElement.offsetTop;
+		let scrollBox = document.body.querySelector('.scrollBox').scrollHeight;
+
+		let divElement = this.workListDiv;
+		let divTopOffset = divElement.getBoundingClientRect().top;
 		let divHeight = divElement.getBoundingClientRect().height;
 
+
 		this.setState({
-			viewBoxHeight,
+			scrollBox,
 			divTopOffset,
 			divHeight
 		});
@@ -43,16 +53,19 @@ export default class extends Component {
 	}
 
 	_scrollEvent = (e) => {
-		let ticking = false;
-		let scrollTop = e ? e.target.scrollTop : 0;
-		let stopper = this.state.divTopOffset + this.state.divHeight/2;
-		let actionBlock = scrollTop >= stopper;
 
+		let { viewBoxHeight, stopper } = this.props.MovingActions;
+		let scrollTop = e ? e.target.scrollTop : 0;
+		let stop = -stopper - viewBoxHeight/2;
+		let actionLine = scrollTop >= stop;
+		// console.log(scrollTop, stopper, actionLine)
+
+		let ticking = false;
 		if (!ticking) {
 			window.requestAnimationFrame(() => {
 				ticking = false;
 				this.setState({
-					actionBlock
+					actionLine
 				});
 			});
 			ticking = true;
@@ -65,10 +78,11 @@ export default class extends Component {
 
 		const { header, subheader, slogan, text, services, image_main, images_page } = work;
 
-		const inViewCss = this.state.actionBlock ? 'makeChange' : 'setInitial';
+		const inViewCss = this.state.actionLine ? 'makeChange' : 'setInitial';
+
 
 		return (
-			<div className={`work ${AnimationCss}`} id="focus">
+			<div className={`work ${AnimationCss} ${inViewCss}`} >
 				<div className="firstScreen" style={{ backgroundImage: `url(${image_main})` }}>
 					{}
 				</div>
@@ -85,7 +99,7 @@ export default class extends Component {
 							return <img src={url} alt="" key={i} />;
 						})}
 					</div>
-					<div className={`works_services ${inViewCss}`}>
+					<div className={`works_services`}>
 						<div className="contentContainer" >
 							<ul className="works_services_list">
 								{services.map((services, i) => {
@@ -93,8 +107,8 @@ export default class extends Component {
 								})}
 							</ul>
 						</div>
-						<div className={`works contentContainer ${AnimationCss}`}>
-							<ul className="list content" ref={(changeColors) => (this.changeColors = changeColors)}>
+						<div className={`works contentContainer ${AnimationCss}`} ref={workListDiv => this.workListDiv = workListDiv}>
+							<ul className="list content">
 								<WorksList works={this.props.works} curr={this.props.history.location.pathname} />
 							</ul>
 						</div>
