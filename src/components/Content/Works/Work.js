@@ -29,8 +29,12 @@ export default class extends Component {
 		MovingActions: PropTypes.object,
 	}
 
+	componentWillUnmount(){
+		document.querySelector('.scrollBox').removeEventListener('scroll', this._scrollEvent);
+	}
 	componentDidUpdate() {
 		this.props.setTitle(this.props.works.find((item) => item.url === this.props.url).title);
+
 	}
 	componentDidMount() {
 		this.props.setTitle(this.props.works.find((item) => item.url === this.props.url).title);
@@ -53,12 +57,11 @@ export default class extends Component {
 	}
 
 	_scrollEvent = (e) => {
-
+		let div =  this.workListDiv;
 		let { viewBoxHeight, stopper } = this.props.MovingActions;
 		let scrollTop = e ? e.target.scrollTop : 0;
-		let stop = -stopper - viewBoxHeight * 1.5;
+		let stop = -stopper - div.offsetHeight + 300;
 		let actionLine = scrollTop >= stop;
-		// console.log(scrollTop, stopper, actionLine)
 
 		let ticking = false;
 		if (!ticking) {

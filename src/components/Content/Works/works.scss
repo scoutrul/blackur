@@ -132,7 +132,8 @@
 				}
 			}
 			.works_list {
-				margin: $framePaddingXx*4 auto;
+				padding-top: $framePaddingXx*2;
+				padding-bottom: $framePaddingXx*2;
 			}
 		}
 	}
