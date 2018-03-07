@@ -4,18 +4,23 @@ import PropTypes from 'prop-types'
 import Appear from '../../HOC/Appear';
 import './works.scss';
 import { setTitle_action } from '../../../store/reducers/Content';
+import { changeColorinWork_action } from '../../../store/reducers/Animations';
 
 import WorksList from './WorksList';
 
 const connectProps = (state) => {
 	return {
-		works: state.Content.works
+		works: state.Content.works,
+		changeColorBool: state.Animations.changeColorinWork
 	};
 };
 const connectDispatch = (dispatch) => {
 	return {
 		setTitle: (payload) => {
 			dispatch(setTitle_action(payload));
+		},
+		changeColorinWork: (payload) => {
+			dispatch(changeColorinWork_action(payload))
 		}
 	};
 };
@@ -67,9 +72,8 @@ export default class extends Component {
 		if (!ticking) {
 			window.requestAnimationFrame(() => {
 				ticking = false;
-				this.setState({
-					actionLine
-				});
+
+				this.props.changeColorinWork(actionLine)
 			});
 			ticking = true;
 		}
@@ -81,7 +85,7 @@ export default class extends Component {
 
 		const { header, subheader, slogan, text, services, image_main, images_page } = work;
 
-		const inViewCss = this.state.actionLine ? 'makeChange' : 'setInitial';
+		const inViewCss = this.props.changeColorBool ? 'makeChange' : 'setInitial';
 
 
 		return (

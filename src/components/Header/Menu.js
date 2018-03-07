@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import AnimatedLink from '../HOC/AnimatedLink';
 import Appear from '../HOC/Appear';
-
+import { connect } from 'react-redux';
 import './menu.scss';
 
+@connect(state => {
+	return {
+		changeColorBool: state.Animations.changeColorinWork
+	}
+})
 @Appear
 export default class extends Component {
 	state = {
@@ -26,12 +31,12 @@ export default class extends Component {
 		const burgerColor1 = () => {
 			let stopper = viewBoxHeight - divTopOffset;
 			let actionBlock = scrollTop >= stopper - 15;
-			return actionBlock ? 'black' : 'white';
+			return !this.props.changeColorBool ? actionBlock ? 'black' : 'white': 'white';
 		};
 		const burgerColor2 = () => {
 			let stopper = viewBoxHeight - (divTopOffset + divHeight / 2);
 			let actionBlock = scrollTop >= stopper - 15;
-			return actionBlock ? 'black' : 'white';
+			return !this.props.changeColorBool ? actionBlock ? 'black' : 'white': 'white';
 		};
 
 		return (
