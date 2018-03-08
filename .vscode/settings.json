@@ -1,0 +1,25 @@
+{
+    "sublimeTextKeymap.promptV3Features": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "window.zoomLevel": 0,
+    "auto-close-tag.enableAutoCloseTag": true,
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.renderIndentGuides": false,
+    "explorer.confirmDelete": false,
+
+}
+
+// abusaidm.html-snippets
+// christian-kohler.path-intellisense
+// dbaeumer.vscode-eslint
+// dzannotti.vscode-babel-coloring
+// ecmel.vscode-html-css
+// formulahendry.auto-close-tag
+// formulahendry.auto-rename-tag
+// ms-vscode.sublime-keybindings
+// necinc.elmmet
+// remimarsal.prettier-now
+// robertohuertasm.vscode-icons
+// spywhere.guides

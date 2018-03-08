@@ -1,8 +1,14 @@
 import React from 'react';
 import AnimatedLink from '../../HOC/AnimatedLink';
 import './project.scss';
+import _ from 'lodash';
 
 export default class extends React.Component {
+	constructor(props) {
+		super(props);
+		this._mouseMove = _.throttle(this._mouseMove.bind(this), 200);
+	}
+
 	state = {
 		mouseCursor: {
 			X: null,
@@ -11,22 +17,22 @@ export default class extends React.Component {
 		}
 	};
 
+	_onMouseMove = (e) => {
+		e.persist();
+		this._mouseMove(e);
+	};
+
 	componentDidMount() {
 		//add listeners
-		this.layer.addEventListener('mousemove', this._mouseMove);
-
 		this.setState({
 			screenW: this.layer.clientWidth
 		});
 	}
 
-	componentWillUnmount() {
-		this.layer.removeEventListener('mousemove', this._mouseMove);
-	}
-
 	_mouseMove = (e) => {
-		let ScreenH = this.layer.clientHeight;
-		let ScreenW = this.layer.clientWidth;
+		let { clientHeight = 0, clientWidth = 0 } = this.layer;
+		let ScreenH = clientHeight;
+		let ScreenW = clientWidth;
 
 		let xCenter = e.clientX - ScreenH / 2;
 		let yCenter = e.clientY - ScreenW / 2;
@@ -51,7 +57,11 @@ export default class extends React.Component {
 		let persp = -X / 500;
 
 		return (
-			<div className={`project ${this.props.className}`} ref={(layer) => (this.layer = layer)}>
+			<div
+				className={`project ${this.props.className}`}
+				ref={(layer) => (this.layer = layer)}
+				onMouseMove={this._onMouseMove}
+			>
 				<div className="images" id="img1">
 					<div
 						className="imgCover"
