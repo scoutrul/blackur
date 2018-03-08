@@ -197,7 +197,10 @@
 					height: 100%;
 					width: 100%;
 					@include adaptive(x025) {
-						background-size: 1110px;
+						
+					}
+					@include adaptive(x01) {
+						background-size: auto 120vh;
 					}
 				}
 			}

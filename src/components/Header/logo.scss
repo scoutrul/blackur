@@ -1,5 +1,4 @@
 .logo {
-
 	position: fixed;
 	z-index: 10;
 	@include adaptive(xx) {
@@ -27,19 +26,18 @@
 
 	&.appear_before {
 		div {
-			transition: 0;
 			left: -$logoW - 10+px;
 		}
 	}
 	&.appear_after {
 		div {
-			transition: 0;
+			transition: left $Transition;
 			left: 0;
 		}
 	}
 	&.leave_animation {
 		div {
-			transition: left $Transition;
+
 			left: -$logoW - 10+px;
 		}
 	}
@@ -59,6 +57,21 @@
 			min-width: $logoW * .8+px;
 		}
 
+		.to_white {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			z-index: 5;
+			transition: $Transition;
+			opacity: 0;
+			img {
+				filter: invert(100%);
+				max-width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
 		.white {
 			overflow: hidden;
 			width: 100%;
