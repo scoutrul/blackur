@@ -52,26 +52,29 @@ export default class extends React.Component {
 
 		return (
 			<div className={`project ${this.props.className}`} ref={(layer) => (this.layer = layer)}>
+
 				<div className="images" id="img1">
-					<img
-						src={this.props.image2}
+					<div
+						className="imgCover"
 						style={{
+							backgroundImage: `url(${this.props.image2})`,
 							transform: `translate3d(${img1X * 1.1}px, ${img1Y}px, 0) perspective(${this.state
-								.screenW}px) rotateX(${persp/4}deg) rotateY(${persp}deg) `
+								.screenW*2}px) rotateX(${persp / 4}deg) rotateY(${persp}deg) `
 						}}
-						alt=""
 					/>
+					img1
 				</div>
 				<div className="images" id="img0">
-					<img
-						src={this.props.image1}
-						alt=""
-						style={{
-							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) perspective(${this.state
-								.screenW}px) rotateY(${persp / 11}deg) rotateX(${persp / 11}deg)`
-						}}
-					/>
-				</div>
+				<div
+					className="imgCover"
+					style={{
+						backgroundImage: `url(${this.props.image1})`,
+						transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) perspective(${this.state
+							.screenW}px) rotateY(${persp / 11}deg) rotateX(${persp / 11}deg)`
+					}}
+				/>
+				img0
+			</div>
 
 				<div className="headers">
 					<div className="hidden">
