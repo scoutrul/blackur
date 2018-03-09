@@ -44,11 +44,11 @@ export default class extends React.Component {
 	render() {
 		let { X, Y } = this.state.mouseCursor;
 
-		let img1X = -X / 80;
+		let img1X = -X / 40;
 		let img1Y = -Y / 40;
 
-		let perspX = -X / 500;
-		let perspY = -Y / 500;
+		let perspX = -X / 100;
+		let perspY = -Y / 100;
 
 		return (
 			<div
@@ -64,8 +64,8 @@ export default class extends React.Component {
 							transform: `
 								translate3d(${img1X * 1.1}px, ${img1Y}px, 0) 
 								perspective(${this.state.screenW}px) 
-								rotateX(${perspX * 2}deg) 
-								rotateY(${perspY}deg) `
+								rotateY(${perspY / 3}deg) 
+								rotateX(${perspX / 2}deg)`
 						}}
 					/>
 				</div>
@@ -74,11 +74,10 @@ export default class extends React.Component {
 						className="imgCover"
 						style={{
 							backgroundImage: `url(${this.props.image1})`,
-							transform: `
-								translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) 
-								perspective(${this.state.screenW}px) 
-								rotateX(${perspX / 11}deg) 
-								rotateY(${perspY / 11}deg) `
+							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) 
+							perspective(${this.state.screenW}px) 
+							rotateY(${perspY / 11}deg) 
+							rotateX(${perspX / 11}deg) `
 						}}
 					/>
 				</div>

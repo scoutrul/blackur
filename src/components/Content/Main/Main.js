@@ -26,7 +26,6 @@ export default class extends Component {
 
 	componentDidMount() {
 		this.props.setTitle('');
-		
 	}
 
 	changeSlide = (move) => {
@@ -70,13 +69,28 @@ export default class extends Component {
 
 	render() {
 		const { AnimationCss } = this.props;
-		let item = this.props.works[this.state.currSlide];
+		let curr = this.props.works[this.state.currSlide];
+
+		let limit = this.props.works.length - 1;
+
+
+		let prev = curr - 1;
+		let next = curr + 1;
+
+		if (prev > limit) {
+			prev = 0;
+			prev = this.props.works[prev];
+		} else if (next < 0) {
+			next = limit;
+			next = this.props.works[next];
+		}
+
 		return (
 			<div className={`slider ${this.state.CSSAnimation}`}>
 				{this.state.inAnimation && (
 					<div className="overlay">
 						<div className="logo">
-							<img src="images/b_mask.svg" alt=''/>
+							<img src="images/b_mask.svg" alt="" />
 						</div>
 						<div className="bg">back</div>
 					</div>
@@ -88,18 +102,19 @@ export default class extends Component {
 				</div>
 				<div className={`page-main ${AnimationCss}`}>
 					<Project
-						header={item.header}
-						subheader={item.subheader}
-						slogan={item.slogan}
-						services={item.services}
-						color={item.color}
-						image={item.image}
-						image1={item.image1}
-						image2={item.image2}
-						url={item.url}
-						key={item.url}
+						header={curr.header}
+						subheader={curr.subheader}
+						slogan={curr.slogan}
+						services={curr.services}
+						color={curr.color}
+						image={curr.image}
+						image1={curr.image1}
+						image2={curr.image2}
+						url={curr.url}
+						key={curr.url}
 						className={this.state.CSSAnimation}
 					/>
+
 				</div>
 			</div>
 		);
