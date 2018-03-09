@@ -4,11 +4,6 @@ import './project.scss';
 import _ from 'lodash';
 
 export default class extends React.Component {
-	constructor(props) {
-		super(props);
-		this._mouseMove = _.throttle(this._mouseMove.bind(this), 200);
-	}
-
 	state = {
 		mouseCursor: {
 			X: null,
@@ -25,17 +20,15 @@ export default class extends React.Component {
 	componentDidMount() {
 		//add listeners
 		this.setState({
-			screenW: this.layer.clientWidth
+			screenW: this.layer.clientWidth,
+			screenH: this.layer.clientHeight
 		});
 	}
 
-	_mouseMove = (e) => {
-		let { clientHeight = 0, clientWidth = 0 } = this.layer;
-		let ScreenH = clientHeight;
-		let ScreenW = clientWidth;
-
-		let xCenter = e.clientX - ScreenH / 2;
-		let yCenter = e.clientY - ScreenW / 2;
+	_mouseMove = _.throttle((e) => {
+		let { clientHeight = 0, clientWidth = 0 } = this.setState;
+		let xCenter = e.clientX - clientHeight / 2;
+		let yCenter = e.clientY - clientWidth / 2;
 
 		const setState = () => {
 			this.setState({
@@ -46,7 +39,7 @@ export default class extends React.Component {
 			});
 		};
 		setState();
-	};
+	}, 1000 / 24);
 
 	render() {
 		let { X, Y } = this.state.mouseCursor;
@@ -54,7 +47,8 @@ export default class extends React.Component {
 		let img1X = -X / 80;
 		let img1Y = -Y / 40;
 
-		let persp = -X / 500;
+		let perspX = -X / 500;
+		let perspY = -Y / 500;
 
 		return (
 			<div
@@ -67,8 +61,11 @@ export default class extends React.Component {
 						className="imgCover"
 						style={{
 							backgroundImage: `url(${this.props.image2})`,
-							transform: `translate3d(${img1X * 1.1}px, ${img1Y}px, 0) perspective(${this.state.screenW *
-								2}px) rotateX(${persp / 4}deg) rotateY(${persp}deg) `
+							transform: `
+								translate3d(${img1X * 1.1}px, ${img1Y}px, 0) 
+								perspective(${this.state.screenW}px) 
+								rotateX(${perspX * 2}deg) 
+								rotateY(${perspY}deg) `
 						}}
 					/>
 				</div>
@@ -77,8 +74,11 @@ export default class extends React.Component {
 						className="imgCover"
 						style={{
 							backgroundImage: `url(${this.props.image1})`,
-							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) perspective(${this.state
-								.screenW}px) rotateY(${persp / 11}deg) rotateX(${persp / 11}deg)`
+							transform: `
+								translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) 
+								perspective(${this.state.screenW}px) 
+								rotateX(${perspX / 11}deg) 
+								rotateY(${perspY / 11}deg) `
 						}}
 					/>
 				</div>
