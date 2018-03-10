@@ -3,13 +3,23 @@ import AnimatedLink from '../../HOC/AnimatedLink';
 import './project.scss';
 
 export default class extends React.Component {
+	state = {
+		X: 0,
+		Y: 0,
+		screenW: 0
+	};
 
-
-	componentDidUpdate(){console.log(this.props.mouseCursor)}
+	// componentDidMount() {
+	// 	console.log(this.props.mouseCursor);
+	// }
+	// componentWillReceiveProps() {
+	// 	console.log(this.props.mouseCursor);
+	// }
 
 	render() {
 		let { X, Y, screenW } = this.props.mouseCursor;
 
+		// console.log(X, Y, screenW);
 		let img1X = -X / 40;
 		let img1Y = -Y / 40;
 
@@ -17,10 +27,7 @@ export default class extends React.Component {
 		let perspY = -Y / 100;
 
 		return (
-			<div
-				className={`project ${this.props.className} ${this.props.active && 'active'}`}
-			
-			>
+			<div className={`project ${this.props.className} ${this.props.active ? 'active' : ''}`}>
 				<div className="images" id="img1">
 					<div
 						className="imgCover"
@@ -46,7 +53,6 @@ export default class extends React.Component {
 						}}
 					/>
 				</div>
-
 			</div>
 		);
 	}

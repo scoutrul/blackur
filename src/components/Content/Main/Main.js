@@ -27,28 +27,40 @@ export default class extends Component {
 		mouseCursor: {
 			X: null,
 			Y: null,
-			screenW: null
+			screenW: null,
+			screenH: null
 		}
 	};
+	componentDidMount() {
+		this.drowSVGpath();
+		this.props.setTitle('');
+		// setInterval(this.drowSVGpath, 3000);
+		// setInterval(this.changeSlideEverySec, 3000);
+
+		this.setState({
+			mouseCursor: {
+				screenH: this.layer.clientHeight,
+				screenW: this.layer.clientWidth
+			}
+		});
+	}
 
 	_onMouseMove = (e) => {
 		e.persist();
 		this._mouseMove(e);
 	};
-	_mouseMove = _.throttle((e) => {
-		let { clientHeight = 0, clientWidth = 0 } = this.setState;
-		let xCenter = e.clientX - clientHeight / 2;
-		let yCenter = e.clientY - clientWidth / 2;
 
-		const setState = () => {
-			this.setState({
-				mouseCursor: {
-					X: xCenter,
-					Y: yCenter
-				}
-			});
-		};
-		setState();
+	_mouseMove = _.throttle((e) => {
+		let xCenter = e.clientX - this.layer.clientHeight / 2 || 0;
+		let yCenter = e.clientY - this.layer.clientWidth / 2 || 0;
+		this.setState({
+			mouseCursor: {
+				X: xCenter,
+				Y: yCenter,
+				screenH: this.layer.clientHeight,
+				screenW: this.layer.clientWidth
+			}
+		});
 	}, 1000 / 24);
 
 	changeSlideEverySec = () => {
@@ -67,35 +79,23 @@ export default class extends Component {
 	componentDidUpdate() {
 		// console.log('did update', this.state);
 	}
-	componentDidMount() {
-		const drowSVGpath = () => {
+	drowSVGpath = () => {
+		let path = this.svgMask;
+		let length = path.getTotalLength();
+		path.style.transition = path.style.WebkitTransition = 'none';
+		path.style.strokeDasharray = length;
+		path.style.strokeDashoffset = length;
 
-			var path = document.querySelector('.float_stroke');
-			var length = path.getTotalLength();
-			path.style.transition = path.style.WebkitTransition = 'none';
-			path.style.strokeDasharray = length;
-			path.style.strokeDashoffset = length;
-			
-			path.getBoundingClientRect();
-			path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 2.8s ease-in';
-			path.style.strokeDashoffset = 0;
-		}
-		drowSVGpath();
-		this.props.setTitle('');
-		setInterval(drowSVGpath, 3000);
-		setInterval(this.changeSlideEverySec, 3000);
-		this.setState({
-			mouseCursor: {
-				screenW: this.layer.clientWidth,
-				screenH: this.layer.clientHeight
-			}
-		});
-	}
+		path.getBoundingClientRect();
+		path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 2.8s ease-in';
+		path.style.strokeDashoffset = 0;
+	};
 
 	componentWillUnmount() {
-		clearInterval(this.changeSlideEverySec);
+		// clearInterval(this.changeSlideEverySec);
 	}
 	changeSlide = (dirrection) => {
+		this.drowSVGpath();
 		let limit = this.props.works.length - 1;
 
 		let right = dirrection === 1 && 'right';
@@ -133,39 +133,14 @@ export default class extends Component {
 		let activeSlide = this.props.works[this.state.currSlide];
 		return (
 			<div className={`slider`}>
-				<div className="logoSvgMask">
-					<svg x="0px" y="0px" viewBox="-2 -3 55 60">
-						<path
-							className="fix_stroke"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width=".1"
-							stroke-opacity="0.6"
-							stroke="#FFF"
-							fill="transparent"
-							d="M0,0h32.1c0,0,14.2-0.2,14.2,15c0,8.7-6.3,11.3-6.3,11.3s8.5,3.4,8.5,13.3s-9.6,14.3-12.7,14.3
-	c-3.1,0-35.8,0-35.8,0V0z"
-						/>
-						<path
-							className="float_stroke"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width=".3"
-							stroke-opacity="1"
-							stroke="#FFF"
-							fill="transparent"
-							d="M0,0h32.1c0,0,14.2-0.2,14.2,15c0,8.7-6.3,11.3-6.3,11.3s8.5,3.4,8.5,13.3s-9.6,14.3-12.7,14.3
-	c-3.1,0-35.8,0-35.8,0V0z"
-						/>
-					</svg>
-				</div>
-				<div className="slider_ui" style={{display:'none'}}>
+				<div className="slider_ui" style={{ display: 'block' }}>
 					<button onClick={this._moveBack}>Back</button>
 					<button onClick={this._moveForward}>Forward</button>
 				</div>
 				<div className={`page-main ${AnimationCss}`}>
 					{this.props.works.map((prj, i) => {
 						let active = i === this.state.currSlide ? true : false;
+						let mouseCursor = this.state.mouseCursor;
 						return (
 							<Project
 								header={prj.header}
@@ -179,7 +154,7 @@ export default class extends Component {
 								key={prj.url}
 								className={this.state.CSSAnimation}
 								active={active}
-								mouseCursor={this.state.mouseCursor}
+								mouseCursor={mouseCursor}
 							/>
 						);
 					})}
@@ -188,6 +163,33 @@ export default class extends Component {
 						onMouseMove={this._onMouseMove}
 						ref={(layer) => (this.layer = layer)}
 					>
+						<div className="logoSvgMask">
+							<svg x="0px" y="0px" viewBox="-2 -3 55 60">
+								<path
+									className="fix_stroke"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth=".1"
+									strokeOpacity="0.6"
+									stroke="#FFF"
+									fill="transparent"
+									d="M0,0h32.1c0,0,14.2-0.2,14.2,15c0,8.7-6.3,11.3-6.3,11.3s8.5,3.4,8.5,13.3s-9.6,14.3-12.7,14.3
+	c-3.1,0-35.8,0-35.8,0V0z"
+								/>
+								<path
+									ref={(svg) => (this.svgMask = svg)}
+									className="float_stroke"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth=".3"
+									strokeOpacity="1"
+									stroke="#FFF"
+									fill="transparent"
+									d="M0,0h32.1c0,0,14.2-0.2,14.2,15c0,8.7-6.3,11.3-6.3,11.3s8.5,3.4,8.5,13.3s-9.6,14.3-12.7,14.3
+	c-3.1,0-35.8,0-35.8,0V0z"
+								/>
+							</svg>
+						</div>
 						<div className="headers">
 							<div className="hidden">
 								<AnimatedLink to={`/${activeSlide.url}`}>

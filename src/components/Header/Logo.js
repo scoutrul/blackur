@@ -38,8 +38,8 @@ export default class extends Component {
 									spreadMethod="pad"
 									gradientUnits="userSpaceOnUse"
 								>
-									<stop offset="50%" stop-color="black" />
-									<stop offset="50%" stop-color="white" />
+									<stop offset="50%" stopColor="black" />
+									<stop offset="50%" stopColor="white" />
 								</linearGradient>
 								<path
 									fill="url(#grad)"
