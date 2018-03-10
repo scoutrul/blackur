@@ -62,4 +62,11 @@
 		color: $linkColor;
 		transition: $Transition;
 	}
+
+	.mail {
+		transition: .6s ease;
+		&:hover {
+			opacity: .7;
+		}
+	}
 }

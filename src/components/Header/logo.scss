@@ -37,7 +37,6 @@
 	}
 	&.leave_animation {
 		div {
-
 			left: -$logoW - 10+px;
 		}
 	}
@@ -56,7 +55,16 @@
 			min-height: $logoH * .8+px;
 			min-width: $logoW * .8+px;
 		}
-
+		.test_svg {
+			z-index: 4;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			svg {
+				max-width: 100%;
+				max-height: 100%;
+			}
+		}
 		.to_white {
 			width: 100%;
 			height: 100%;
@@ -73,6 +81,7 @@
 			}
 		}
 		.white {
+
 			overflow: hidden;
 			width: 100%;
 			height: 100%;
@@ -87,6 +96,7 @@
 			}
 		}
 		.black {
+
 			width: 100%;
 			height: 100%;
 			position: absolute;

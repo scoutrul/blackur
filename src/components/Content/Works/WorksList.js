@@ -12,7 +12,7 @@ class WorkList extends Component {
 
 		return works.map((item) => {
 			return (`/${item.url}` !== curr) && (
-				<li key={item.url} className={'workList_item'}>
+				<li key={item.url} className={'workList_item opacity_hover'} >
 					<AnimatedLink to={`/${item.url}`}>
 						<div>
 							<h2>{item.header}</h2>

@@ -33,12 +33,12 @@
 	}
 
 	.sayhello {
+		transition: .6s ease;
+		&:hover {
+			opacity: .7;
+		}
+
 		a {
-			display: inline-block;
-			&:hover {
-				color: $linkColor;
-				transition: $Transition;
-			}
 		}
 		overflow: hidden;
 	}

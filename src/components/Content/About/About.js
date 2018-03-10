@@ -54,7 +54,7 @@ export default class extends Component {
 						</div>
 					</div>
 					<h3 className='dark'>
-						Tell about yourself & move to the dark side using <a href='mailto:work@blackur.com'><span>work@blackur.com</span></a>
+						Tell about yourself & move to the dark side using <a href='mailto:work@blackur.com' className={'mail'}><span>work@blackur.com</span></a>
 					</h3>
 				</div>
 			</div>

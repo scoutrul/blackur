@@ -1,10 +1,9 @@
 .page-contacts {
-
 	.dark {
 		color: $specialDark;
 		margin: 0 0 100px 0;
 		span {
-			color: #FFF
+			color: #fff;
 		}
 	}
 	form {
@@ -21,7 +20,8 @@
 				font-size: 35px;
 				line-height: 35px;
 			}
-			input, textarea {
+			input,
+			textarea {
 				width: 100%;
 				font-family: inherit;
 				z-index: 9;
@@ -29,13 +29,12 @@
 				font-size: 35px;
 				line-height: 35px;
 				background-color: transparent;
-				color: #FFF;
+				color: #fff;
 				outline: none;
 				border: 0;
-				padding:0;
+				padding: 0;
 				overflow: hidden;
 				resize: none;
-
 			}
 		}
 		.send {
@@ -47,9 +46,9 @@
 				height: 30px;
 				margin-right: 20px;
 			}
+			transition: .6s ease;
 			&:hover {
-				color: $linkColor;
-				transition: $Transition;
+				opacity: .7;
 			}
 		}
 	}

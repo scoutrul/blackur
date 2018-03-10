@@ -35,12 +35,14 @@ export default class extends Component {
 		let viewBoxHeight = document.querySelector('.firstScreen') ? document.querySelector('.firstScreen').getBoundingClientRect().height : document.body.querySelector('.scrollBox').scrollHeight;
 		let divTopOffset = divElement.offsetTop;
 		let divHeight = divElement.getBoundingClientRect().height;
+		let divWidth = divElement.getBoundingClientRect().width;
 		let stopper = viewBoxHeight - (divHeight + divTopOffset);
 		let actionBlock = this.state.scrollTop >= stopper;
 		
 		this.setState({
 			divTopOffset,
 			divHeight,
+			divWidth,
 			viewBoxHeight,
 			actionBlock
 		});

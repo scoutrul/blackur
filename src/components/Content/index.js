@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 
-import Router from './Router'
-import './content.scss'
-
+import Router from './Router';
+import './content.scss';
 
 export default class extends Component {
 	componentDidUpdate() {
-		document.querySelector('.scrollBox').scrollTop = 0;
+		this.scrollBox.scrollTop = 0;
 	}
 	render() {
 		return (
-			<div className='scrollBox'>
+			<div className="scrollBox" ref={(elm) => (this.scrollBox = elm)}>
 				<main>
-					<Router/>
+					<Router />
 				</main>
 			</div>
 		);
 	}
 }
-
-

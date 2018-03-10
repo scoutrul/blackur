@@ -16,40 +16,14 @@
 		transform: scale(1) translate3d(0%, 0%, 0);
 		opacity: 0;
 	}
-	10% {
-		opacity: 1;
-	}
-	70% {
-		opacity: 1;
-	}
 	100% {
 		opacity: 0;
 		transform: scale(40) translate3d(0%, 0%, 0);
 	}
 }
-@keyframes bg_mask {
-	0% {
-		opacity: 0;
-	}
-
-	70% {
-		opacity: 1;
-	}
-	100% {
-
-	}
-}
 .overlay {
 	position: absolute;
 	z-index: 10;
-	.bg {
-		display: block;
-		height: 100vh;
-		width: 100vw;
-		animation: bg_mask 5s infinite;
-		animation-fill-mode: forwards;
-		animation-timing-function: cubic-bezier(0.5, 0.39, 0.43, 0.96);
-	}
 	.logo {
 		animation: b_mask 2s infinite;
 		animation-fill-mode: forwards;
@@ -68,6 +42,16 @@
 .slider {
 	height: 100%;
 
+	.logoSvgMask {
+		position: fixed;
+		z-index: 22;
+		left: 50%;
+		top: 50%;
+		transform: translate3D(-50%, -50%,0);
+		svg {
+			width: 30vw;
+		}
+	}
 	.slider_ui {
 		position: fixed;
 		bottom: 10vh;
@@ -80,6 +64,191 @@
 		button {
 			flex: 1 1 100%;
 			cursor: pointer;
+		}
+	}
+
+	.project_content {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		color: #fff;
+		z-index: 19;
+		height: 100%;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		@include adaptive(xx) {
+			padding: 0 $framePaddingXx;
+		}
+		@include adaptive(x2) {
+			padding: 0 $framePaddingX2;
+		}
+		@include adaptive(x1) {
+			padding: 0 $framePaddingX1;
+		}
+		@include adaptive(x05) {
+			padding: 0 $framePaddingX05;
+		}
+		@include adaptive(x025) {
+			padding: 0 $framePaddingX025;
+		}
+		.headers {
+			position: fixed;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			z-index: 10;
+			transition: $Transition;
+
+			.hidden {
+				overflow: hidden;
+				padding: 15px 0;
+			}
+			h1 {
+				transition: $Transition;
+				margin: 0;
+			}
+			h5 {
+				font-weight: 500;
+				transition: $Transition;
+				@include adaptive(x05) {
+					margin-top: -15px;
+				}
+			}
+			@include adaptive(x025) {
+				.hidden {
+					margin-top: -12px;
+				}
+			}
+		}
+		.services {
+			padding: 0;
+			list-style: none;
+			font-size: 15px;
+			z-index: 10;
+			@include adaptive(xx) {
+				margin: auto 0 $framePaddingXx;
+			}
+			@include adaptive(x2) {
+				margin: auto 0 $framePaddingX2;
+			}
+			@include adaptive(x1) {
+				margin: auto 0 $framePaddingX1;
+			}
+			@include adaptive(x05) {
+				margin: auto 0 $framePaddingX05;
+			}
+			@include adaptive(x025) {
+				margin: auto 0 $framePaddingX025;
+			}
+			li {
+				overflow: hidden;
+				> div {
+					transition: .1s ease;
+
+				}
+			}
+			&.out {
+				li > div {
+					transform: translateY(-60%);
+				}
+			}
+
+			&.now {
+				li > div {
+					transform: translateY(0);
+				}
+			}
+		}
+		a {
+			position: relative;
+			display: inline-block;
+			color: currentColor;
+			width: max-content;
+			&:hover {
+				transition: 0.1s cubic-bezier(0.8, 0, 0.2, 1);
+			}
+		}
+		a:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			max-width: 100%;
+			z-index: -1;
+			left: 0px;
+			bottom: 0px;
+			transform: scaleX(0);
+			transform-origin: left center 0px;
+			background: rgb(255, 255, 255);
+			overflow: hidden;
+			transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1);
+			height: 36px;
+			@include adaptive(xx) {
+				height: 49px;
+				bottom: -27px;
+			}
+			@include adaptive(x2) {
+				height: 49px;
+				bottom: -27px;
+			}
+			@include adaptive(x1) {
+				height: 35px;
+				bottom: -8px;
+			}
+			@include adaptive(x05) {
+				height: 24px;
+				bottom: 7px;
+			}
+			@include adaptive(x025) {
+				height: 18px;
+				bottom: 14px;
+			}
+		}
+		a:hover:before {
+			transform: none;
+			transform-origin: right center 0px;
+		}
+
+		&.out {
+			.headers h1,
+			.headers h5 {
+				transform: translateY(-130px);
+			}
+			.images {
+				opacity: 1;
+			}
+			&.right {
+				.headers h1,
+				.headers h5 {
+					transform: translateY(-130px);
+				}
+				.images {
+					opacity: 1;
+				}
+			}
+		}
+		&.before {
+			.images {
+				opacity: 0;
+			}
+			&.right {
+				.images {
+					opacity: 0;
+				}
+			}
+		}
+		&.now,
+		&.now.right {
+			.headers h1,
+			.headers h5 {
+				transform: translateY(0);
+			}
+			.images {
+				transform: translateX(0);
+			}
 		}
 	}
 }

@@ -37,9 +37,9 @@
 		li {
 			margin: 130px 0;
 			width: fit-content;
+			transition: .6s ease;
 			&:hover {
-				color: $linkColor;
-				transition: $Transition;
+				opacity: .7;
 			}
 		}
 		h1,
@@ -89,6 +89,24 @@
 		padding: $framePaddingX1 0;
 		line-height: 160%;
 	}
+	.content_p {
+		line-height: 160%;
+		@include adaptive(xx) {
+			margin: 70px 0;
+		}
+		@include adaptive(x2) {
+			margin: 60px 0;
+		}
+		@include adaptive(x1) {
+			margin: 50px 0;
+		}
+		@include adaptive(x05) {
+			margin: 40px 0;
+		}
+		@include adaptive(x025) {
+			margin: 30px 0;
+		}
+	}
 	.firstScreen {
 		height: 100%;
 		min-height: 100vh;
@@ -107,7 +125,7 @@
 		.works_images {
 			margin: $framePaddingXx 0 0;
 			line-height: 0;
-			background-color: #FFF;
+			background-color: #fff;
 			img {
 				min-width: 100vw;
 				max-width: 100%;
