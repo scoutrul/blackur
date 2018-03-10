@@ -96,12 +96,10 @@ export default class extends Component {
 	}
 	changeSlide = (dirrection) => {
 		this.drowSVGpath();
-		let limit = this.props.works.length - 1;
-
-		let right = dirrection === 1 && 'right';
 
 		let currSlide = this.state.currSlide + dirrection;
 
+		let limit = this.props.works.length - 1;
 		if (currSlide > limit) {
 			currSlide = 0;
 		} else if (currSlide < 0) {
@@ -141,22 +139,41 @@ export default class extends Component {
 					{this.props.works.map((prj, i) => {
 						let active = i === this.state.currSlide ? true : false;
 						let mouseCursor = this.state.mouseCursor;
-						return (
-							<Project
-								header={prj.header}
-								subheader={prj.subheader}
-								slogan={prj.slogan}
-								color={prj.color}
-								image={prj.image}
-								image1={prj.image1}
-								image2={prj.image2}
-								url={prj.url}
-								key={prj.url}
-								className={this.state.CSSAnimation}
-								active={active}
-								mouseCursor={mouseCursor}
-							/>
-						);
+
+						let currSlide = this.state.currSlide;
+						let limit = this.props.works.length - 1;
+
+						const routSlide = (slide, limit) => {
+							if (slide > limit) {
+								return 0;
+							} else if (slide < 0) {
+								return limit;
+							}
+							return slide
+						};
+
+						if (
+							i === routSlide(currSlide, limit) ||
+							i === routSlide(currSlide + 1, limit) ||
+							i === routSlide(currSlide - 1, limit)
+						)
+							return (
+								<Project
+									header={prj.header}
+									subheader={prj.subheader}
+									slogan={prj.slogan}
+									color={prj.color}
+									image={prj.image}
+									image1={prj.image1}
+									image2={prj.image2}
+									url={prj.url}
+									key={prj.url}
+									className={this.state.CSSAnimation}
+									active={active}
+									mouseCursor={active?mouseCursor:{}}
+								/>
+							);
+						return false;
 					})}
 					<div
 						className={`project_content ${this.state.CSSAnimation}`}
