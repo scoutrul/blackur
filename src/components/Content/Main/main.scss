@@ -16,12 +16,18 @@
 
 	.logoSvgMask {
 		position: fixed;
-		z-index: 22;
-		left: 50%;
-		top: 50%;
-		transform: translate3D(-50%, -50%, 0);
-		will-change: transform;
+		z-index: 9;
+		left:0;
+		top:0;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		// background-color: #272424;
+
 		svg {
+			// -webkit-mask-image: url(/images/logo_blackur.svg);
 			height: 50vh;
 			image,
 			clipPath {
@@ -83,6 +89,14 @@
 			.hidden {
 				overflow: hidden;
 				margin: 15px 0;
+				&:nth-child(2) {
+					@include adaptive(x05) {
+						transform: translateY(-15px);
+					}
+					@include adaptive(x025) {
+						transform: translateY(-12px);
+					}
+				}
 			}
 			h1 {
 				transition: $Transition;
@@ -93,14 +107,6 @@
 				line-height: 100%;
 				font-weight: 500;
 				transition: $Transition;
-				@include adaptive(x05) {
-					margin-top: -15px;
-				}
-			}
-			@include adaptive(x025) {
-				.hidden {
-					margin-top: -12px;
-				}
 			}
 		}
 		.services {

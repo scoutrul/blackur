@@ -190,12 +190,18 @@ export default class extends Component {
 						<div className="logoSvgMask">
 							<svg x="0px" y="0px" viewBox="-2 -3 55 60">
 								<defs>
-									<clipPath
-										maskUnits="userSpaceOnUse"
-										id="mask"
-										transform={`translate(${-img1X / 30} ${-img1Y / 30})`}
-									>
-										<polygon points="0 0, 33 0, 33 0, 33 0, 34 0, 34 0, 35 0, 35 0, 36 1, 37 1, 37 1, 38 1, 39 1, 39 2, 40 2, 41 3, 41 3, 42 4, 42 4, 43 5, 44 5, 44 6, 45 7, 45 8, 45 9, 46 10, 46 11, 46 12, 46 14, 46 15, 46 16, 46 17, 46 17, 46 18, 46 19, 46 19, 46 20, 45 20, 45 21, 45 22, 45 22, 44 22, 44 23, 44 23, 43 24, 43 24, 43 24, 43 25, 42 25, 42 25, 42 25, 41 25, 41 26, 41 26, 41 26, 41 26, 40 26, 40 26, 40 26, 40 26, 40 26, 40 26, 40 26, 40 26, 40 26, 41 26, 41 27, 41 27, 41 27, 42 27, 42 27, 42 28, 43 28, 43 28, 44 28, 44 29, 44 29, 45 30, 45 30, 45 30, 46 31, 46 31, 47 32, 47 33, 47 33, 48 34, 48 35, 48 35, 48 36, 48 37, 48 38, 49 39, 49 39, 49 40, 48 41, 48 42, 48 43, 48 44, 48 44, 47 45, 47 46, 47 47, 46 47, 46 48, 45 48, 45 49, 44 49, 44 50, 43 50, 43 51, 42 51, 42 52, 41 52, 41 52, 40 52, 40 53, 39 53, 39 53, 38 53, 38 53, 37 54, 37 54, 37 54, 36 54, 0 54, 0 0" />
+									<clipPath maskUnits="userSpaceOnUse" id="mask">
+										<path
+											className="fix_stroke"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth=".1"
+											strokeOpacity="0.6"
+											stroke="#FFF"
+											fill="transparent"
+											d="M0,0h32.1c0,0,14.2-0.2,14.2,15c0,8.7-6.3,11.3-6.3,11.3s8.5,3.4,8.5,13.3s-9.6,14.3-12.7,14.3
+	c-3.1,0-35.8,0-35.8,0V0z"
+										/>
 									</clipPath>
 								</defs>
 								<image
@@ -205,7 +211,6 @@ export default class extends Component {
 									x={`-50%`}
 									y={`-4%`}
 									href={this.props.works[this.routSlide(currSlide + 1, limit)].image1}
-									transform={`translate(${img1X / 30} ${img1Y / 30})`}
 								/>
 
 								<path

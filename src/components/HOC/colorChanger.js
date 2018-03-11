@@ -44,7 +44,8 @@ export default class extends Component {
 			divHeight,
 			divWidth,
 			viewBoxHeight,
-			actionBlock
+			actionBlock,
+			stopper
 		});
 	};
 	

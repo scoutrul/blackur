@@ -18,22 +18,38 @@ export default class extends Component {
 	};
 
 	render() {
-		let { viewBoxHeight, divHeight, divWidth, divTopOffset, scrollTop, actionBlock } = this.props.MovingActions;
+		let {
+			viewBoxHeight,
+			divHeight,
+			divWidth,
+			divTopOffset,
+			scrollTop,
+			actionBlock,
+			stopper
+		} = this.props.MovingActions;
 
 		let move = actionBlock ? scrollTop - (viewBoxHeight - divTopOffset - divHeight) : 0;
-		let svgGradient = `${divHeight*2 - move*2}px`;
 
-		let changeColor = this.props.changeColorBool ? '0' : !actionBlock && '0';
+		
+		let svgGradient = () => {
+			let actionBlock = scrollTop >= stopper && scrollTop >= stopper + divHeight;
+			let toBlack = scrollTop >= stopper + divHeight ;
+
+			let result = !toBlack ?  `${divHeight * 2 - move * 2}px` : '0%' ;
+			console.log('actionBlock',actionBlock, 'toBlack', toBlack, 'result', result)
+
+			return !this.props.changeColorBool ? result : !actionBlock && '200px'
+		} 
 
 		return (
 			<AnimatedLink to={'/'}>
 				<div className={`logo ${this.props.AnimationCss}`}>
 					<div className={'logos'}>
-						<div className={'test_svg'}>
-							<svg x="0px" y="0px" viewBox="0 0 48.5 54" width={divWidth} height={divHeight}>
+						<div className={'logo_svg'}>
+							<svg x="0px" y="0px" viewBox={`0 0 ${48.5} ${divHeight+5}`} width={divWidth} height={divHeight+5}>
 								<linearGradient
 									id="grad"
-									y1={svgGradient}
+									y1={svgGradient()}
 									x1={`100%`}
 									spreadMethod="pad"
 									gradientUnits="userSpaceOnUse"
@@ -48,8 +64,8 @@ export default class extends Component {
 								/>
 							</svg>
 						</div>
-						<div className="to_white" style={{ opacity: this.props.changeColorBool ? 1 : 0 }}>
-							<svg x="0px" y="0px" viewBox="0 0 48.5 54" width={divWidth} height={divHeight}>
+						<div className="to_white" style={{ opacity: (this.props.changeColorBool && actionBlock) ? 1 : 0 }}>
+							<svg x="0px" y="0px" viewBox={`0 0 ${48.5} ${divHeight+5}`} width={divWidth} height={divHeight+5}>
 								<path
 									fill="#FFF"
 									d="M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4
@@ -57,14 +73,12 @@ C48.5,33.7,45.1,28.6,40,26.4z"
 								/>
 							</svg>
 						</div>
-						
 					</div>
 				</div>
 			</AnimatedLink>
 		);
 	}
 }
-
 
 // <div className="white" style={{ transform: `translate3D(0, ${-move}px ,0)` }}>
 // 							<img
