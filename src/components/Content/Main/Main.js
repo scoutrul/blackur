@@ -126,9 +126,30 @@ export default class extends Component {
 	_moveBack = () => this.changeSlide(-1);
 	_moveForward = () => this.changeSlide(1);
 
+	routSlide = (slide, limit) => {
+		if (slide > limit) {
+			return 0;
+		} else if (slide < 0) {
+			return limit;
+		}
+		return slide;
+	};
+
 	render() {
+		let currSlide = this.state.currSlide;
+		let limit = this.props.works.length - 1;
+
 		const { AnimationCss } = this.props;
 		let activeSlide = this.props.works[this.state.currSlide];
+
+		let { X, Y, screenW } = this.state.mouseCursor;
+
+		let img1X = -X / 40;
+		let img1Y = -Y / 40;
+
+		let perspX = -X / 100;
+		let perspY = -Y / 100;
+
 		return (
 			<div className={`slider`}>
 				<div className="slider_ui" style={{ display: 'block' }}>
@@ -138,24 +159,12 @@ export default class extends Component {
 				<div className={`page-main ${AnimationCss}`}>
 					{this.props.works.map((prj, i) => {
 						let active = i === this.state.currSlide ? true : false;
-						let mouseCursor = this.state.mouseCursor;
 
-						let currSlide = this.state.currSlide;
-						let limit = this.props.works.length - 1;
-
-						const routSlide = (slide, limit) => {
-							if (slide > limit) {
-								return 0;
-							} else if (slide < 0) {
-								return limit;
-							}
-							return slide
-						};
 
 						if (
-							i === routSlide(currSlide, limit) ||
-							i === routSlide(currSlide + 1, limit) ||
-							i === routSlide(currSlide - 1, limit)
+							i === this.routSlide(currSlide, limit) ||
+							i === this.routSlide(currSlide + 1, limit) ||
+							i === this.routSlide(currSlide - 1, limit)
 						)
 							return (
 								<Project
@@ -170,10 +179,9 @@ export default class extends Component {
 									key={prj.url}
 									className={this.state.CSSAnimation}
 									active={active}
-									mouseCursor={active?mouseCursor:{}}
+									mouseCursor={active ? this.state.mouseCursor : {}}
 								/>
 							);
-						return false;
 					})}
 					<div
 						className={`project_content ${this.state.CSSAnimation}`}
@@ -182,6 +190,26 @@ export default class extends Component {
 					>
 						<div className="logoSvgMask">
 							<svg x="0px" y="0px" viewBox="-2 -3 55 60">
+								<clipPath id="mask" transform={`translate(${-img1X/30} ${-img1Y/30})`}>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										fill="transparent"
+										d="M0,0h32.1c0,0,14.2-0.2,14.2,15c0,8.7-6.3,11.3-6.3,11.3s8.5,3.4,8.5,13.3s-9.6,14.3-12.7,14.3
+	c-3.1,0-35.8,0-35.8,0V0z"
+									/>
+								</clipPath>
+
+								<image
+									clip-path="url(#mask)"
+									height="100%"
+									width="200%"
+									x={`-50%`}
+									y={`-4%`}
+									href={this.props.works[this.routSlide(currSlide + 1, limit)].image1}
+									transform={`translate(${img1X/30} ${img1Y/30})`}
+								/>
+
 								<path
 									className="fix_stroke"
 									strokeLinecap="round"
@@ -195,7 +223,7 @@ export default class extends Component {
 								/>
 								<path
 									ref={(svg) => (this.svgMask = svg)}
-									className="float_stroke"
+									id="float_stroke"
 									strokeLinecap="round"
 									strokeLinejoin="round"
 									strokeWidth=".3"
