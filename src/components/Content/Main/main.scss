@@ -20,9 +20,11 @@
 		left: 50%;
 		top: 50%;
 		transform: translate3D(-50%, -50%, 0);
+		will-change: transform;
 		svg {
 			height: 50vh;
-			image, clipPath {
+			image,
+			clipPath {
 				transition: .3s ease-out;
 			}
 		}
