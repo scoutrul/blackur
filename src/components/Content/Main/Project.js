@@ -1,6 +1,4 @@
 import React from 'react';
-import AnimatedLink from '../../HOC/AnimatedLink';
-// import './project.scss';
 
 export default class extends React.Component {
 	state = {
@@ -9,17 +7,9 @@ export default class extends React.Component {
 		screenW: 0
 	};
 
-	// componentDidMount() {
-	// 	console.log(this.props.mouseCursor);
-	// }
-	// componentWillReceiveProps() {
-	// 	console.log(this.props.mouseCursor);
-	// }
-
 	render() {
-		let { X, Y, screenW } = this.props.mouseCursor;
+		let { X, Y } = this.props.mouseCursor;
 
-		// console.log(X, Y, screenW);
 		let img1X = -X / 40;
 		let img1Y = -Y / 40;
 
@@ -35,7 +25,7 @@ export default class extends React.Component {
 							backgroundImage: `url(${this.props.image2})`,
 							transform: `
 				translate3d(${img1X * 1.1}px, ${img1Y}px, 0) 
-				perspective(${screenW}px) 
+				 
 								rotateY(${perspY / 3}deg) 
 								rotateX(${perspX / 2}deg)`
 						}}
@@ -48,7 +38,7 @@ export default class extends React.Component {
 						style={{
 							backgroundImage: `url(${this.props.image1})`,
 							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) 
-							perspective(${screenW}px) 
+							 
 							rotateY(${perspY / 11}deg) 
 								rotateX(${perspX / 11}deg) `
 						}}

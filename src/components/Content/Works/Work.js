@@ -63,7 +63,7 @@ export default class extends Component {
 
 	_scrollEvent = (e) => {
 		let div =  this.workListDiv;
-		let { viewBoxHeight, stopper } = this.props.MovingActions;
+		let { stopper } = this.props.MovingActions;
 		let scrollTop = e ? e.target.scrollTop : 0;
 		let stop = -stopper - div.offsetHeight + 300;
 		let actionLine = scrollTop >= stop;

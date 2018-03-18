@@ -35,7 +35,7 @@ export default class extends Component {
 		this.drowSVGpath();
 		this.props.setTitle('');
 		// setInterval(this.drowSVGpath, 3000);
-		setInterval(this.changeSlideEverySec, 7000);
+		// setInterval(this.changeSlideEverySec, 7000);
 
 		this.setState({
 			mouseCursor: {
@@ -142,14 +142,6 @@ export default class extends Component {
 		const { AnimationCss } = this.props;
 		let activeSlide = this.props.works[this.state.currSlide];
 
-		let { X, Y, screenW } = this.state.mouseCursor;
-
-		let img1X = -X / 40;
-		let img1Y = -Y / 40;
-
-		let perspX = -X / 100;
-		let perspY = -Y / 100;
-
 		return (
 			<div className={`slider`}>
 				<div className="slider_ui" style={{ display: 'block' }}>
@@ -181,6 +173,7 @@ export default class extends Component {
 									mouseCursor={active ? this.state.mouseCursor : {}}
 								/>
 							);
+						return false;
 					})}
 					<div
 						className={`project_content ${this.state.CSSAnimation}`}
