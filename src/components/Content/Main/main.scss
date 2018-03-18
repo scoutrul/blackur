@@ -294,18 +294,20 @@
 				min-height: 120vh;
 				background-position: center;
 				background-repeat: no-repeat;
-				transition: .4s cubic-bezier(0.1, 0.1, 0.3, 1.1);
+				transition: .3s cubic-bezier(.1, 0, .5, 1);
+				backface-visibility: hidden;
+				transform-style: preserve-3d;
 			}
-			img {
-				width: 100%;
-				height: auto;
-			}
+
 			&#img0 {
-				perspective: 100vw;
+				perspective: 400vw;
+				.imgCover {
+
+				}
 			}
 			&#img1 {
 				z-index: 1;
-				perspective: 200vw;
+				perspective: 400vw;
 				.imgCover {
 					max-height: 80vh;
 					height: 100%;

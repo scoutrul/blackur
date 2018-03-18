@@ -37,7 +37,7 @@ export default class extends React.Component {
 						className="imgCover"
 						style={{
 							backgroundImage: `url(${this.props.image1})`,
-							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) 
+							transform: `translate3d(${img1X/3 }px, ${img1Y / 5}px, 0) 
 							 
 							rotateY(${perspY / 11}deg) 
 								rotateX(${perspX / 11}deg) `
