@@ -46,7 +46,7 @@ export default class extends Component {
 				<div className={`logo ${this.props.AnimationCss}`}>
 					<div className={'logos'}>
 						<div className={'logo_svg'}>
-							<svg x="0px" y="0px" viewBox={`0 0 ${48.5} ${divHeight+5}`} width={divWidth} height={divHeight+5}>
+							<svg x="0px" y="0px" viewBox={`0 0 48.5 53.9`}>
 								<linearGradient
 									id="grad"
 									y1={svgGradient()}
@@ -65,7 +65,7 @@ export default class extends Component {
 							</svg>
 						</div>
 						<div className="to_white" style={{ opacity: (this.props.changeColorBool && actionBlock) ? 1 : 0 }}>
-							<svg x="0px" y="0px" viewBox={`0 0 ${48.5} ${divHeight+5}`} width={divWidth} height={divHeight+5}>
+							<svg x="0px" y="0px" viewBox={`0 0 48.5 53.9`} width={divWidth} height={divHeight}>
 								<path
 									fill="#FFF"
 									d="M40,26.4c3.8-2.6,6.3-7,6.3-11.9c0-8-6.5-14.4-14.4-14.4H0v54h34.1c8,0,14.4-6.5,14.4-14.4

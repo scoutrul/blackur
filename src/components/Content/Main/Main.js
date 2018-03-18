@@ -35,7 +35,7 @@ export default class extends Component {
 		this.drowSVGpath();
 		this.props.setTitle('');
 		// setInterval(this.drowSVGpath, 3000);
-		// setInterval(this.changeSlideEverySec, 3000);
+		setInterval(this.changeSlideEverySec, 7000);
 
 		this.setState({
 			mouseCursor: {
@@ -87,7 +87,7 @@ export default class extends Component {
 		path.style.strokeDashoffset = length;
 
 		path.getBoundingClientRect();
-		path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 2.8s ease-in';
+		path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 7s ease-in';
 		path.style.strokeDashoffset = 0;
 	};
 
@@ -116,10 +116,10 @@ export default class extends Component {
 			setTimeout(() => {
 				this.setState({
 					inAnimation: false,
-					CSSAnimation: 'now',
+					CSSAnimation: 'out now',
 					currSlide
 				});
-			}, 400);
+			}, 800);
 		});
 	};
 
@@ -189,35 +189,11 @@ export default class extends Component {
 					>
 						<div className="logoSvgMask">
 							<svg x="0px" y="0px" viewBox="-2 -3 55 60">
-								<defs>
-									<clipPath maskUnits="userSpaceOnUse" id="mask">
-										<path
-											className="fix_stroke"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth=".1"
-											strokeOpacity="0.6"
-											stroke="#FFF"
-											fill="transparent"
-											d="M0,0h32.1c0,0,14.2-0.2,14.2,15c0,8.7-6.3,11.3-6.3,11.3s8.5,3.4,8.5,13.3s-9.6,14.3-12.7,14.3
-	c-3.1,0-35.8,0-35.8,0V0z"
-										/>
-									</clipPath>
-								</defs>
-								<image
-									clip-path="url(#mask)"
-									height="100%"
-									width="200%"
-									x={`-50%`}
-									y={`-4%`}
-									href={this.props.works[this.routSlide(currSlide + 1, limit)].image1}
-								/>
-
 								<path
-									className="fix_stroke"
+									id="fix_stroke"
 									strokeLinecap="round"
 									strokeLinejoin="round"
-									strokeWidth=".1"
+									strokeWidth=".05"
 									strokeOpacity="0.6"
 									stroke="#FFF"
 									fill="transparent"
@@ -229,7 +205,7 @@ export default class extends Component {
 									id="float_stroke"
 									strokeLinecap="round"
 									strokeLinejoin="round"
-									strokeWidth=".3"
+									strokeWidth=".15"
 									strokeOpacity="1"
 									stroke="#FFF"
 									fill="transparent"
@@ -244,7 +220,7 @@ export default class extends Component {
 									<h1>{activeSlide.header}</h1>
 								</AnimatedLink>
 							</div>
-							<div className="hidden">
+							<div className="hidden subheader">
 								<h5>{activeSlide.subheader}</h5>
 							</div>
 						</div>

@@ -26,18 +26,18 @@
 
 	&.appear_before {
 		div {
-			left: -$logoW - 10+px;
+			transform: translateX(-100%)
 		}
 	}
 	&.appear_after {
 		div {
-			transition: left $Transition;
-			left: 0;
+			transition: transform $Transition;
+			transform: translateX(0%)
 		}
 	}
 	&.leave_animation {
 		div {
-			left: -$logoW - 10+px;
+			transform: translateX(-100%)
 		}
 	}
 

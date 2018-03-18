@@ -1,6 +1,6 @@
 import React from 'react';
 import AnimatedLink from '../../HOC/AnimatedLink';
-import './project.scss';
+// import './project.scss';
 
 export default class extends React.Component {
 	state = {
@@ -34,13 +34,14 @@ export default class extends React.Component {
 						style={{
 							backgroundImage: `url(${this.props.image2})`,
 							transform: `
-								translate3d(${img1X * 1.1}px, ${img1Y}px, 0) 
-								perspective(${screenW}px) 
+				translate3d(${img1X * 1.1}px, ${img1Y}px, 0) 
+				perspective(${screenW}px) 
 								rotateY(${perspY / 3}deg) 
 								rotateX(${perspX / 2}deg)`
 						}}
 					/>
 				</div>
+
 				<div className="images" id="img0">
 					<div
 						className="imgCover"
@@ -49,7 +50,7 @@ export default class extends React.Component {
 							transform: `translate3d(${img1X / 5}px, ${img1Y / 5}px, 0) 
 							perspective(${screenW}px) 
 							rotateY(${perspY / 11}deg) 
-							rotateX(${perspX / 11}deg) `
+								rotateX(${perspX / 11}deg) `
 						}}
 					/>
 				</div>

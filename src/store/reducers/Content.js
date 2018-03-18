@@ -12,9 +12,10 @@ const initialState = {
 			subheader: 'Design & Development',
 			title: 'Ready for hassle-free printing?',
 			slogan: 'Web application to help Epson provide clients with automatic ongoing support.',
-			services: [ 'Product Design', 'Web Development', '123', '123213sdf','sdfsdfdsf','sfsdfdsfsdffdsf' ],
-			text:
-				["Thanks to this technology, you’ll never run out of ink again. Just register with the retailer or reseller that you purchased the printer from and get a new cartridge is needed. With this automated system, you’ll always have a supply of high-quality ink."],
+			services: [ 'Product Design', 'Web Development' ],
+			text: [
+				'Thanks to this technology, you’ll never run out of ink again. Just register with the retailer or reseller that you purchased the printer from and get a new cartridge is needed. With this automated system, you’ll always have a supply of high-quality ink.'
+			],
 			url: 'ReadyInk'
 		},
 		{
@@ -43,8 +44,9 @@ const initialState = {
 			title: 'Wear technology.',
 			slogan: 'Functional clothes for everyone.',
 			services: [ 'Brand Vision', 'Visual Design' ],
-			text:
-				["The idea of making everyday clothes as simple and functional as possible is as ingenious as it requires a review of the habitual attitude towards clothing in general. Cloudburst offers a new look at how familiar clothing can enhance a person's capabilities."],
+			text: [
+				"The idea of making everyday clothes as simple and functional as possible is as ingenious as it requires a review of the habitual attitude towards clothing in general. Cloudburst offers a new look at how familiar clothing can enhance a person's capabilities."
+			],
 			url: 'Cloudburst'
 		},
 		{
@@ -73,8 +75,9 @@ const initialState = {
 			title: 'Discover people’s story through the maze.',
 			slogan: 'Mobile app for creating interactive stories.',
 			services: [ 'Product Design', 'Mobile Development' ],
-			text:
-				['Everyone dreams of becoming a participant in exciting story and going all the way from beginning to the end. Create interesting interactive stories with Storymaze and go through intricate chapters with characters.'],
+			text: [
+				'Everyone dreams of becoming a participant in exciting story and going all the way from beginning to the end. Create interesting interactive stories with Storymaze and go through intricate chapters with characters.'
+			],
 			url: 'Storymaze'
 		}
 	],
@@ -83,12 +86,51 @@ const initialState = {
 			title: 'Works'
 		},
 		about: {
-			title: 'We ghelp products find their place in digital void.'
+			title: 'We ghelp products find their place in digital void.',
+			content: {
+				header_white: 'We are Blackur.',
+				header_black: 'And we are in the black.',
+				paragraphs_top: [
+					'We are young agency with drastically new approach to work. We’ve got rid of everything that prevents us to create perfect products.',
+					'We believe that the result is the only important thing in the modern world. And nothing more.'
+				],
+				slogans: [
+					'We just use mathematics.',
+					'It helps us to optimize work and brings the best result for every project we work on.'
+				],
+				paragraphs_bottom: [
+					"We have developed a system that helps us to assemble teams of experts to work on each project. It's so smart that can analyze up to several tens of different parameters.",
+					'After we get the project information, this system selects the candidate and places it in the overall picture of the team. That’s how our dream team formed.',
+					'Every day we examine a lot of resumes to find the best. We make an offer to the unique candidates with interesting experience to keep the quality of our products at the highest level.'
+				],
+				contacts: {
+					slogan: 'Tell about yourself & move to the dark side using ',
+					email: 'work@blackur.com'
+				}
+			}
 		},
 		contacts: {
 			title: 'We take ambitious projects and are proud of the result.'
 		}
-	}
+	},
+	menu: [
+		{
+			name: 'Home',
+			url: '/'
+		},
+		{
+			name: 'Projects',
+			url: '/works'
+		},
+		{
+			name: 'Agency',
+			url: '/about'
+		},
+		{
+			name: 'Contacts',
+			url: '/contacts'
+		}
+	]
 };
 
 export default (state = initialState, action) => {

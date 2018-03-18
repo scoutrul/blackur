@@ -6,7 +6,8 @@ import './menu.scss';
 
 @connect(state => {
 	return {
-		changeColorBool: state.Animations.changeColorinWork
+		changeColorBool: state.Animations.changeColorinWork,
+		menu: state.Content.menu,
 	}
 })
 @Appear
@@ -47,27 +48,14 @@ export default class extends Component {
 				</div>
 				<nav className={(this.state.opened && 'visible') || 'hidden'}>
 					<ul className="nav__menu">
-						<li>
-							<div onClick={this._opener}>
-								<AnimatedLink to={'/'}>Home </AnimatedLink>
-							</div>
-						</li>
+						{this.props.menu.map(item => {
+							return <li>
+								<div onClick={this._opener}>
+									<AnimatedLink to={item.url}>{item.name} </AnimatedLink>
+								</div>
+							</li>
 
-						<li>
-							<div onClick={this._opener}>
-								<AnimatedLink to={'/works'}>Projects </AnimatedLink>
-							</div>
-						</li>
-						<li>
-							<div onClick={this._opener}>
-								<AnimatedLink to={'/about'}>Agency </AnimatedLink>
-							</div>
-						</li>
-						<li>
-							<div onClick={this._opener}>
-								<AnimatedLink to={'/contacts'}>Contact</AnimatedLink>
-							</div>
-						</li>
+						})}
 					</ul>
 					<div className="hello">
 						<div>

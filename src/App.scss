@@ -39,7 +39,7 @@ h1,
 h2 {
 	font-weight: 700;
 	line-height: 80px;
-	margin: 0 0 0 -0.085em;
+	margin: 0;
 	@include adaptive(xx) {
 		font-size: 110px;
 	}
@@ -59,7 +59,7 @@ h2 {
 
 h3 {
 	line-height: 60px;
-	margin: 0 0 0 -0.085em;
+	margin: 0;
 	@include adaptive(xx) {
 		font-size: 77px;
 	}
@@ -81,7 +81,7 @@ h4,
 .works_services li,
 .content_p {
 	line-height: 60px;
-	margin: 0 0 0 -0.085em;
+	margin: 0;
 	@include adaptive(xx) {
 		font-size: 54px;
 	}
@@ -103,7 +103,7 @@ h5,
 .content_text {
 	font-size: 20px;
 	line-height: 26px;
-	margin: 0 0 0 -0.085em;
+	margin: 0;
 	@include adaptive(xx) {
 		font-size: 30px;
 	}
@@ -123,7 +123,7 @@ h5,
 
 h6 {
 	line-height: 30px;
-	margin: 0 0 0 -0.085em;
+	margin: 0;
 	@include adaptive(xx) {
 		font-size: 23px;
 	}
