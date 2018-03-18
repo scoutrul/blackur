@@ -17,6 +17,9 @@ export default class extends Component {
 		MovingActions: PropTypes.object
 	};
 
+	componentDidUpdate() {
+		console.log(this.props.MovingActions);
+	}
 	render() {
 		let {
 			viewBoxHeight,
@@ -28,18 +31,13 @@ export default class extends Component {
 			stopper
 		} = this.props.MovingActions;
 
-		let move = actionBlock ? scrollTop - (viewBoxHeight - divTopOffset - divHeight) : 0;
-
-		
-		let svgGradient = () => {
-			let actionBlock = scrollTop >= stopper && scrollTop >= stopper + divHeight;
-			let toBlack = scrollTop >= stopper + divHeight ;
-
-			let result = !toBlack ?  `${divHeight * 2 - move * 2}px` : '0%' ;
-			console.log('actionBlock',actionBlock, 'toBlack', toBlack, 'result', result)
-
-			return !this.props.changeColorBool ? result : !actionBlock && '200px'
-		} 
+		let drowGradient = () => {
+			let newstopper = viewBoxHeight-(divTopOffset);
+			let newresult = newstopper - scrollTop;
+			newresult*=3.6 
+			return newresult >0? newresult +'%' : 0
+			// return !this.props.changeColorBool ? result+'px' : !actionBlock && '200%';
+		};
 
 		return (
 			<AnimatedLink to={'/'}>
@@ -49,7 +47,7 @@ export default class extends Component {
 							<svg x="0px" y="0px" viewBox={`0 0 48.5 53.9`}>
 								<linearGradient
 									id="grad"
-									y1={svgGradient()}
+									y1={drowGradient()}
 									x1={`100%`}
 									spreadMethod="pad"
 									gradientUnits="userSpaceOnUse"
@@ -64,7 +62,10 @@ export default class extends Component {
 								/>
 							</svg>
 						</div>
-						<div className="to_white" style={{ opacity: (this.props.changeColorBool && actionBlock) ? 1 : 0 }}>
+						<div
+							className="to_white"
+							style={{ opacity: this.props.changeColorBool && actionBlock ? 1 : 0 }}
+						>
 							<svg x="0px" y="0px" viewBox={`0 0 48.5 53.9`} width={divWidth} height={divHeight}>
 								<path
 									fill="#FFF"
@@ -79,20 +80,3 @@ C48.5,33.7,45.1,28.6,40,26.4z"
 		);
 	}
 }
-
-// <div className="white" style={{ transform: `translate3D(0, ${-move}px ,0)` }}>
-// 							<img
-// 								src={'images/logo_blackur.svg'}
-// 								alt={'Blackur logo'}
-// 								style={{ transform: `translate3D(0, ${!this.props.changeColorBool ? move : 0}px ,0)` }}
-// 							/>
-// 						</div>
-// 						<div className="black" style={{ transform: `translate3D(0, ${move}px ,0)` }}>
-// 							<img
-// 								src={'images/logo_blackur.svg'}
-// 								alt={'Blackur logo'}
-// 								style={{
-// 									transform: `translate3D(0, ${-move}px ,0)`
-// 								}}
-// 							/>
-// 						</div>

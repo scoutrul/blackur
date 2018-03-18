@@ -31,11 +31,14 @@ export default class extends Component {
 			screenH: null
 		}
 	};
+	componentDidUnmount() {
+		clearInterval(this.changeSlideEverySec);
+	}
 	componentDidMount() {
 		this.drowSVGpath();
 		this.props.setTitle('');
 		// setInterval(this.drowSVGpath, 3000);
-		// setInterval(this.changeSlideEverySec, 7000);
+		setInterval(this.changeSlideEverySec, 7000);
 
 		this.setState({
 			mouseCursor: {
@@ -76,9 +79,6 @@ export default class extends Component {
 		this.changeSlide(nextSlide);
 	};
 
-	componentDidUpdate() {
-		// console.log('did update', this.state);
-	}
 	drowSVGpath = () => {
 		let path = this.svgMask;
 		let length = path.getTotalLength();
@@ -91,11 +91,9 @@ export default class extends Component {
 		path.style.strokeDashoffset = 0;
 	};
 
-	componentWillUnmount() {
-		// clearInterval(this.changeSlideEverySec);
-	}
+
 	changeSlide = (dirrection) => {
-		this.drowSVGpath();
+		this.svgMask && this.drowSVGpath();
 
 		let currSlide = this.state.currSlide + dirrection;
 

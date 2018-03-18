@@ -143,6 +143,5 @@ export default (state = initialState, action) => {
 };
 
 export function setTitle_action(payload) {
-	console.log(payload);
 	return { type: SET_PAGE_TITLE, payload };
 }
