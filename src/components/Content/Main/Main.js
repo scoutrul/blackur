@@ -31,14 +31,10 @@ export default class extends Component {
 			screenH: null
 		}
 	};
-	componentDidUnmount() {
-		clearInterval(this.changeSlideEverySec);
-	}
 	componentDidMount() {
-		this.drowSVGpath();
-		this.props.setTitle('');
-		// setInterval(this.drowSVGpath, 3000);
-		setInterval(this.changeSlideEverySec, 7000);
+		this.startInterval().start();
+
+		this.props.setTitle();
 
 		this.setState({
 			mouseCursor: {
@@ -46,6 +42,23 @@ export default class extends Component {
 				screenW: this.layer.clientWidth
 			}
 		});
+	}
+
+	startInterval = () => {
+		return {
+			start: () => {
+				this.drowSVGpath()
+				this.loadInterval = setInterval(this.changeSlideEverySec, 7000);
+			},
+			stop: () => {
+				this.loadInterval && clearInterval(this.changeSlideEverySec);
+				this.loadInterval = false;
+			}
+		};
+	};
+
+	componentWillUnmount() {
+		this.startInterval().stop();
 	}
 
 	_onMouseMove = (e) => {
@@ -74,35 +87,13 @@ export default class extends Component {
 		let nextSlide = currSlide + 1;
 
 		if (nextSlide > limit) {
-			nextSlide = -1;
+			nextSlide = limit;
 		}
 		this.changeSlide(nextSlide);
 	};
 
-	drowSVGpath = () => {
-		let path = this.svgMask;
-		let length = path.getTotalLength();
-		path.style.transition = path.style.WebkitTransition = 'none';
-		path.style.strokeDasharray = length;
-		path.style.strokeDashoffset = length;
-
-		path.getBoundingClientRect();
-		path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 7s ease-in';
-		path.style.strokeDashoffset = 0;
-	};
-
-
-	changeSlide = (dirrection) => {
+	changeSlide = (currSlide) => {
 		this.svgMask && this.drowSVGpath();
-
-		let currSlide = this.state.currSlide + dirrection;
-
-		let limit = this.props.works.length - 1;
-		if (currSlide > limit) {
-			currSlide = 0;
-		} else if (currSlide < 0) {
-			currSlide = limit;
-		}
 
 		new Promise((resolve) => {
 			this.setState({
@@ -121,40 +112,31 @@ export default class extends Component {
 		});
 	};
 
-	_moveBack = () => this.changeSlide(-1);
-	_moveForward = () => this.changeSlide(1);
+	drowSVGpath = () => {
+		let path = this.svgMask;
+		let length = path.getTotalLength();
+		path.style.transition = path.style.WebkitTransition = 'none';
+		path.style.strokeDasharray = length;
+		path.style.strokeDashoffset = length;
 
-	routSlide = (slide, limit) => {
-		if (slide > limit) {
-			return 0;
-		} else if (slide < 0) {
-			return limit;
-		}
-		return slide;
+		path.getBoundingClientRect();
+		path.style.transition = path.style.WebkitTransition = 'stroke-dashoffset 6.8s ease-in';
+		path.style.strokeDashoffset = 0;
 	};
 
 	render() {
 		let currSlide = this.state.currSlide;
-		let limit = this.props.works.length - 1;
 
 		const { AnimationCss } = this.props;
 		let activeSlide = this.props.works[this.state.currSlide];
 
 		return (
 			<div className={`slider`}>
-				<div className="slider_ui" style={{ display: 'block' }}>
-					<button onClick={this._moveBack}>Back</button>
-					<button onClick={this._moveForward}>Forward</button>
-				</div>
 				<div className={`page-main ${AnimationCss}`}>
 					{this.props.works.map((prj, i) => {
 						let active = i === this.state.currSlide ? true : false;
 
-						if (
-							i === this.routSlide(currSlide, limit) ||
-							i === this.routSlide(currSlide + 1, limit) ||
-							i === this.routSlide(currSlide - 1, limit)
-						)
+						if (i === currSlide - 1 || i === currSlide || i === currSlide + 1)
 							return (
 								<Project
 									header={prj.header}

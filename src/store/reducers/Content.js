@@ -136,7 +136,7 @@ const initialState = {
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case SET_PAGE_TITLE:
-			return { ...state, pageTitle: action.payload };
+			return { ...state, pageTitle: action.payload || '' };
 		default:
 			return state;
 	}
