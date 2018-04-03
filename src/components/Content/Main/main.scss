@@ -21,7 +21,10 @@
 	&.leave_animation {
 		opacity: 0;
 		transition: $Transition;
-		h1,
+		h1 {
+			transition: $Transition;
+			transform: translateY(150px);
+		}
 		h5 {
 			transition: $Transition;
 			transform: translateY(-150px);
@@ -234,7 +237,7 @@
 				height: 18px;
 			}
 		}
-		a:hover:before {
+		a:hover:before, a:active:before, a:focus:before {
 			transform: none;
 			transform-origin: right center 0px;
 		}
