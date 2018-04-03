@@ -76,7 +76,7 @@ export default class extends Component {
 	}
 	
 	render() {
-		return <div ref={div => this.divElement = div}>
+		return <div className={'withColorInvertor'} ref={div => this.divElement = div}>
 			<this.props.component MovingActions={this.state}/>
 		</div>
 	}

@@ -1,250 +1,260 @@
-.menu {
+.menu-container {
 	position: fixed;
-	display: flex;
-	flex-direction: column;
-	color: #fff;
-	z-index: 10;
-	width: 40px;
-	height: 100%;
-	max-height: 40px;
-
-	@include adaptive(xx) {
-		top: $framePaddingXx;
-		right: $framePaddingXx;
+	z-index: 11;
+	&.active {
+		width: 100%;
+		min-width: 100vw;
+		min-height: 100vh;
+		height: 100%;
 	}
-	@include adaptive(x2) {
-		top: $framePaddingX2;
-		right: $framePaddingX2;
-	}
-	@include adaptive(x1) {
-		top: $framePaddingX1;
-		right: $framePaddingX1;
-	}
-	@include adaptive(x05) {
-		top: $framePaddingX05;
-		right: $framePaddingX05;
-	}
-	@include adaptive(x025) {
-		top: $framePaddingX025;
-		right: $framePaddingX025;
-	}
-
-	#burger {
-		color: #fff;
+	.menu {
+		position: fixed;
 		display: flex;
-		flex-flow: column wrap;
-		justify-content: space-between;
-		align-self: flex-end;
-		cursor: pointer;
-		margin-left: auto;
-		z-index: 10;
-		min-height: 35px;
-		height: 24px;
-		position: relative;
-		overflow: hidden;
-		span {
-			width: 100%;
-			background-color: currentColor;
-			transition: $Transition;
-			position: absolute;
-			height: 2px;
-			&:nth-of-type(1) {
-				transform-origin: right top;
-			}
-			&:nth-of-type(2) {
-				transform-origin: right bottom;
-				margin-top: 16px;
-			}
-		}
-		&.opened {
-			span {
-				margin-left: -3px;
-				background-color: #d5dade !important;
-				&:nth-of-type(1) {
-					transform: rotate(-45deg);
-				}
-				&:nth-of-type(2) {
-					transform: rotate(45deg);
-					margin-top: 24px;
-				}
-			}
-		}
+		width: 40px;
+		max-height: 40px;
+		height: 100%;
+		flex-direction: column;
+		color: #fff;
+		z-index: 1;
 
 		@include adaptive(xx) {
-			top: 15px;
-			width: 47px;
-			span {
-				height: 3px;
-			}
+			top: $framePaddingXx;
+			right: $framePaddingXx;
 		}
 		@include adaptive(x2) {
-			width: 35px;
-			top: 15px;
+			top: $framePaddingX2;
+			right: $framePaddingX2;
 		}
-
-		//ANIMATION
-
-		&.appear_before {
-			span {
-				transform: translateX(50px);
-			}
+		@include adaptive(x1) {
+			top: $framePaddingX1;
+			right: $framePaddingX1;
 		}
-		&.appear_after {
-			span {
-				transform: translateX(0);
-			}
-		}
-		&.leave_animation {
-			span {
-				transform: translateX(50px) !important;
-			}
-		}
-	}
-
-	a {
-		padding: 10px 0;
-	}
-
-	nav {
-		position: fixed;
-		height: 100vh;
-		width: 50vw;
 		@include adaptive(x05) {
-			width: 100vw;
-			transition: $Transition;
+			top: $framePaddingX05;
+			right: $framePaddingX05;
 		}
-		transform: translateX(100%);
-		transition: transform $Transition;
-		background-color: #fff;
-		top: 0;
-		right: 0;
-		transition-delay: .1s;
+		@include adaptive(x025) {
+			top: $framePaddingX025;
+			right: $framePaddingX025;
+		}
 
-		&.visible {
-			transform: translateX(0%);
-			.nav__menu {
-				li div {
-					transition: $Transition;
-					transform: translateY(0%);
-					transition-delay: 0.3s;
+		#burger {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			min-height: 35px;
+			height: 24px;
+			color: #fff;
+			flex-flow: column wrap;
+			align-self: flex-end;
+			cursor: pointer;
+			margin-left: auto;
+			z-index: 10;
+			overflow: hidden;
+
+			@include adaptive(xx) {
+				top: 15px;
+				width: 47px;
+				span {
+					height: 3px;
 				}
-				// li:nth-child(1) div {
-				// 	transition-delay: 0.1s
-				// }
-				// li:nth-child(2) div {
-				// 	transition-delay: 0.18s
-				// }
-				// li:nth-child(3) div {
-				// 	transition-delay: 0.26s
-				// }
-				// li:nth-child(4) div {
-				// 	transition-delay: 0.34s
-				// }
-				// li:nth-child(5) div {
-				// 	transition-delay: 0.42s
-				// }
-				// li:nth-child(6) div {
-				// 	transition-delay: 0.60s
-				// }
-				// li:nth-child(7) div {
-				// 	transition-delay: 0.78s
-				// }
 			}
-			.hello {
-				div {
-					a {
-						display: block;
+			@include adaptive(x2) {
+				top: 15px;
+				width: 35px;
+			}
+			span {
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: currentColor;
+				transition: $Transition;
+				&:nth-of-type(1) {
+					transform-origin: right top;
+				}
+				&:nth-of-type(2) {
+					transform-origin: right bottom;
+					margin-top: 16px;
+				}
+			}
+			&.opened {
+				span {
+					margin-left: -3px;
+					background-color: #d5dade !important;
+					&:nth-of-type(1) {
+						transform: rotate(-45deg);
+					}
+					&:nth-of-type(2) {
+						transform: rotate(45deg);
+						margin-top: 24px;
+					}
+				}
+			}
+
+			//ANIMATION
+
+			&.appear_before {
+				span {
+					transform: translateX(50px);
+				}
+			}
+			&.appear_after {
+				span {
+					transform: translateX(0);
+				}
+			}
+			&.leave_animation {
+				span {
+					transform: translateX(50px) !important;
+				}
+			}
+		}
+
+		a {
+			padding: 10px 0;
+		}
+
+		nav {
+			position: fixed;
+			top: 0;
+			right: 0;
+			width: 50vw;
+			height: 100vh;
+			transform: translateX(100%);
+			transition: transform $Transition;
+			background-color: #fff;
+			transition-delay: .1s;
+			@include adaptive(x05) {
+				width: 100vw;
+				transition: $Transition;
+			}
+
+			&.visible {
+				transform: translateX(0%);
+				.nav__menu {
+					li div {
 						transition: $Transition;
 						transform: translateY(0%);
 						transition-delay: 0.3s;
 					}
+					// li:nth-child(1) div {
+					// 	transition-delay: 0.1s
+					// }
+					// li:nth-child(2) div {
+					// 	transition-delay: 0.18s
+					// }
+					// li:nth-child(3) div {
+					// 	transition-delay: 0.26s
+					// }
+					// li:nth-child(4) div {
+					// 	transition-delay: 0.34s
+					// }
+					// li:nth-child(5) div {
+					// 	transition-delay: 0.42s
+					// }
+					// li:nth-child(6) div {
+					// 	transition-delay: 0.60s
+					// }
+					// li:nth-child(7) div {
+					// 	transition-delay: 0.78s
+					// }
 				}
-			}
-		}
-		.hello {
-			position: absolute;
-			bottom: 45px;
-			color: #131517;
-			font-weight: bold;
-			font-size: 20px;
-			@include adaptive(xx) {
-				bottom: $framePaddingXx;
-				left: $framePaddingXx;
-			}
-			@include adaptive(x2) {
-				bottom: $framePaddingX2;
-				left: $framePaddingX2;
-			}
-			@include adaptive(x1) {
-				bottom: $framePaddingX1;
-				left: $framePaddingX1;
-			}
-			@include adaptive(x05) {
-				bottom: $framePaddingX05;
-				left: $framePaddingX05;
-			}
-			@include adaptive(x025) {
-				bottom: $framePaddingX025;
-				left: $framePaddingX025;
-			}
-			div {
-				overflow: hidden;
-				a {
-					display: block;
-					transition: $Transition;
-					transform: translateY(-70%);
-				}
-			}
-		}
-		.nav__menu {
-			position: fixed;
-			top: 0;
-			right: 0;
-			width: 100%;
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			list-style: none;
-			font-size: 4.188em;
-			line-height: 120px;
-			font-weight: bold;
-			margin: 0;
-			padding: 0;
-			justify-content: center;
-			li {
-				overflow: hidden;
-
-				div {
-					transition-delay: 0s;
-					display: flex;
-					transform: translateY(-100%);
-					transition: $Transition;
-					line-height: 113%;
-					width: fit-content;
-					a {
-						line-height: 100%;
-						transition: $Transition;
-						color: #dee2e6;
-						margin: auto;
-						&:hover {
-							color: #131517;
+				.hello {
+					div {
+						a {
+							display: block;
+							transition: $Transition;
+							transform: translateY(0%);
+							transition-delay: 0.3s;
 						}
 					}
 				}
+			}
+			.hello {
+				position: absolute;
+				bottom: 45px;
+				color: #131517;
+				font-weight: bold;
+				font-size: 20px;
 				@include adaptive(xx) {
-					margin-left: $framePaddingXx;
+					bottom: $framePaddingXx;
+					left: $framePaddingXx;
 				}
 				@include adaptive(x2) {
-					margin-left: $framePaddingX2;
+					bottom: $framePaddingX2;
+					left: $framePaddingX2;
 				}
 				@include adaptive(x1) {
-					margin-left: $framePaddingX1;
+					bottom: $framePaddingX1;
+					left: $framePaddingX1;
 				}
 				@include adaptive(x05) {
-					margin-left: $framePaddingX05;
+					bottom: $framePaddingX05;
+					left: $framePaddingX05;
 				}
 				@include adaptive(x025) {
-					margin-left: $framePaddingX025;
+					bottom: $framePaddingX025;
+					left: $framePaddingX025;
+				}
+				div {
+					overflow: hidden;
+					a {
+						display: block;
+						transition: $Transition;
+						transform: translateY(-70%);
+					}
+				}
+			}
+			.nav__menu {
+				position: fixed;
+				top: 0;
+				right: 0;
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				line-height: 120px;
+				padding: 0;
+				margin: 0;
+				flex-direction: column;
+				list-style: none;
+				font-size: 4.188em;
+				font-weight: bold;
+				li {
+					overflow: hidden;
+					@include adaptive(xx) {
+						margin-left: $framePaddingXx;
+					}
+					@include adaptive(x2) {
+						margin-left: $framePaddingX2;
+					}
+					@include adaptive(x1) {
+						margin-left: $framePaddingX1;
+					}
+					@include adaptive(x05) {
+						margin-left: $framePaddingX05;
+					}
+					@include adaptive(x025) {
+						margin-left: $framePaddingX025;
+					}
+
+					div {
+						display: flex;
+						width: fit-content;
+						line-height: 113%;
+						transition-delay: 0s;
+						transform: translateY(-100%);
+						transition: $Transition;
+						a {
+							line-height: 100%;
+							margin: auto;
+							transition: $Transition;
+							color: #dee2e6;
+							&:hover {
+								color: #131517;
+							}
+						}
+					}
 				}
 			}
 		}

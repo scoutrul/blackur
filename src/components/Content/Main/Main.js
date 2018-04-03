@@ -67,14 +67,15 @@ export default class extends Component {
 	};
 
 	_mouseMove = _.throttle((e) => {
-		let xCenter = e.clientX - this.layer.clientHeight / 2 || 0;
-		let yCenter = e.clientY - this.layer.clientWidth / 2 || 0;
+		const layer = this.layer ? this.layer : false;
+		let xCenter = e.clientX - layer.clientHeight / 2 || 0;
+		let yCenter = e.clientY - layer.clientWidth / 2 || 0;
 		this.setState({
 			mouseCursor: {
 				X: xCenter,
 				Y: yCenter,
-				screenH: this.layer.clientHeight,
-				screenW: this.layer.clientWidth
+				screenH: layer.clientHeight,
+				screenW: layer.clientWidth
 			}
 		});
 	}, 1000 / 24);
@@ -197,9 +198,9 @@ export default class extends Component {
 							</div>
 						</div>
 						<ul className={`services ${this.state.CSSAnimation}`}>
-							{activeSlide.services.map((services) => {
+							{activeSlide.services.map((services,i) => {
 								return (
-									<li key={services}>
+									<li key={i}>
 										<div>{services}</div>
 									</li>
 								);

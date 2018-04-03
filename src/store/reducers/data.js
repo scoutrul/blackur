@@ -101,7 +101,7 @@ export const data = {
 					'That’s how the real perfection appears.'
 				],
 				contacts: {
-					slogan: 'We are looking for solid developers, designers & any other digital professional worldwide to build the greatest community ever. Write to us, tell about yourself and move to the dark side.',
+					slogan: 'We are looking for solid developers, designers & any other digital professionals worldwide to build the greatest community ever. Write to us, tell about yourself and move to the dark side.',
 					email: 'work@blackur.com'
 				}
 			}
