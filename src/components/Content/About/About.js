@@ -31,17 +31,17 @@ export default class extends Component {
 				<div className="content">
 					<h1>{header_white}</h1>
 					<h1 className={'dark'}>{header_black}</h1>
-					<div className="column content_text">{paragraphs_top.map((p) => <div>{p}</div>)}</div>
+					<div className="column content_text">{paragraphs_top.map((p,i) => <div key={i}>{p}</div>)}</div>
 					<h3>
-						{slogans.map((slogan) => (
-							<span>
+						{slogans.map((slogan, i) => (
+							<span key={i}>
 								{slogan}
 								<br />
 							</span>
 						))}
 					</h3>
 					<div className="column content_text">
-						{paragraphs_bottom.map((p) => <div>{p}</div>)}
+						{paragraphs_bottom.map((p,i) => <div key={i}>{p}</div>)}
 					</div>
 
 					<h3 className="dark">

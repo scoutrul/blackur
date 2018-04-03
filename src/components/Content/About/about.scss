@@ -4,6 +4,10 @@
 		flex-wrap: wrap;
 		@include adaptive(xx) {
 			margin: 200px 0 75px 0;
+			div {
+				flex: 1 1 300px;
+				margin: 0 40px 40px 0;
+			}
 		}
 		@include adaptive(x2) {
 			margin: 180px 0 75px 0;

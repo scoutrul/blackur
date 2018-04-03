@@ -82,12 +82,11 @@ export default class extends Component {
 	changeSlideEverySec = () => {
 		// this.changeSlide(_.random(0, this.props.works.length - 1));
 		let limit = this.props.works.length - 1;
-
 		let currSlide = this.state.currSlide;
 		let nextSlide = currSlide + 1;
 
 		if (nextSlide > limit) {
-			nextSlide = limit;
+			nextSlide = 0;
 		}
 		this.changeSlide(nextSlide);
 	};

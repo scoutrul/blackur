@@ -17,9 +17,6 @@ export default class extends Component {
 		MovingActions: PropTypes.object
 	};
 
-	componentDidUpdate() {
-		console.log(this.props.MovingActions);
-	}
 	render() {
 		let {
 			viewBoxHeight,
@@ -28,7 +25,6 @@ export default class extends Component {
 			divTopOffset,
 			scrollTop,
 			actionBlock,
-			stopper
 		} = this.props.MovingActions;
 
 		let drowGradient = () => {

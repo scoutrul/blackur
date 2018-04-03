@@ -48,8 +48,8 @@ export default class extends Component {
 				</div>
 				<nav className={(this.state.opened && 'visible') || 'hidden'}>
 					<ul className="nav__menu">
-						{this.props.menu.map(item => {
-							return <li>
+						{this.props.menu.map((item, i) => {
+							return <li key={i}>
 								<div onClick={this._opener}>
 									<AnimatedLink to={item.url}>{item.name} </AnimatedLink>
 								</div>

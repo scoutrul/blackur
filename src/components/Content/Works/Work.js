@@ -99,7 +99,7 @@ export default class extends Component {
 						<h5 className="content_text">{subheader}</h5>
 
 						<h4>{slogan}</h4>
-						{text && text.map(abzac => (<p className="content_p">{abzac}</p>))}
+						{text && text.map((abzac, i) => (<p className="content_p" key={i}>{abzac}</p>))}
 					</div>
 					<div className="works_images">
 						{images_page.map((url, i) => {
