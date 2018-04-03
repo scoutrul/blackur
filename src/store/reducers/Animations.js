@@ -2,7 +2,7 @@ export const APPEAR_BEFORE = 'APPEAR_BEFORE';
 export const APPEAR_AFTER = 'APPEAR_AFTER';
 export const LEAVE_ANIMATION = 'LEAVE_ANIMATION';
 export const CHANGE_COLOR_IN_WORK = 'CHANGE_COLOR_IN_WORK';
-export const CLOSE_MENU = 'CLOSE_MENU';
+export const MENU_TOGGLER = 'MENU_TOGGLER';
 
 const initialState = {
 	isAppearBefore: false,
@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
 			return { ...state, ...action.payload };
 		case CHANGE_COLOR_IN_WORK:
 			return { ...state, ...action.payload };
-		case CLOSE_MENU:
+		case MENU_TOGGLER:
 			return { ...state, ...action.payload };
 		default:
 			return state;
@@ -52,5 +52,5 @@ export function leaveAnimation_action() {
 
 export function isMenuOpen_action(bool) {
 	const payload = { isMenuOpen: bool };
-	return { type: CLOSE_MENU, payload };
+	return { type: MENU_TOGGLER, payload };
 }

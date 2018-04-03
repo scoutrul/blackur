@@ -49,23 +49,41 @@
 			color: #fff;
 		}
 	}
-
+	h1 {
+		overflow: hidden;
+		span {
+			display: block;
+		}
+	}
 	&.appear_before {
 		opacity: 0;
-		transition: .3s;
-
 		h1 {
-			transform: translate(50px, 0);
-			transition: .3s;
+			span {
+				transform: translateY(-100%);
+			}
 		}
 	}
 	&.appear_after {
+		transition: $Transition;
 		opacity: 1;
 		h1 {
-			transform: translate(0);
+			span {
+				transition: $Transition;
+				transform: translateY(0);
+			}
 		}
 	}
+	&.leave_animation {
+		opacity: 0;
+		transition: $Transition;
 
+		h1 {
+			span {
+				transition: $Transition;
+				transform: translateY(-100%);
+			}
+		}
+	}
 	a span:hover {
 		color: $linkColor;
 		transition: $Transition;

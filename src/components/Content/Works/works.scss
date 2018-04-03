@@ -30,6 +30,16 @@
 			}
 		}
 	}
+	&.leave_animation {
+		.workList_item {
+			h2,
+			h5 {
+				transform: translateY(-100%);
+				transition: $Transition;
+				transition-duration: .65s;
+			}
+		}
+	}
 
 	.list {
 		list-style: none;

@@ -49,7 +49,7 @@ export default class extends Component {
 			<div className={`contentContainer container page-contacts ${AnimationCss}`}>
 				<div className="content">
 					<h1><span>Tell us your</span></h1>
-					<h1 className={'dark'}>black secrets.</h1>
+					<h1><span className={'dark'}>black secrets.</span></h1>
 					<form>
 						<label>
 							<h4 style={{ opacity: this.state.email && 0 }}>enter your email</h4>

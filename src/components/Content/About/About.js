@@ -29,8 +29,8 @@ export default class extends Component {
 		return (
 			<div className={`contentContainer page-about ${AnimationCss}`}>
 				<div className="content">
-					<h1>{header_white}</h1>
-					<h1 className={'dark'}>{header_black}</h1>
+					<h1><span>{header_white}</span></h1>
+					<h1><span className={'dark'}>{header_black}</span></h1>
 					<div className="column content_text">{paragraphs_top.map((p, i) => <div key={i}>{p}</div>)}</div>
 					<h3>
 						{slogans.map((slogan, i) => (
