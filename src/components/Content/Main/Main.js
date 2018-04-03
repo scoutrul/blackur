@@ -48,7 +48,7 @@ export default class extends Component {
 		return {
 			start: () => {
 				this.drowSVGpath()
-				this.loadInterval = setInterval(this.changeSlideEverySec, 71000);
+				this.loadInterval = setInterval(this.changeSlideEverySec, 7000);
 			},
 			stop: () => {
 				this.loadInterval && clearInterval(this.changeSlideEverySec);

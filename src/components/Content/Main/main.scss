@@ -23,11 +23,11 @@
 		transition: $Transition;
 		h1 {
 			transition: $Transition;
-			transform: translateY(150px);
+			transform: translateY(150px) !important;
 		}
 		h5 {
 			transition: $Transition;
-			transform: translateY(-150px);
+			transform: translateY(-150px) !important;
 		}
 	}
 }
