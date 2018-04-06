@@ -124,7 +124,7 @@
 			transition: transform $Transition;
 			background-color: #fff;
 			transition-delay: .1s;
-			@include adaptive(x05) {
+			@include adaptive(x025) {
 				width: 100vw;
 				transition: $Transition;
 			}
@@ -137,27 +137,6 @@
 						transform: translateY(0%);
 						transition-delay: 0.3s;
 					}
-					// li:nth-child(1) div {
-					// 	transition-delay: 0.1s
-					// }
-					// li:nth-child(2) div {
-					// 	transition-delay: 0.18s
-					// }
-					// li:nth-child(3) div {
-					// 	transition-delay: 0.26s
-					// }
-					// li:nth-child(4) div {
-					// 	transition-delay: 0.34s
-					// }
-					// li:nth-child(5) div {
-					// 	transition-delay: 0.42s
-					// }
-					// li:nth-child(6) div {
-					// 	transition-delay: 0.60s
-					// }
-					// li:nth-child(7) div {
-					// 	transition-delay: 0.78s
-					// }
 				}
 				.hello {
 					div {
