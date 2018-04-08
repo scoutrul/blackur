@@ -175,10 +175,11 @@
 				margin: auto 0 $framePaddingX1;
 			}
 			@include adaptive(x05) {
-				margin: auto 0 $framePaddingX05;
+				position: absolute;
+				bottom: $framePaddingX05
 			}
 			@include adaptive(x025) {
-				margin: auto 0 $framePaddingX025;
+				bottom: $framePaddingX025;
 			}
 			li {
 				overflow: hidden;
