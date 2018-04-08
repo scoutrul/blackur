@@ -175,10 +175,10 @@
 				margin: auto 0 $framePaddingX1;
 			}
 			@include adaptive(x05) {
-				position: absolute;
-				bottom: $framePaddingX05
+				margin: auto 0 $framePaddingX05;
 			}
 			@include adaptive(x025) {
+				position: absolute;
 				bottom: $framePaddingX025;
 			}
 			li {
@@ -238,7 +238,9 @@
 				height: 18px;
 			}
 		}
-		a:hover:before, a:active:before, a:focus:before {
+		a:hover:before,
+		a:active:before,
+		a:focus:before {
 			transform: none;
 			transform-origin: right center 0px;
 		}

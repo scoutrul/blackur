@@ -12,8 +12,7 @@ export const data = {
 			slogan: 'Web application to help Epson provide clients with automatic ongoing support.',
 			services: [ 'Product Design', 'Web Development' ],
 			text: [
-				'Thanks to this technology, you’ll never run out of ink again. Just register with the retailer or reseller that you purchased the printer from and get a new cartridge is needed. With this automated system, you’ll always have a supply of high-quality ink.'
-			],
+				'Ready Ink is a new product for Epson to get their customers to a new level of service. Thanks to this technology, you will never run out of ink again. Just register with the retailer or reseller that you purchased the printer from and get a new cartridge if needed. This automated system will always provide you with high-quality ink, which you get to your home address.', 'No matter how simple and clear this idea seemed, in practice it requires hard work with a lot of data. The main task was the creation of an integrated automated logistic system that allows customers not to get bogged down in how to buy ink themselves. With this system all you need is to add your devices and let it take care of you.'],
 			url: 'ReadyInk'
 		},
 		{
@@ -27,9 +26,7 @@ export const data = {
 			slogan: 'High loaded platform for car owners.',
 			services: [ 'Product Design', 'Web Development' ],
 			text: [
-				'Edmunds is one of the world’s largest automotive platforms with more lots of monthly visitors. It has huge car database with hundreds of different parameters.',
-				'Main problem here is really big database, which makes requests processing too slow to be a part of reality. That’s why the main challenge here was to make the site really fast and convenient for the user.'
-			],
+				'Edmunds is one of the world’s largest automotive platforms with its long history. You can find a new car for yourself or just place your own to get a customer here in just a few minutes.', 'It has thousands of daily visitors and a huge car database with hundreds of different parameters. All these things made rethinking of the whole product almost impossible task. That’s why we have started working on it.', 'The main problem here was saving the main principle of rapid car browsing along with keeping easy working with thousands of requests and really big database. As result, the product has got its fully new architecture and design to make it work simple and stay clear for customers.'],
 			url: 'Edmunds'
 		},
 		{
@@ -42,9 +39,7 @@ export const data = {
 			title: 'Wear technology.',
 			slogan: 'Functional clothes for everyone.',
 			services: [ 'Brand Vision', 'Visual Design' ],
-			text: [
-				"The idea of making everyday clothes as simple and functional as possible is as ingenious as it requires a review of the habitual attitude towards clothing in general. Cloudburst offers a new look at how familiar clothing can enhance a person's capabilities."
-			],
+			text: ['The idea of making everyday clothes as simple and functional as possible is as ingenious as it requires a review of the habitual attitude towards clothing in general. Cloudburst offers a new look at how familiar clothing can enhance a person’s capabilities.', 'Creating a brand style that combines absolute functionality and aesthetics, we turned to a simple and strong element that took center stage in the overall vision of the picture. So, it’s got recognition and understanding to everyone.'],
 			url: 'Cloudburst'
 		},
 		{
@@ -58,9 +53,7 @@ export const data = {
 			slogan: 'Create media content with friends.',
 			services: [ 'Product Design', 'Web Development' ],
 			text: [
-				'Joint creation of content is the most important for creatives. Omnistry provides an opportunity to share content and quickly create publications together to people in different parts of the world.',
-				' We have given professionals a powerful tool in creating and managing media content. Now composing music, writing publications and creating stylish boards can be much more effective.'
-			],
+				'Joint media content creation is the most important thing for creatives. Omnistry provides an opportunity to share content and quickly create publications together to people in different parts of the world.', 'We have given professionals a powerful tool in creating and managing media content, making collaboration really solid. Now composing music, writing publications and creating stylish boards can be much more effective.'],
 			url: 'Omnistry'
 		},
 		{
@@ -107,7 +100,7 @@ export const data = {
 			}
 		},
 		contacts: {
-			title: 'We make complex things work simple & effective.'
+			title: 'We make complex things simple.'
 		}
 	},
 	menu: [

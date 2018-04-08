@@ -31,7 +31,7 @@ export default class extends Component {
 			let newstopper = viewBoxHeight-(divTopOffset);
 			let newresult = newstopper - scrollTop;
 			newresult*=3.6 
-			return newresult >0? newresult +'%' : 0
+			return newresult >0? newresult +'%' : 0.1
 			// return !this.props.changeColorBool ? result+'px' : !actionBlock && '200%';
 		};
 

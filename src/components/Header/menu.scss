@@ -168,13 +168,13 @@
 					left: $framePaddingX1;
 				}
 				@include adaptive(x05) {
-					bottom: $framePaddingX05;
 					left: $framePaddingX05;
 				}
 				@include adaptive(x025) {
-					bottom: $framePaddingX025;
+					bottom: $framePaddingX05;
 					left: $framePaddingX025;
 				}
+
 				div {
 					overflow: hidden;
 					a {
