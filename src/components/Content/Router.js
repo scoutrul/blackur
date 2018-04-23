@@ -2,8 +2,7 @@ import React from 'react';
 
 import { Switch, Route } from 'react-router-dom'
 import Appear from '../HOC/Appear'
-import { Works } from './Works'
-import { Work } from './Works'
+import { Works, Work } from './Works'
 import { Contacts } from './Contacts'
 import { About } from './About'
 import { Main } from './Main'

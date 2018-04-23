@@ -2,6 +2,20 @@ export const data = {
 	pageTitle: '',
 	works: [
 		{
+			image_main: 'images/works/pr6_cover.jpg',
+			images_page: [ 'images/works/pr6_page1.jpg', 'images/works/pr6_page2.jpg', 'images/works/pr6_page3.jpg' ],
+			image1: 'images/works/pr6_bg_1.jpg',
+			image2: 'images/works/pr6_bg_2.png',
+			header: 'Teamkraft',
+			subheader: 'Mobile App',
+			title: 'Play the sports you love.',
+			slogan: 'Mobile app to organize & join sports events.',
+			services: [ 'Product Design', 'Mobile Development' ],
+			text: [
+				'Finding suitable events and teams is an integral part of the sporting life. Teamkraft allows anyone to become part of something more than just sports.', 'Find loving events and players, team up with like-minded people and create a dream team. Receive rewards and become a winner again and again. Now everyone can go beyond the usual sports.'],
+			url: 'Teamkraft'
+		},
+		{
 			image_main: 'images/works/pr1_cover.jpg',
 			images_page: [ 'images/works/pr1_page1.jpg`', 'images/works/pr1_page2.jpg', 'images/works/pr1_page3.jpg' ],
 			image1: 'images/works/pr1_bg_1.jpg',
